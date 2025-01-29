@@ -52,9 +52,7 @@ export function App() {
   const initialUrl = searchParams.get("url") || PRIMARY_PDF_URL;
 
   const [url, setUrl] = useState(initialUrl);
-  const [highlights, setHighlights] = useState<Array<IHighlight>>(
-    testHighlights[initialUrl] ? [...testHighlights[initialUrl]] : [],
-  );
+  const [highlights, setHighlights] = useState<Array<IHighlight>>([]);
 
   const resetHighlights = () => {
     setHighlights([]);
@@ -91,12 +89,8 @@ export function App() {
     return highlights.find((highlight) => highlight.id === id);
   };
 
-  const addHighlight = (highlight: NewHighlight) => {
-    console.log("Saving highlight", highlight);
-    setHighlights((prevHighlights) => [
-      { ...highlight, id: getNextId() },
-      ...prevHighlights,
-    ]);
+  const addHighlight = (highlight: IHighlight) => {
+    setHighlights(prev => [...prev, highlight]);
   };
 
   const updateHighlight = (
@@ -153,16 +147,41 @@ export function App() {
                 position,
                 content,
                 hideTipAndSelection,
-                transformSelection,
-              ) => (
-                <Tip
-                  onOpen={transformSelection}
-                  onConfirm={(comment) => {
-                    addHighlight({ content, position, comment });
-                    hideTipAndSelection();
-                  }}
-                />
-              )}
+                transformSelection
+              ) => {
+                if (content?.text) {
+                  // Correction highlight
+                  addHighlight({
+                    id: getNextId(),
+                    content,
+                    position,
+                    comment: { text: content.text, emoji: "✔️" }
+                  });
+                  hideTipAndSelection();
+                  transformSelection();
+                } else {
+                    function getSelectedText(): string | undefined {
+                    const selection = window.getSelection();
+                    return selection ? selection.toString() : undefined;
+                    }
+                  // Manual selection
+                  return (
+                    <Tip
+                      onOpen={transformSelection}
+                      onConfirm={comment => {
+                        addHighlight({
+                          id: getNextId(),
+                          content: { text: getSelectedText() },
+                          position,
+                          comment
+                        });
+                        hideTipAndSelection();
+                      }}
+                    />
+                  );
+                }
+                return null;
+              }}
               highlightTransform={(
                 highlight,
                 index,

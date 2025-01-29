@@ -31,6 +31,7 @@ import type {
 import { HighlightLayer } from "./HighlightLayer";
 import { MouseSelection } from "./MouseSelection";
 import { TipContainer } from "./TipContainer";
+import { CorrectionTooltip } from './CorrectionTooltip';
 
 export type T_ViewportHighlight<T_HT> = { position: Position } & T_HT;
 
@@ -49,6 +50,13 @@ interface State<T_HT> {
   tipChildren: JSX.Element | null;
   isAreaSelectionInProgress: boolean;
   scrolledToHighlightId: string;
+  activeTooltip: { 
+    correction: string;
+    error: string;
+    error_type: string;
+    position: { top: number; left: number }; 
+  } | null;
+  hoverTimeoutId: number | null;
 }
 
 interface Props<T_HT> {
@@ -81,10 +89,62 @@ interface Props<T_HT> {
 
 const EMPTY_ID = "empty-id";
 
+const styles_correction = `
+  .error-highlight {
+    background-color: rgba(255, 0, 0, 0.2) !important;
+    cursor: pointer;
+  }
+`;
+
 export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
   Props<T_HT>,
   State<T_HT>
 > {
+
+  state = {
+    ...this.state,
+    activeTooltip: null as { 
+      correction: string; 
+      position: { top: number; left: number }; 
+    } | null,
+    hoverTimeoutId: null,
+  };
+
+  // In PdfHighlighter.tsx
+  addHighlightsFromJson = (json: Array<{ error: string; correction: string; error_type: string }>) => {
+    const { pdfDocument } = this.props;
+
+    json.forEach(async (errorData) => {
+      for (let pageNumber = 1; pageNumber <= pdfDocument.numPages; pageNumber++) {
+        const page = await pdfDocument.getPage(pageNumber);
+        const textContent = await page.getTextContent();
+        const textItems = textContent.items as Array<{ str: string }>;
+
+        await waitForTextLayer();
+
+        for (const item of textItems) {
+          if (item.str.includes(errorData.error)) {
+            const textLayer = document.querySelector(`.page[data-page-number="${pageNumber}"] .textLayer`);
+            if (textLayer) {
+              const allDivs = Array.from(textLayer.children);
+              const matchingDiv = allDivs.find(div => div.textContent?.includes(errorData.error));
+              
+              if (matchingDiv) {
+                matchingDiv.classList.add('error-highlight');
+                matchingDiv.addEventListener('mouseenter', (e) => 
+                  this.handleHighlightMouseEnter(e, errorData)
+                );
+                matchingDiv.addEventListener('mouseleave', () => 
+                  this.handleHighlightMouseLeave()
+                );
+              }
+            }
+          }
+        }
+      }
+    });
+  };
+
   static defaultProps = {
     pdfScaleValue: "auto",
   };
@@ -98,6 +158,8 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
     tip: null,
     tipPosition: null,
     tipChildren: null,
+    activeTooltip: null,
+    hoverTimeoutId: null,
   };
 
   viewer!: PDFViewer;
@@ -119,7 +181,16 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
   }
 
   componentDidMount() {
+    console.log("componentDidMount");
     this.init();
+    const json = [
+      {"error": "In this paper we", "correction": "Oi, eu sou Nicolas de Albuquerque", "error_type": "ortografia"},
+      // ... restante do JSON ...
+    ];
+    this.addHighlightsFromJson(json);
+    const styleSheet = document.createElement("style");
+    styleSheet.textContent = styles_correction;
+    document.head.appendChild(styleSheet);
   }
 
   attachRef = (eventBus: EventBus) => {
@@ -554,87 +625,228 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
 
   debouncedScaleValue: () => void = debounce(this.handleScaleValue, 500);
 
+  handleTextClick = (event: MouseEvent, correction: string) => {
+    event.preventDefault();
+    const rect = (event.target as HTMLElement).getBoundingClientRect();
+    
+    this.setState({
+      activeTooltip: {
+        correction: correction,
+        position: {
+          top: rect.bottom,
+          left: rect.left
+        }
+      }
+    });
+  };
+
+  handleHighlightMouseEnter = (e: MouseEvent, errorData: { 
+    error: string;
+    correction: string;
+    error_type: string;
+  }) => {
+    const targetElement = e.target as HTMLElement;
+    const rect = targetElement.getBoundingClientRect();
+    
+    // Calculate tooltip width to center it
+    const tooltipWidth = 200; // minWidth from CorrectionTooltip
+    const textWidth = rect.width;
+    
+    this.setState({
+      activeTooltip: {
+        correction: errorData.correction,
+        error: errorData.error,
+        error_type: errorData.error_type,
+        position: {
+          top: rect.top,
+          // Center tooltip over the text
+          left: rect.left - (textWidth / 2) - (tooltipWidth)
+        }
+      }
+    });
+  };
+
+  handleHighlightMouseLeave = () => {
+    console.log('Mouse Leave Event');
+    const timeoutId = window.setTimeout(() => {
+      console.log('Hiding tooltip');
+      this.setState({ activeTooltip: null });
+    }, 200);
+    
+    this.setState({ hoverTimeoutId: timeoutId });
+  };
+
+  handleAcceptCorrection = (correction: string, error: string, position: { top: number; left: number }) => {
+    const textElement = document.querySelector('.error-highlight') as HTMLElement;
+    if (!textElement) return;
+  
+    const page = getPageFromElement(textElement);
+    if (!page) return;
+    
+    // Get the element's bounding rect relative to the page
+    const rect = textElement.getBoundingClientRect();
+    const pageRect = page.node.getBoundingClientRect();
+  
+    const pageBoundingRect = {
+      left: rect.left - pageRect.left,
+      top: rect.top - pageRect.top,
+      width: textElement.offsetWidth,
+      height: textElement.offsetHeight,
+      pageNumber: page.number
+    };
+  
+    const viewportPosition = {
+      boundingRect: pageBoundingRect,
+      rects: [pageBoundingRect],
+      pageNumber: page.number
+    };
+  
+    const scaledPosition = this.viewportPositionToScaled(viewportPosition);
+  
+    const content = {
+      text: error
+    };
+  
+    const comment = {
+      text: correction,
+      emoji: "✔️"
+    };
+  
+    // Create new highlight object
+    const newHighlight = {
+      content,
+      position: scaledPosition,
+      comment
+    };
+  
+    // Call onSelectionFinished prop to add the highlight
+    this.props.onSelectionFinished(
+      scaledPosition,
+      content,
+      () => {
+        // Cleanup after highlight is added
+        this.hideTipAndSelection();
+        this.setState({ activeTooltip: null });
+        textElement.classList.remove('error-highlight');
+      },
+      () => {
+        // Add the highlight immediately
+        this.setState(
+          {
+            ghostHighlight: newHighlight,
+          },
+          () => this.renderHighlightLayers()
+        );
+      }
+    );
+  };
+
   render() {
-    const { onSelectionFinished, enableAreaSelection } = this.props;
-
     return (
-      <div onPointerDown={this.onMouseDown}>
-        <div
-          ref={this.containerNodeRef}
-          className={styles.container}
-          onContextMenu={(e) => e.preventDefault()}
-        >
-          <div className="pdfViewer" />
-          {this.renderTip()}
-          {typeof enableAreaSelection === "function" ? (
-            <MouseSelection
-              onDragStart={() => this.toggleTextSelection(true)}
-              onDragEnd={() => this.toggleTextSelection(false)}
-              onChange={(isVisible) =>
-                this.setState({ isAreaSelectionInProgress: isVisible })
-              }
-              shouldStart={(event) =>
-                enableAreaSelection(event) &&
-                event.target instanceof Element &&
-                isHTMLElement(event.target) &&
-                Boolean(event.target.closest(".page"))
-              }
-              onSelection={(startTarget, boundingRect, resetSelection) => {
-                const page = getPageFromElement(startTarget);
-
-                if (!page) {
-                  return;
+      <>
+        <div onPointerDown={this.onMouseDown}>
+          <div
+            ref={this.containerNodeRef}
+            className={styles.container}
+            onContextMenu={(e) => e.preventDefault()}
+          >
+            <div className="pdfViewer" />
+            {this.renderTip()}
+            {typeof enableAreaSelection === "function" ? (
+              <MouseSelection
+                onDragStart={() => this.toggleTextSelection(true)}
+                onDragEnd={() => this.toggleTextSelection(false)}
+                onChange={(isVisible) =>
+                  this.setState({ isAreaSelectionInProgress: isVisible })
                 }
+                shouldStart={(event) =>
+                  enableAreaSelection(event) &&
+                  event.target instanceof Element &&
+                  isHTMLElement(event.target) &&
+                  Boolean(event.target.closest(".page"))
+                }
+                onSelection={(startTarget, boundingRect, resetSelection) => {
+                  const page = getPageFromElement(startTarget);
 
-                const pageBoundingRect = {
-                  ...boundingRect,
-                  top: boundingRect.top - page.node.offsetTop,
-                  left: boundingRect.left - page.node.offsetLeft,
-                  pageNumber: page.number,
-                };
+                  if (!page) {
+                    return;
+                  }
 
-                const viewportPosition = {
-                  boundingRect: pageBoundingRect,
-                  rects: [],
-                  pageNumber: page.number,
-                };
+                  const pageBoundingRect = {
+                    ...boundingRect,
+                    top: boundingRect.top - page.node.offsetTop,
+                    left: boundingRect.left - page.node.offsetLeft,
+                    pageNumber: page.number,
+                  };
 
-                const scaledPosition =
-                  this.viewportPositionToScaled(viewportPosition);
+                  const viewportPosition = {
+                    boundingRect: pageBoundingRect,
+                    rects: [],
+                    pageNumber: page.number,
+                  };
 
-                const image = this.screenshot(
-                  pageBoundingRect,
-                  pageBoundingRect.pageNumber,
-                );
+                  const scaledPosition =
+                    this.viewportPositionToScaled(viewportPosition);
 
-                this.setTip(
-                  viewportPosition,
-                  onSelectionFinished(
-                    scaledPosition,
-                    { image },
-                    () => this.hideTipAndSelection(),
-                    () => {
-                      console.log("setting ghost highlight", scaledPosition);
-                      this.setState(
-                        {
-                          ghostHighlight: {
-                            position: scaledPosition,
-                            content: { image },
+                  const image = this.screenshot(
+                    pageBoundingRect,
+                    pageBoundingRect.pageNumber,
+                  );
+
+                  this.setTip(
+                    viewportPosition,
+                    onSelectionFinished(
+                      scaledPosition,
+                      { image },
+                      () => this.hideTipAndSelection(),
+                      () => {
+                        console.log("setting ghost highlight", scaledPosition);
+                        this.setState(
+                          {
+                            ghostHighlight: {
+                              position: scaledPosition,
+                              content: { image },
+                            },
                           },
-                        },
-                        () => {
-                          resetSelection();
-                          this.renderHighlightLayers();
-                        },
-                      );
-                    },
-                  ),
-                );
-              }}
-            />
-          ) : null}
+                          () => {
+                            resetSelection();
+                            this.renderHighlightLayers();
+                          },
+                        );
+                      },
+                    ),
+                  );
+                }}
+              />
+            ) : null}
+          </div>
         </div>
-      </div>
+        {this.state.activeTooltip && (
+          <CorrectionTooltip
+            correction={this.state.activeTooltip.correction}
+            error={this.state.activeTooltip.error}
+            error_type={this.state.activeTooltip.error_type}
+            position={this.state.activeTooltip.position}
+            onAccept={() => {
+              this.handleAcceptCorrection(
+                this.state.activeTooltip!.correction,
+                this.state.activeTooltip!.error,
+                this.state.activeTooltip!.position
+              );
+            }}
+            onReject={() => {
+              console.log('Reject clicked');
+              this.setState({ activeTooltip: null });
+            }}
+            onMouseEnter={() => {
+              if (this.state.hoverTimeoutId) {
+                clearTimeout(this.state.hoverTimeoutId);
+              }
+            }}
+            onMouseLeave={this.handleHighlightMouseLeave}
+          />
+        )}
+      </>
     );
   }
 
@@ -681,3 +893,17 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
     );
   }
 }
+async function waitForTextLayer() {
+  return new Promise<void>((resolve) => {
+    const checkTextLayer = () => {
+      const textLayers = document.querySelectorAll(".textLayer");
+      if (textLayers.length > 0) {
+        resolve();
+      } else {
+        requestAnimationFrame(checkTextLayer);
+      }
+    };
+    checkTextLayer();
+  });
+}
+
