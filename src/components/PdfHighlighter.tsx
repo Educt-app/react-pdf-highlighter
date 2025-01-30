@@ -60,6 +60,11 @@ interface State<T_HT> {
 }
 
 interface Props<T_HT> {
+  corrections?: Array<{
+    error: string;
+    correction: string;
+    error_type: string;
+  }>;
   highlightTransform: (
     highlight: T_ViewportHighlight<T_HT>,
     index: number,
@@ -181,13 +186,10 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
   }
 
   componentDidMount() {
-    console.log("componentDidMount");
     this.init();
-    const json = [
-      {"error": "In this paper we", "correction": "Oi, eu sou Nicolas de Albuquerque", "error_type": "ortografia"},
-      // ... restante do JSON ...
-    ];
-    this.addHighlightsFromJson(json);
+    if (this.props.corrections) {
+      this.addHighlightsFromJson(this.props.corrections);
+    }
     const styleSheet = document.createElement("style");
     styleSheet.textContent = styles_correction;
     document.head.appendChild(styleSheet);
@@ -676,6 +678,17 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
     this.setState({ hoverTimeoutId: timeoutId });
   };
 
+  handleRejectCorrection = () => {
+    const textElement = document.querySelector('.error-highlight') as HTMLElement;
+    if (!textElement) return;
+  
+    // Remover o elemento destacado do DOM
+    textElement.remove();
+  
+    // Atualizar o estado para garantir que o tooltip não seja renderizado novamente
+    this.setState({ activeTooltip: null });
+  };
+
   handleAcceptCorrection = (correction: string, error: string, position: { top: number; left: number }) => {
     const textElement = document.querySelector('.error-highlight') as HTMLElement;
     if (!textElement) return;
@@ -709,7 +722,6 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
   
     const comment = {
       text: correction,
-      emoji: "✔️"
     };
   
     // Create new highlight object
@@ -739,6 +751,12 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
         );
       }
     );
+
+  // Remover o elemento destacado do DOM
+  textElement.remove();
+
+  // Atualizar o estado para garantir que o tooltip não seja renderizado novamente
+  this.setState({ activeTooltip: null });
   };
 
   render() {
@@ -834,10 +852,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
                 this.state.activeTooltip!.position
               );
             }}
-            onReject={() => {
-              console.log('Reject clicked');
-              this.setState({ activeTooltip: null });
-            }}
+            onReject={this.handleRejectCorrection}
             onMouseEnter={() => {
               if (this.state.hoverTimeoutId) {
                 clearTimeout(this.state.hoverTimeoutId);

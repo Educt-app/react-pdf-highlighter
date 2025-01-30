@@ -33,6 +33,8 @@ const resetHash = () => {
   document.location.hash = "";
 };
 
+
+
 const HighlightPopup = ({
   comment,
 }: {
@@ -48,6 +50,11 @@ const PRIMARY_PDF_URL = "https://arxiv.org/pdf/1708.08021";
 const SECONDARY_PDF_URL = "https://arxiv.org/pdf/1604.02480";
 
 export function App() {
+  const [corrections, setCorrections] = useState<Array<{
+    error: string;
+    correction: string;
+    error_type: string;
+  }>>([]);
   const searchParams = new URLSearchParams(document.location.search);
   const initialUrl = searchParams.get("url") || PRIMARY_PDF_URL;
 
@@ -85,12 +92,35 @@ export function App() {
     };
   }, [scrollToHighlightFromHash]);
 
+  useEffect(() => {
+    // Exemplo de carregamento do JSON
+    const loadCorrections = async () => {
+      try {
+        const response = await fetch('/path/to/corrections.json');
+        const data = await response.json();
+        setCorrections(data);
+      } catch (error) {
+        console.error('Error loading corrections:', error);
+      }
+    };
+  
+    loadCorrections();
+  }, [url]); // Recarrega quando a URL do PDF muda
+
   const getHighlightById = (id: string) => {
     return highlights.find((highlight) => highlight.id === id);
   };
 
-  const addHighlight = (highlight: IHighlight) => {
+  const addAIHighlight = (highlight: IHighlight) => {
     setHighlights(prev => [...prev, highlight]);
+  };
+
+  const addHighlight = (highlight: NewHighlight) => {
+    console.log("Saving highlight", highlight);
+    setHighlights((prevHighlights) => [
+      { ...highlight, id: getNextId() },
+      ...prevHighlights,
+    ]);
   };
 
   const updateHighlight = (
@@ -139,6 +169,7 @@ export function App() {
               pdfDocument={pdfDocument}
               enableAreaSelection={(event) => event.altKey}
               onScrollChange={resetHash}
+              corrections={corrections} // Nova prop
               scrollRef={(scrollTo) => {
                 scrollViewerTo.current = scrollTo;
                 scrollToHighlightFromHash();
@@ -150,31 +181,22 @@ export function App() {
                 transformSelection
               ) => {
                 if (content?.text) {
-                  // Correction highlight
-                  addHighlight({
+                  // Correction highlight (AI)
+                  addAIHighlight({
                     id: getNextId(),
                     content,
                     position,
-                    comment: { text: content.text, emoji: "✔️" }
+                    comment: { text: content.text, emoji: "" }
                   });
                   hideTipAndSelection();
                   transformSelection();
                 } else {
-                    function getSelectedText(): string | undefined {
-                    const selection = window.getSelection();
-                    return selection ? selection.toString() : undefined;
-                    }
                   // Manual selection
                   return (
                     <Tip
                       onOpen={transformSelection}
-                      onConfirm={comment => {
-                        addHighlight({
-                          id: getNextId(),
-                          content: { text: getSelectedText() },
-                          position,
-                          comment
-                        });
+                      onConfirm={(comment) => {
+                        addHighlight({ content, position, comment });
                         hideTipAndSelection();
                       }}
                     />
