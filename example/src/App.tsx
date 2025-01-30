@@ -50,11 +50,24 @@ const PRIMARY_PDF_URL = "https://arxiv.org/pdf/1708.08021";
 const SECONDARY_PDF_URL = "https://arxiv.org/pdf/1604.02480";
 
 export function App() {
+  const staticCorrections = [
+    {
+      "error": "In this paper we",
+      "correction": "This paper presents",
+      "error_type": "style"
+    },
+    {
+      "error": "We formalize",
+      "correction": "critical",
+      "error_type": "word choice"
+    }
+  ];
+
   const [corrections, setCorrections] = useState<Array<{
     error: string;
     correction: string;
     error_type: string;
-  }>>([]);
+  }>>(staticCorrections); 
   const searchParams = new URLSearchParams(document.location.search);
   const initialUrl = searchParams.get("url") || PRIMARY_PDF_URL;
 
@@ -180,18 +193,26 @@ export function App() {
                 hideTipAndSelection,
                 transformSelection
               ) => {
-                if (content?.text) {
-                  // Correction highlight (AI)
+                // Find the matching correction
+                const matchingCorrection = corrections.find(
+                  correction => content.text?.includes(correction.error)
+                );
+              
+                if (matchingCorrection) {
+                  // AI correction highlight with the actual correction text
                   addAIHighlight({
                     id: getNextId(),
                     content,
                     position,
-                    comment: { text: content.text, emoji: "" }
+                    comment: { 
+                      text: `${matchingCorrection.correction}`, 
+                      emoji: "" 
+                    }
                   });
                   hideTipAndSelection();
                   transformSelection();
                 } else {
-                  // Manual selection
+                  // Manual user highlight (unchanged)
                   return (
                     <Tip
                       onOpen={transformSelection}

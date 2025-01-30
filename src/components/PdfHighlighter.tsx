@@ -115,35 +115,89 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
     hoverTimeoutId: null,
   };
 
-  // In PdfHighlighter.tsx
+
+  // Isso aqui deu trabalho pra caralho, entao bora explicar como funciona
   addHighlightsFromJson = (json: Array<{ error: string; correction: string; error_type: string }>) => {
     const { pdfDocument } = this.props;
-
+  
     json.forEach(async (errorData) => {
       for (let pageNumber = 1; pageNumber <= pdfDocument.numPages; pageNumber++) {
-        const page = await pdfDocument.getPage(pageNumber);
-        const textContent = await page.getTextContent();
-        const textItems = textContent.items as Array<{ str: string }>;
-
         await waitForTextLayer();
-
-        for (const item of textItems) {
-          if (item.str.includes(errorData.error)) {
-            const textLayer = document.querySelector(`.page[data-page-number="${pageNumber}"] .textLayer`);
-            if (textLayer) {
-              const allDivs = Array.from(textLayer.children);
-              const matchingDiv = allDivs.find(div => div.textContent?.includes(errorData.error));
-              
-              if (matchingDiv) {
-                matchingDiv.classList.add('error-highlight');
-                matchingDiv.addEventListener('mouseenter', (e) => 
-                  this.handleHighlightMouseEnter(e, errorData)
-                );
-                matchingDiv.addEventListener('mouseleave', () => 
-                  this.handleHighlightMouseLeave()
-                );
-              }
+  
+        const textLayer = document.querySelector(
+          `.page[data-page-number="${pageNumber}"] .textLayer`
+        );
+        
+        if (!textLayer) continue;
+  
+        // Get all text nodes in the layer
+        const textNodes: Text[] = [];
+        const walker = document.createTreeWalker(
+          textLayer,
+          NodeFilter.SHOW_TEXT,
+          null
+        );
+  
+        let node;
+        // implementação da busca de nós na tree do DOM
+        while ((node = walker.nextNode())) {
+          textNodes.push(node as Text);
+        }
+  
+        // combina o texto de todos os nodes
+        const combinedText = textNodes.map(node => node.textContent).join('');
+        
+        // busca as ocorrências de texto no documento
+        const errorRegex = new RegExp(errorData.error.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+        let match;
+        
+        while ((match = errorRegex.exec(combinedText)) !== null) {
+          // salva a posição inicial e final do match do texto
+          const startPos = match.index;
+          const endPos = startPos + errorData.error.length;
+  
+          let currentPos = 0;
+          let startNode: Text | null = null;
+          let startOffset = 0;
+          let endNode: Text | null = null;
+          let endOffset = 0;
+  
+          for (const node of textNodes) {
+            // encontra os nodes correspondentes que contém o texto
+            const nodeLength = node.textContent?.length || 0;
+            
+            if (!startNode && currentPos + nodeLength > startPos) {
+              startNode = node;
+              startOffset = startPos - currentPos;
             }
+            
+            if (!endNode && currentPos + nodeLength >= endPos) {
+              endNode = node;
+              endOffset = endPos - currentPos;
+              break;
+            }
+            
+            currentPos += nodeLength;
+          }
+  
+          if (startNode && endNode) {
+            const range = document.createRange();
+            range.setStart(startNode, startOffset);
+            range.setEnd(endNode, endOffset);
+  
+            // cria um span para destacar o texto
+            const span = document.createElement('span');
+            span.classList.add('error-highlight');
+            
+            // adiciona o span ao range definido com base na posição do match do texto
+            range.surroundContents(span);
+  
+            span.addEventListener('mouseenter', (e) => 
+              this.handleHighlightMouseEnter(e, errorData)
+            );
+            span.addEventListener('mouseleave', () =>
+              this.handleHighlightMouseLeave()
+            );
           }
         }
       }
@@ -636,7 +690,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
         correction: correction,
         position: {
           top: rect.bottom,
-          left: rect.left
+          left: rect.left - 400
         }
       }
     });
@@ -649,21 +703,29 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
   }) => {
     const targetElement = e.target as HTMLElement;
     const rect = targetElement.getBoundingClientRect();
+    const container = document.querySelector('.pdfViewer');
+    const containerRect = container?.getBoundingClientRect();
     
-    // Calculate tooltip width to center it
-    const tooltipWidth = 200; // minWidth from CorrectionTooltip
-    const textWidth = rect.width;
+    const tooltipWidth = 200;
+    const tooltipHeight = 40;
+    const spacing = 2;
+    
+    // Calculate position relative to PDF container
+    let left = rect.left - (containerRect?.left || 0);
+    let top = rect.top - (containerRect?.top || 0);
+    
+    // Center horizontally
+    left = left + (rect.width / 2) - (tooltipWidth / 2);
+    
+    // Screen boundary check
+    left = Math.max(spacing, Math.min(left, window.innerWidth - tooltipWidth - spacing));
     
     this.setState({
       activeTooltip: {
         correction: errorData.correction,
         error: errorData.error,
         error_type: errorData.error_type,
-        position: {
-          top: rect.top,
-          // Center tooltip over the text
-          left: rect.left - (textWidth / 2) - (tooltipWidth)
-        }
+        position: { top, left }
       }
     });
   };
