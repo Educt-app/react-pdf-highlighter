@@ -57,7 +57,7 @@ export function App() {
       "error_type": "style"
     },
     {
-      "error": "We formalize",
+      "error": "algorithms and systems infrastructure that we built to scale",
       "correction": "critical",
       "error_type": "word choice"
     }
@@ -124,8 +124,25 @@ export function App() {
     return highlights.find((highlight) => highlight.id === id);
   };
 
-  const addAIHighlight = (highlight: IHighlight) => {
-    setHighlights(prev => [...prev, highlight]);
+  const addAIHighlight = (highlight: NewHighlight, errorText: string) => {
+    console.log('Adding AI Highlight for text:', errorText);
+    // Encontrar a correção específica que corresponde ao erro
+    const matchingCorrection = corrections.find(
+      correction => correction.error === errorText
+    );
+    console.log('Found matching correction:', matchingCorrection);
+  
+    if (matchingCorrection) {
+      const newHighlight = {
+        ...highlight,
+        comment: {
+          text: matchingCorrection.correction,
+          emoji: ""
+        }
+      };
+      console.log('Saving new highlight:', newHighlight);
+      setHighlights(prev => [...prev, { ...newHighlight, id: getNextId() }]);
+    }
   };
 
   const addHighlight = (highlight: NewHighlight) => {
@@ -193,24 +210,30 @@ export function App() {
                 hideTipAndSelection,
                 transformSelection
               ) => {
+                console.log('Selection finished with content:', content);
                 // Find the matching correction
                 const matchingCorrection = corrections.find(
-                  correction => content.text?.includes(correction.error)
+                  correction => content.text === correction.error
                 );
+                console.log('Matched correction:', matchingCorrection);
+                console.log('Available corrections:', corrections);
               
                 if (matchingCorrection) {
-                  // AI correction highlight with the actual correction text
-                  addAIHighlight({
-                    id: getNextId(),
-                    content,
-                    position,
-                    comment: { 
-                      text: `${matchingCorrection.correction}`, 
-                      emoji: "" 
-                    }
-                  });
-                  hideTipAndSelection();
-                  transformSelection();
+                  // AI correction highlight with the specific correction text
+                  if (content.text) {
+                    console.log('Attempting to add highlight for:', content.text);
+                    addAIHighlight({
+                      content,
+                      position,
+                      comment: { 
+                        text: matchingCorrection.correction,
+                        emoji: ""
+                      }
+                    }, content.text);
+                    
+                    hideTipAndSelection();
+                    transformSelection();
+                  }
                 } else {
                   // Manual user highlight (unchanged)
                   return (

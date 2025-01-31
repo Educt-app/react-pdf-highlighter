@@ -57,6 +57,12 @@ interface State<T_HT> {
     position: { top: number; left: number }; 
   } | null;
   hoverTimeoutId: number | null;
+  activeError?: {
+    text: string;
+    element: HTMLElement;
+    position: ScaledPosition;
+  };
+  
 }
 
 interface Props<T_HT> {
@@ -681,54 +687,61 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
 
   debouncedScaleValue: () => void = debounce(this.handleScaleValue, 500);
 
-  handleTextClick = (event: MouseEvent, correction: string) => {
-    event.preventDefault();
-    const rect = (event.target as HTMLElement).getBoundingClientRect();
-    
-    this.setState({
-      activeTooltip: {
-        correction: correction,
-        position: {
-          top: rect.bottom,
-          left: rect.left - 400
-        }
-      }
-    });
-  };
-
   handleHighlightMouseEnter = (e: MouseEvent, errorData: { 
     error: string;
     correction: string;
     error_type: string;
-  }) => {
+}) => {
     const targetElement = e.target as HTMLElement;
     const rect = targetElement.getBoundingClientRect();
-    const container = document.querySelector('.pdfViewer');
-    const containerRect = container?.getBoundingClientRect();
+    const page = getPageFromElement(targetElement);
     
-    const tooltipWidth = 200;
-    const tooltipHeight = 40;
-    const spacing = 2;
+    if (!page) return;
+
+    // Get viewer container position
+    const viewerContainer = this.viewer.container;
+    const viewerRect = viewerContainer.getBoundingClientRect();
     
-    // Calculate position relative to PDF container
-    let left = rect.left - (containerRect?.left || 0);
-    let top = rect.top - (containerRect?.top || 0);
+    // Calculate absolute position considering viewer offset
+    const absoluteLeft = rect.left - viewerRect.left + viewerContainer.scrollLeft;
+    const absoluteTop = rect.top - viewerRect.top + viewerContainer.scrollTop;
     
-    // Center horizontally
-    left = left + (rect.width / 2) - (tooltipWidth / 2);
+    // Center horizontally relative to highlight
+    const centerX = absoluteLeft + (rect.width / 2);
     
-    // Screen boundary check
-    left = Math.max(spacing, Math.min(left, window.innerWidth - tooltipWidth - spacing));
-    
+    const pageBoundingRect = {
+        left: rect.left - page.node.getBoundingClientRect().left,
+        top: rect.top - page.node.getBoundingClientRect().top,
+        width: targetElement.offsetWidth,
+        height: targetElement.offsetHeight,
+        pageNumber: page.number
+    };
+  
+    const viewportPosition = {
+        boundingRect: pageBoundingRect,
+        rects: [pageBoundingRect],
+        pageNumber: page.number
+    };
+  
+    const scaledPosition = this.viewportPositionToScaled(viewportPosition);
+  
     this.setState({
-      activeTooltip: {
-        correction: errorData.correction,
-        error: errorData.error,
-        error_type: errorData.error_type,
-        position: { top, left }
-      }
+        activeError: {
+            text: errorData.error,
+            element: targetElement,
+            position: scaledPosition
+        },
+        activeTooltip: {
+            correction: errorData.correction,
+            error: errorData.error,
+            error_type: errorData.error_type,
+            position: { 
+                top: absoluteTop - 5, // Small offset above highlight
+                left: centerX - 100 // Assuming tooltip width is 200px
+            }
+        }
     });
-  };
+};
 
   handleHighlightMouseLeave = () => {
     console.log('Mouse Leave Event');
@@ -751,74 +764,52 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
     this.setState({ activeTooltip: null });
   };
 
-  handleAcceptCorrection = (correction: string, error: string, position: { top: number; left: number }) => {
-    const textElement = document.querySelector('.error-highlight') as HTMLElement;
-    if (!textElement) return;
-  
-    const page = getPageFromElement(textElement);
-    if (!page) return;
-    
-    // Get the element's bounding rect relative to the page
-    const rect = textElement.getBoundingClientRect();
-    const pageRect = page.node.getBoundingClientRect();
-  
-    const pageBoundingRect = {
-      left: rect.left - pageRect.left,
-      top: rect.top - pageRect.top,
-      width: textElement.offsetWidth,
-      height: textElement.offsetHeight,
-      pageNumber: page.number
-    };
-  
-    const viewportPosition = {
-      boundingRect: pageBoundingRect,
-      rects: [pageBoundingRect],
-      pageNumber: page.number
-    };
-  
-    const scaledPosition = this.viewportPositionToScaled(viewportPosition);
-  
+  // Update handleAcceptCorrection to use the stored position
+  handleAcceptCorrection = (correction: string) => {
+    const { activeError } = this.state;
+    if (!activeError) return;
+
     const content = {
-      text: error
+      text: activeError.text
     };
-  
-    const comment = {
-      text: correction,
-    };
-  
-    // Create new highlight object
+
+    // Create new highlight using the stored position
     const newHighlight = {
       content,
-      position: scaledPosition,
-      comment
+      position: activeError.position,
+      comment: {
+        text: correction,
+        emoji: ""
+      }
     };
-  
-    // Call onSelectionFinished prop to add the highlight
+
+    // Pass the specific error data to selection handler
     this.props.onSelectionFinished(
-      scaledPosition,
+      activeError.position,
       content,
       () => {
-        // Cleanup after highlight is added
         this.hideTipAndSelection();
-        this.setState({ activeTooltip: null });
-        textElement.classList.remove('error-highlight');
+        this.setState({ 
+          activeTooltip: null,
+          activeError: undefined 
+        });
+        activeError.element.classList.remove('error-highlight');
       },
       () => {
-        // Add the highlight immediately
         this.setState(
           {
-            ghostHighlight: newHighlight,
+            ghostHighlight: newHighlight
           },
           () => this.renderHighlightLayers()
         );
       }
     );
 
-  // Remover o elemento destacado do DOM
-  textElement.remove();
-
-  // Atualizar o estado para garantir que o tooltip não seja renderizado novamente
-  this.setState({ activeTooltip: null });
+    activeError.element.remove();
+    this.setState({ 
+      activeTooltip: null,
+      activeError: undefined
+    });
   };
 
   render() {
