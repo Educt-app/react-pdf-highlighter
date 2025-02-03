@@ -17,7 +17,7 @@
   ],
   "type": "module",
   "types": "./dist/index.d.ts",
-  "main": "./dist/src/index.js",
+  "main": "./dist/index.js",
   "style": "./dist/style.css",
   "scripts": {
     "start": "npm run dev",
