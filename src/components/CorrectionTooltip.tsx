@@ -48,10 +48,10 @@ export const CorrectionTooltip: React.FC<CorrectionTooltipProps> = ({
       onMouseLeave={onMouseLeave}
     >
       <div style={{ marginBottom: '8px', color: '#000' }}>
-        <strong>Correction:</strong> {correction}
+        <strong>Correção:</strong> {correction}
       </div>
       <div style={{ marginBottom: '8px', color: '#000' }}>
-        <strong>Type:</strong> {error_type}
+        <strong>Tipo:</strong> {error_type}
       </div>
       <div style={{ display: 'flex', gap: '8px' }}>
         <button 
@@ -63,7 +63,7 @@ export const CorrectionTooltip: React.FC<CorrectionTooltipProps> = ({
             cursor: 'pointer'
           }}
         >
-          Accept
+          Aceitar
         </button>
         <button 
           onClick={onReject}
@@ -74,7 +74,7 @@ export const CorrectionTooltip: React.FC<CorrectionTooltipProps> = ({
             cursor: 'pointer'
           }}
         >
-          Reject
+          Rejeitar
         </button>
       </div>
     </div>

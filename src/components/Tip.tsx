@@ -43,7 +43,7 @@ export class Tip extends Component<Props, State> {
               this.setState({ compact: false });
             }}
           >
-            Adicionr comentário
+            Adicionar comentário
           </div>
         ) : (
           <form
