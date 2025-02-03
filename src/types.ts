@@ -55,14 +55,17 @@ export interface HighlightComment {
 
 export interface NewHighlight extends HighlightContent, HighlightComment {
   position: ScaledPosition;
+  isAICorrection?: boolean;
 }
 
 export interface IHighlight extends NewHighlight {
   id: string;
+  isAICorrection?: boolean;
 }
 
 export interface ViewportHighlight extends HighlightContent, HighlightComment {
   position: Position;
+  isAICorrection?: boolean;
 }
 
 export interface Viewport {

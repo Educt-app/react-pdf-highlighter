@@ -73,6 +73,13 @@ export function App() {
 
   const [url, setUrl] = useState(initialUrl);
   const [highlights, setHighlights] = useState<Array<IHighlight>>([]);
+  const [comment, setComment] = useState<Array<{
+    text: string;
+    pageNumber: number;
+    position: any;
+    comment: string;
+    emoji: string;
+  }>>([]);
 
   const resetHighlights = () => {
     setHighlights([]);
@@ -138,7 +145,8 @@ export function App() {
         comment: {
           text: matchingCorrection.correction,
           emoji: ""
-        }
+        },
+        isAICorrection: true
       };
       console.log('Saving new highlight:', newHighlight);
       setHighlights(prev => [...prev, { ...newHighlight, id: getNextId() }]);
@@ -177,6 +185,35 @@ export function App() {
           : h;
       }),
     );
+  };
+
+  const extractComments = () => {
+    const comments = highlights.map(highlight => ({
+      text: highlight.content.text || '', // Extract highlighted text
+      pageNumber: highlight.position.pageNumber, // Extract page number
+      position: highlight.position, // Include the position details
+      comment: highlight.comment.text || '', // Extract the comment text
+      emoji: highlight.comment.emoji || '', // Extract emoji, if any
+    }));
+
+    setComment(comments);
+  };
+
+  useEffect(() => {
+    extractComments();
+  }, [highlights]);
+
+  const downloadHighlights = () => {
+    const highlightsJson = JSON.stringify(highlights, null, 2);
+    const blob = new Blob([highlightsJson], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'highlights.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -240,7 +277,7 @@ export function App() {
                     <Tip
                       onOpen={transformSelection}
                       onConfirm={(comment) => {
-                        addHighlight({ content, position, comment });
+                        addHighlight({ content, position, comment, isAICorrection: false });
                         hideTipAndSelection();
                       }}
                     />
@@ -264,6 +301,7 @@ export function App() {
                     isScrolledTo={isScrolledTo}
                     position={highlight.position}
                     comment={highlight.comment}
+                    isAICorrection={highlight.isAICorrection ?? false}
                   />
                 ) : (
                   <AreaHighlight
@@ -296,6 +334,11 @@ export function App() {
             />
           )}
         </PdfLoader>
+      </div>
+      <div className="sidebar__buttons">
+        <button onClick={resetHighlights}>Reset highlights</button>
+        <button onClick={downloadHighlights}>Download Highlights</button>
+        <button onClick={toggleDocument}>Toggle PDF</button>
       </div>
     </div>
   );

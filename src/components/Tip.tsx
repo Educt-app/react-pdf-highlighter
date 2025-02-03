@@ -43,7 +43,7 @@ export class Tip extends Component<Props, State> {
               this.setState({ compact: false });
             }}
           >
-            Add highlight
+            Adicionr comentário
           </div>
         ) : (
           <form
@@ -55,7 +55,7 @@ export class Tip extends Component<Props, State> {
           >
             <div>
               <textarea
-                placeholder="Your comment"
+                placeholder="Seu comentário"
                 // biome-ignore lint/a11y/noAutofocus: This is an example app
                 autoFocus
                 value={text}
@@ -69,7 +69,7 @@ export class Tip extends Component<Props, State> {
                 }}
               />
               <div>
-                {["💩", "😱", "😍", "🔥", "😳", "⚠️"].map((_emoji) => (
+                {["✅", "❌", "❗", "😍", "🤔", "⚠️","🥳 "].map((_emoji) => (
                   <label key={_emoji}>
                     <input
                       checked={emoji === _emoji}
@@ -86,7 +86,7 @@ export class Tip extends Component<Props, State> {
               </div>
             </div>
             <div>
-              <input type="submit" value="Save" />
+              <input type="submit" value="Salvar" />
             </div>
           </form>
         )}

@@ -14,6 +14,7 @@ interface Props {
     text: string;
   };
   isScrolledTo: boolean;
+  isAICorrection: boolean;
 }
 
 export function Highlight({
