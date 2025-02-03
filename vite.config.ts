@@ -3,7 +3,12 @@ import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
 export default defineConfig({
-  plugins: [react(), dts()],
+  plugins: [
+    react(),
+    dts({
+      insertTypesEntry: true, // Ensure TypeScript types are correctly generated
+    }),
+  ],
   build: {
     minify: false,
     lib: {
@@ -13,7 +18,7 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        preserveModules: true,
+        preserveModules: false, // Disable preserveModules to avoid relative path issues
       },
       external: [
         "react",
@@ -22,8 +27,8 @@ export default defineConfig({
         "react-dom/client",
         "react-rnd",
         "pdfjs-dist",
-        "pdfjs-dist/web",
-        "debounce",
+        "pdfjs-dist/web/pdf_viewer", // Correct path for pdfjs-dist
+        "ts-debounce", // Correct dependency name
       ],
     },
   },
