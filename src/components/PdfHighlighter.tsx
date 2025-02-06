@@ -31,7 +31,7 @@ import type {
 import { HighlightLayer } from "./HighlightLayer";
 import { MouseSelection } from "./MouseSelection";
 import { TipContainer } from "./TipContainer";
-import { CorrectionTooltip } from './CorrectionTooltip';
+import { CorrectionTooltip } from "./CorrectionTooltip";
 
 export type T_ViewportHighlight<T_HT> = { position: Position } & T_HT;
 
@@ -50,11 +50,11 @@ interface State<T_HT> {
   tipChildren: JSX.Element | null;
   isAreaSelectionInProgress: boolean;
   scrolledToHighlightId: string;
-  activeTooltip: { 
+  activeTooltip: {
     correction: string;
     error: string;
     error_type: string;
-    position: { top: number; left: number }; 
+    position: { top: number; left: number };
   } | null;
   hoverTimeoutId: number | null;
   activeError?: {
@@ -62,7 +62,6 @@ interface State<T_HT> {
     element: HTMLElement;
     position: ScaledPosition;
   };
-  
 }
 
 interface Props<T_HT> {
@@ -76,12 +75,12 @@ interface Props<T_HT> {
     index: number,
     setTip: (
       highlight: T_ViewportHighlight<T_HT>,
-      callback: (highlight: T_ViewportHighlight<T_HT>) => JSX.Element,
+      callback: (highlight: T_ViewportHighlight<T_HT>) => JSX.Element
     ) => void,
     hideTip: () => void,
     viewportToScaled: (rect: LTWHP) => Scaled,
     screenshot: (position: LTWH) => string,
-    isScrolledTo: boolean,
+    isScrolledTo: boolean
   ) => JSX.Element;
   highlights: Array<T_HT>;
   onScrollChange: () => void;
@@ -92,7 +91,7 @@ interface Props<T_HT> {
     position: ScaledPosition,
     content: { text?: string; image?: string },
     hideTipAndSelection: () => void,
-    transformSelection: () => void,
+    transformSelection: () => void
   ) => JSX.Element | null;
   enableAreaSelection: (event: MouseEvent) => boolean;
   pdfViewerOptions?: PDFViewerOptions;
@@ -111,31 +110,35 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
   Props<T_HT>,
   State<T_HT>
 > {
-
   state = {
     ...this.state,
-    activeTooltip: null as { 
-      correction: string; 
-      position: { top: number; left: number }; 
+    activeTooltip: null as {
+      correction: string;
+      position: { top: number; left: number };
     } | null,
     hoverTimeoutId: null,
   };
 
-
   // Isso aqui deu trabalho pra caralho, entao bora explicar como funciona
-  addHighlightsFromJson = (json: Array<{ error: string; correction: string; error_type: string }>) => {
+  addHighlightsFromJson = (
+    json: Array<{ error: string; correction: string; error_type: string }>
+  ) => {
     const { pdfDocument } = this.props;
-  
+
     json.forEach(async (errorData) => {
-      for (let pageNumber = 1; pageNumber <= pdfDocument.numPages; pageNumber++) {
+      for (
+        let pageNumber = 1;
+        pageNumber <= pdfDocument.numPages;
+        pageNumber++
+      ) {
         await waitForTextLayer();
-  
+
         const textLayer = document.querySelector(
           `.page[data-page-number="${pageNumber}"] .textLayer`
         );
-        
+
         if (!textLayer) continue;
-  
+
         // Get all text nodes in the layer
         const textNodes: Text[] = [];
         const walker = document.createTreeWalker(
@@ -143,65 +146,68 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
           NodeFilter.SHOW_TEXT,
           null
         );
-  
+
         let node;
         // implementação da busca de nós na tree do DOM
         while ((node = walker.nextNode())) {
           textNodes.push(node as Text);
         }
-  
+
         // combina o texto de todos os nodes
-        const combinedText = textNodes.map(node => node.textContent).join('');
-        
+        const combinedText = textNodes.map((node) => node.textContent).join("");
+
         // busca as ocorrências de texto no documento
-        const errorRegex = new RegExp(errorData.error.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+        const errorRegex = new RegExp(
+          errorData.error.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+          "g"
+        );
         let match;
-        
+
         while ((match = errorRegex.exec(combinedText)) !== null) {
           // salva a posição inicial e final do match do texto
           const startPos = match.index;
           const endPos = startPos + errorData.error.length;
-  
+
           let currentPos = 0;
           let startNode: Text | null = null;
           let startOffset = 0;
           let endNode: Text | null = null;
           let endOffset = 0;
-  
+
           for (const node of textNodes) {
             // encontra os nodes correspondentes que contém o texto
             const nodeLength = node.textContent?.length || 0;
-            
+
             if (!startNode && currentPos + nodeLength > startPos) {
               startNode = node;
               startOffset = startPos - currentPos;
             }
-            
+
             if (!endNode && currentPos + nodeLength >= endPos) {
               endNode = node;
               endOffset = endPos - currentPos;
               break;
             }
-            
+
             currentPos += nodeLength;
           }
-  
+
           if (startNode && endNode) {
             const range = document.createRange();
             range.setStart(startNode, startOffset);
             range.setEnd(endNode, endOffset);
-  
+
             // cria um span para destacar o texto
-            const span = document.createElement('span');
-            span.classList.add('error-highlight');
-            
+            const span = document.createElement("span");
+            span.classList.add("error-highlight");
+
             // adiciona o span ao range definido com base na posição do match do texto
             range.surroundContents(span);
-  
-            span.addEventListener('mouseenter', (e) => 
+
+            span.addEventListener("mouseenter", (e) =>
               this.handleHighlightMouseEnter(e, errorData)
             );
-            span.addEventListener('mouseleave', () =>
+            span.addEventListener("mouseleave", () =>
               this.handleHighlightMouseLeave()
             );
           }
@@ -276,7 +282,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
         doc.removeEventListener("keydown", this.handleKeyDown);
         doc.defaultView?.removeEventListener(
           "resize",
-          this.debouncedScaleValue,
+          this.debouncedScaleValue
         );
         if (observer) observer.disconnect();
       };
@@ -340,7 +346,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
     return findOrCreateContainerLayer(
       textLayer.div,
       `PdfHighlighter__highlight-layer ${styles.highlightLayer}`,
-      ".PdfHighlighter__highlight-layer",
+      ".PdfHighlighter__highlight-layer"
     );
   }
 
@@ -350,7 +356,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
     const { ghostHighlight } = this.state;
 
     const allHighlights = [...highlights, ghostHighlight].filter(
-      Boolean,
+      Boolean
     ) as T_HT[];
 
     const pageNumbers = new Set<number>();
@@ -419,7 +425,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
     return {
       boundingRect: scaledToViewport(boundingRect, viewport, usePdfCoordinates),
       rects: (rects || []).map((rect) =>
-        scaledToViewport(rect, viewport, usePdfCoordinates),
+        scaledToViewport(rect, viewport, usePdfCoordinates)
       ),
       pageNumber,
     };
@@ -452,7 +458,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
     });
 
     this.setState({ ghostHighlight: null, tip: null }, () =>
-      this.renderHighlightLayers(),
+      this.renderHighlightLayers()
     );
   };
 
@@ -525,7 +531,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
         ...pageViewport.convertToPdfPoint(
           0,
           scaledToViewport(boundingRect, pageViewport, usePdfCoordinates).top -
-            scrollMargin,
+            scrollMargin
         ),
         0,
       ],
@@ -535,7 +541,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
       {
         scrolledToHighlightId: highlight.id,
       },
-      () => this.renderHighlightLayers(),
+      () => this.renderHighlightLayers()
     );
 
     // wait for scrolling to finish
@@ -595,7 +601,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
       {
         scrolledToHighlightId: EMPTY_ID,
       },
-      () => this.renderHighlightLayers(),
+      () => this.renderHighlightLayers()
     );
 
     this.viewer.container.removeEventListener("scroll", this.onScroll);
@@ -664,9 +670,9 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
             {
               ghostHighlight: { position: scaledPosition },
             },
-            () => this.renderHighlightLayers(),
-          ),
-      ),
+            () => this.renderHighlightLayers()
+          )
+      )
     );
   };
 
@@ -687,79 +693,85 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
 
   debouncedScaleValue: () => void = debounce(this.handleScaleValue, 500);
 
-  handleHighlightMouseEnter = (e: MouseEvent, errorData: { 
-    error: string;
-    correction: string;
-    error_type: string;
-}) => {
+  handleHighlightMouseEnter = (
+    e: MouseEvent,
+    errorData: {
+      error: string;
+      correction: string;
+      error_type: string;
+    }
+  ) => {
     const targetElement = e.target as HTMLElement;
     const rect = targetElement.getBoundingClientRect();
     const page = getPageFromElement(targetElement);
-    
+
     if (!page) return;
 
     // Get viewer container position
     const viewerContainer = this.viewer.container;
     const viewerRect = viewerContainer.getBoundingClientRect();
-    
+
     // Calculate absolute position considering viewer offset
-    const absoluteLeft = rect.left - viewerRect.left + viewerContainer.scrollLeft;
+    const absoluteLeft =
+      rect.left - viewerRect.left + viewerContainer.scrollLeft;
     const absoluteTop = rect.top - viewerRect.top + viewerContainer.scrollTop;
-    
+
     // Center horizontally relative to highlight
-    const centerX = absoluteLeft + (rect.width / 2);
-    
+    const centerX = absoluteLeft + rect.width / 2;
+
     const pageBoundingRect = {
-        left: rect.left - page.node.getBoundingClientRect().left,
-        top: rect.top - page.node.getBoundingClientRect().top,
-        width: targetElement.offsetWidth,
-        height: targetElement.offsetHeight,
-        pageNumber: page.number
+      left: rect.left - page.node.getBoundingClientRect().left,
+      top: rect.top - page.node.getBoundingClientRect().top,
+      width: targetElement.offsetWidth,
+      height: targetElement.offsetHeight,
+      pageNumber: page.number,
     };
-  
+
     const viewportPosition = {
-        boundingRect: pageBoundingRect,
-        rects: [pageBoundingRect],
-        pageNumber: page.number
+      boundingRect: pageBoundingRect,
+      rects: [pageBoundingRect],
+      pageNumber: page.number,
     };
-  
+
     const scaledPosition = this.viewportPositionToScaled(viewportPosition);
-  
+
     this.setState({
-        activeError: {
-            text: errorData.error,
-            element: targetElement,
-            position: scaledPosition
+      activeError: {
+        text: errorData.error,
+        element: targetElement,
+        position: scaledPosition,
+      },
+      activeTooltip: {
+        correction: errorData.correction,
+        error: errorData.error,
+        error_type: errorData.error_type,
+        position: {
+          top: absoluteTop - 5, // Small offset above highlight
+          left: centerX - 100, // Assuming tooltip width is 200px
         },
-        activeTooltip: {
-            correction: errorData.correction,
-            error: errorData.error,
-            error_type: errorData.error_type,
-            position: { 
-                top: absoluteTop - 5, // Small offset above highlight
-                left: centerX - 100 // Assuming tooltip width is 200px
-            }
-        }
+      },
     });
-};
+  };
 
   handleHighlightMouseLeave = () => {
-    console.log('Mouse Leave Event');
+    console.log("Mouse Leave Event");
     const timeoutId = window.setTimeout(() => {
-      console.log('Hiding tooltip');
+      console.log("Hiding tooltip");
       this.setState({ activeTooltip: null });
-    }, 200);
-    
+    }, 600);
+
     this.setState({ hoverTimeoutId: timeoutId });
   };
 
   handleRejectCorrection = () => {
-    const textElement = document.querySelector('.error-highlight') as HTMLElement;
+    const textElement = document.querySelector(
+      ".error-highlight"
+    ) as HTMLElement;
     if (!textElement) return;
-  
+
     // Remover o elemento destacado do DOM
     textElement.remove();
-  
+
     // Atualizar o estado para garantir que o tooltip não seja renderizado novamente
     this.setState({ activeTooltip: null });
   };
@@ -770,7 +782,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
     if (!activeError) return;
 
     const content = {
-      text: activeError.text
+      text: activeError.text,
     };
 
     // Create new highlight using the stored position
@@ -779,8 +791,8 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
       position: activeError.position,
       comment: {
         text: correction,
-        emoji: ""
-      }
+        emoji: "",
+      },
     };
 
     // Pass the specific error data to selection handler
@@ -789,16 +801,16 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
       content,
       () => {
         this.hideTipAndSelection();
-        this.setState({ 
+        this.setState({
           activeTooltip: null,
-          activeError: undefined 
+          activeError: undefined,
         });
-        activeError.element.classList.remove('error-highlight');
+        activeError.element.classList.remove("error-highlight");
       },
       () => {
         this.setState(
           {
-            ghostHighlight: newHighlight
+            ghostHighlight: newHighlight,
           },
           () => this.renderHighlightLayers()
         );
@@ -806,9 +818,9 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
     );
 
     activeError.element.remove();
-    this.setState({ 
+    this.setState({
       activeTooltip: null,
-      activeError: undefined
+      activeError: undefined,
     });
   };
 
@@ -861,7 +873,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
 
                   const image = this.screenshot(
                     pageBoundingRect,
-                    pageBoundingRect.pageNumber,
+                    pageBoundingRect.pageNumber
                   );
 
                   this.setTip(
@@ -882,10 +894,10 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
                           () => {
                             resetSelection();
                             this.renderHighlightLayers();
-                          },
+                          }
                         );
-                      },
-                    ),
+                      }
+                    )
                   );
                 }}
               />
@@ -957,7 +969,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
         setTip={(tip) => {
           this.setState({ tip });
         }}
-      />,
+      />
     );
   }
 }
@@ -974,4 +986,3 @@ async function waitForTextLayer() {
     checkTextLayer();
   });
 }
-

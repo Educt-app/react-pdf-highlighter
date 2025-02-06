@@ -1,5 +1,6 @@
 import { Component } from "react";
 import styles from "../style/Tip.module.css";
+import Textarea from "@mui/joy/Textarea";
 
 interface State {
   compact: boolean;
@@ -52,11 +53,32 @@ export class Tip extends Component<Props, State> {
               event.preventDefault();
               onConfirm({ text, emoji });
             }}
+            style={{
+              zIndex: 1000,
+              backgroundColor: "#6c60df",
+              border: "0px",
+              borderRadius: "20px",
+              padding: "15px",
+            }}
           >
             <div>
-              <textarea
-                placeholder="Seu comentário"
-                // biome-ignore lint/a11y/noAutofocus: This is an example app
+              <Textarea
+                name="Plain"
+                placeholder="Digite seu comentário"
+                variant="plain"
+                sx={{
+                  backgroundColor: "#6c60df",
+                  color: "white",
+                  width: "100%",
+                  padding: "5px 0px",
+                  marginBottom: "8px",
+
+                  "--Textarea-focusedThickness": "0rem",
+                  "&:hover": {
+                    color: "#d3d3d3",
+                  },
+                }}
+                required
                 autoFocus
                 value={text}
                 onChange={(event) =>
@@ -68,8 +90,9 @@ export class Tip extends Component<Props, State> {
                   }
                 }}
               />
+
               <div>
-                {["✅", "❌", "❗", "😍", "🤔", "⚠️","🥳 "].map((_emoji) => (
+                {["✅", "❌", "❗", "😍", "🤔", "🥳 "].map((_emoji) => (
                   <label key={_emoji}>
                     <input
                       checked={emoji === _emoji}
