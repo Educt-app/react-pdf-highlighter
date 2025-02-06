@@ -1,6 +1,7 @@
 import { Component } from "react";
 import styles from "../style/Tip.module.css";
 import Textarea from "@mui/joy/Textarea";
+import { Style } from "@mui/icons-material";
 
 interface State {
   compact: boolean;
@@ -33,6 +34,7 @@ export class Tip extends Component<Props, State> {
   render() {
     const { onConfirm, onOpen } = this.props;
     const { compact, text, emoji } = this.state;
+    const emojis = ["✅", "❌", "❗", "😍", "🤔", "🥳 "];
 
     return (
       <div>
@@ -64,15 +66,14 @@ export class Tip extends Component<Props, State> {
             <div>
               <Textarea
                 name="Plain"
-                placeholder="Digite seu comentário"
+                placeholder="Digite aqui seu comentário"
                 variant="plain"
                 sx={{
                   backgroundColor: "#6c60df",
                   color: "white",
                   width: "100%",
                   padding: "5px 0px",
-                  marginBottom: "8px",
-
+                  marginBottom: "18px",
                   "--Textarea-focusedThickness": "0rem",
                   "&:hover": {
                     color: "#d3d3d3",
@@ -91,10 +92,11 @@ export class Tip extends Component<Props, State> {
                 }}
               />
 
-              <div>
-                {["✅", "❌", "❗", "😍", "🤔", "🥳 "].map((_emoji) => (
-                  <label key={_emoji}>
+              <div className={styles.emojiGrid}>
+                {emojis.map((_emoji) => (
+                  <label key={_emoji} className={styles.emojiLabel}>
                     <input
+                      className={styles.emojiInput}
                       checked={emoji === _emoji}
                       type="radio"
                       name="emoji"
@@ -103,13 +105,18 @@ export class Tip extends Component<Props, State> {
                         this.setState({ emoji: event.target.value })
                       }
                     />
-                    {_emoji}
+                    <span className={styles.emojiDisplay}>{_emoji}</span>
                   </label>
                 ))}
               </div>
             </div>
-            <div>
-              <input type="submit" value="Salvar" />
+
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <input
+                type="submit"
+                value="Salvar"
+                className={styles.submitButton}
+              />
             </div>
           </form>
         )}

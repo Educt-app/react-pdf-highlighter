@@ -18,11 +18,76 @@
 
 .card textarea {
   font-size: 16px;
-  width: 200px;
+  width: 100%;
   height: 70px;
 }
 
 .card input[type="submit"] {
   margin-top: 5px;
   font-size: large;
+}
+
+.emojiGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.emojiLabel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s;
+}
+
+.emojiLabel:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.emojiInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.emojiInput:checked + .emojiDisplay {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid white;
+  border-radius: 30px;
+}
+
+.emojiDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 35px;
+  height: 30px;
+  border-radius: 30px;
+  font-size: 20px;
+  border: 2px solid transparent;
+}
+
+.submitButton {
+  width: 90%;
+  padding: 4px;
+  background-color: white;
+  color: #6c60df;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+  background-color: #f0f0f0;
 }
