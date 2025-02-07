@@ -1,7 +1,6 @@
 import { Component } from "react";
 import styles from "../style/Tip.module.css";
 import Textarea from "@mui/joy/Textarea";
-import { Style } from "@mui/icons-material";
 
 interface State {
   compact: boolean;
