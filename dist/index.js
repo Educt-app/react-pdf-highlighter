@@ -5,7 +5,7 @@ import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import * as React from "react";
 import React__default, { useState, useRef, useEffect, useCallback, forwardRef, useContext, PureComponent, Component } from "react";
 import { createRoot } from "react-dom/client";
-import { debounce } from "ts-debounce";
+import { debounce as debounce$1 } from "ts-debounce";
 import { Rnd } from "react-rnd";
 import { GlobalWorkerOptions, getDocument as getDocument$1 } from "pdfjs-dist";
 const viewportToScaled = (rect, { width: width2, height: height2 }) => {
@@ -259,11 +259,11 @@ const getClientRects = (range, pages, shouldOptimize = true) => {
   }
   return shouldOptimize ? optimizeClientRects(rects) : rects;
 };
-const container = "_container_1kuzn_1";
-const highlightLayer = "_highlightLayer_1kuzn_15";
-const tipContainer$1 = "_tipContainer_1kuzn_27";
-const disableSelection = "_disableSelection_1kuzn_37";
-const styles$5 = {
+const container = "_container_12oj9_1";
+const highlightLayer = "_highlightLayer_12oj9_8";
+const tipContainer$1 = "_tipContainer_12oj9_14";
+const disableSelection = "_disableSelection_12oj9_19";
+const styles$6 = {
   container,
   highlightLayer,
   tipContainer: tipContainer$1,
@@ -311,8 +311,8 @@ function HighlightLayer({
     );
   }) });
 }
-const mouseSelection = "_mouseSelection_jpmsu_1";
-const styles$4 = {
+const mouseSelection = "_mouseSelection_1p43j_1";
+const styles$5 = {
   mouseSelection
 };
 const getBoundingRect = (start, end) => ({
@@ -422,13 +422,13 @@ function MouseSelection({
   return /* @__PURE__ */ jsx("div", { ref: rootRef, children: start && end && /* @__PURE__ */ jsx(
     "div",
     {
-      className: styles$4.mouseSelection,
+      className: styles$5.mouseSelection,
       style: getBoundingRect(start, end)
     }
   ) });
 }
-const tipContainer = "_tipContainer_b2yn0_1";
-const styles$3 = {
+const tipContainer = "_tipContainer_f56kr_1";
+const styles$4 = {
   tipContainer
 };
 function clamp$1(value, left, right) {
@@ -476,7 +476,7 @@ function TipContainer({
     "div",
     {
       id: "PdfHighlighter__tip-container",
-      className: styles$3.tipContainer,
+      className: styles$4.tipContainer,
       style: {
         visibility: isStyleCalculationInProgress ? "hidden" : "visible",
         top,
@@ -490,8 +490,8 @@ function TipContainer({
 function getDefaultExportFromCjs(x) {
   return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
 }
-var reactIs$1 = { exports: {} };
-var reactIs_production = {};
+var reactIs$2 = { exports: {} };
+var reactIs_production$1 = {};
 /**
  * @license React
  * react-is.production.js
@@ -501,10 +501,10 @@ var reactIs_production = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var hasRequiredReactIs_production;
-function requireReactIs_production() {
-  if (hasRequiredReactIs_production) return reactIs_production;
-  hasRequiredReactIs_production = 1;
+var hasRequiredReactIs_production$1;
+function requireReactIs_production$1() {
+  if (hasRequiredReactIs_production$1) return reactIs_production$1;
+  hasRequiredReactIs_production$1 = 1;
   var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler");
   var REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_OFFSCREEN_TYPE = Symbol.for("react.offscreen"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference");
   function typeOf(object) {
@@ -537,61 +537,61 @@ function requireReactIs_production() {
       }
     }
   }
-  reactIs_production.ContextConsumer = REACT_CONSUMER_TYPE;
-  reactIs_production.ContextProvider = REACT_CONTEXT_TYPE;
-  reactIs_production.Element = REACT_ELEMENT_TYPE;
-  reactIs_production.ForwardRef = REACT_FORWARD_REF_TYPE;
-  reactIs_production.Fragment = REACT_FRAGMENT_TYPE;
-  reactIs_production.Lazy = REACT_LAZY_TYPE;
-  reactIs_production.Memo = REACT_MEMO_TYPE;
-  reactIs_production.Portal = REACT_PORTAL_TYPE;
-  reactIs_production.Profiler = REACT_PROFILER_TYPE;
-  reactIs_production.StrictMode = REACT_STRICT_MODE_TYPE;
-  reactIs_production.Suspense = REACT_SUSPENSE_TYPE;
-  reactIs_production.SuspenseList = REACT_SUSPENSE_LIST_TYPE;
-  reactIs_production.isContextConsumer = function(object) {
+  reactIs_production$1.ContextConsumer = REACT_CONSUMER_TYPE;
+  reactIs_production$1.ContextProvider = REACT_CONTEXT_TYPE;
+  reactIs_production$1.Element = REACT_ELEMENT_TYPE;
+  reactIs_production$1.ForwardRef = REACT_FORWARD_REF_TYPE;
+  reactIs_production$1.Fragment = REACT_FRAGMENT_TYPE;
+  reactIs_production$1.Lazy = REACT_LAZY_TYPE;
+  reactIs_production$1.Memo = REACT_MEMO_TYPE;
+  reactIs_production$1.Portal = REACT_PORTAL_TYPE;
+  reactIs_production$1.Profiler = REACT_PROFILER_TYPE;
+  reactIs_production$1.StrictMode = REACT_STRICT_MODE_TYPE;
+  reactIs_production$1.Suspense = REACT_SUSPENSE_TYPE;
+  reactIs_production$1.SuspenseList = REACT_SUSPENSE_LIST_TYPE;
+  reactIs_production$1.isContextConsumer = function(object) {
     return typeOf(object) === REACT_CONSUMER_TYPE;
   };
-  reactIs_production.isContextProvider = function(object) {
+  reactIs_production$1.isContextProvider = function(object) {
     return typeOf(object) === REACT_CONTEXT_TYPE;
   };
-  reactIs_production.isElement = function(object) {
+  reactIs_production$1.isElement = function(object) {
     return "object" === typeof object && null !== object && object.$$typeof === REACT_ELEMENT_TYPE;
   };
-  reactIs_production.isForwardRef = function(object) {
+  reactIs_production$1.isForwardRef = function(object) {
     return typeOf(object) === REACT_FORWARD_REF_TYPE;
   };
-  reactIs_production.isFragment = function(object) {
+  reactIs_production$1.isFragment = function(object) {
     return typeOf(object) === REACT_FRAGMENT_TYPE;
   };
-  reactIs_production.isLazy = function(object) {
+  reactIs_production$1.isLazy = function(object) {
     return typeOf(object) === REACT_LAZY_TYPE;
   };
-  reactIs_production.isMemo = function(object) {
+  reactIs_production$1.isMemo = function(object) {
     return typeOf(object) === REACT_MEMO_TYPE;
   };
-  reactIs_production.isPortal = function(object) {
+  reactIs_production$1.isPortal = function(object) {
     return typeOf(object) === REACT_PORTAL_TYPE;
   };
-  reactIs_production.isProfiler = function(object) {
+  reactIs_production$1.isProfiler = function(object) {
     return typeOf(object) === REACT_PROFILER_TYPE;
   };
-  reactIs_production.isStrictMode = function(object) {
+  reactIs_production$1.isStrictMode = function(object) {
     return typeOf(object) === REACT_STRICT_MODE_TYPE;
   };
-  reactIs_production.isSuspense = function(object) {
+  reactIs_production$1.isSuspense = function(object) {
     return typeOf(object) === REACT_SUSPENSE_TYPE;
   };
-  reactIs_production.isSuspenseList = function(object) {
+  reactIs_production$1.isSuspenseList = function(object) {
     return typeOf(object) === REACT_SUSPENSE_LIST_TYPE;
   };
-  reactIs_production.isValidElementType = function(type) {
+  reactIs_production$1.isValidElementType = function(type) {
     return "string" === typeof type || "function" === typeof type || type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_OFFSCREEN_TYPE || "object" === typeof type && null !== type && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_CONSUMER_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_CLIENT_REFERENCE || void 0 !== type.getModuleId) ? true : false;
   };
-  reactIs_production.typeOf = typeOf;
-  return reactIs_production;
+  reactIs_production$1.typeOf = typeOf;
+  return reactIs_production$1;
 }
-var reactIs_development$1 = {};
+var reactIs_development$2 = {};
 /**
  * @license React
  * react-is.development.js
@@ -601,10 +601,10 @@ var reactIs_development$1 = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var hasRequiredReactIs_development$1;
-function requireReactIs_development$1() {
-  if (hasRequiredReactIs_development$1) return reactIs_development$1;
-  hasRequiredReactIs_development$1 = 1;
+var hasRequiredReactIs_development$2;
+function requireReactIs_development$2() {
+  if (hasRequiredReactIs_development$2) return reactIs_development$2;
+  hasRequiredReactIs_development$2 = 1;
   "production" !== process.env.NODE_ENV && function() {
     function typeOf(object) {
       if ("object" === typeof object && null !== object) {
@@ -638,99 +638,99 @@ function requireReactIs_development$1() {
     }
     var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler");
     var REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_OFFSCREEN_TYPE = Symbol.for("react.offscreen"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference");
-    reactIs_development$1.ContextConsumer = REACT_CONSUMER_TYPE;
-    reactIs_development$1.ContextProvider = REACT_CONTEXT_TYPE;
-    reactIs_development$1.Element = REACT_ELEMENT_TYPE;
-    reactIs_development$1.ForwardRef = REACT_FORWARD_REF_TYPE;
-    reactIs_development$1.Fragment = REACT_FRAGMENT_TYPE;
-    reactIs_development$1.Lazy = REACT_LAZY_TYPE;
-    reactIs_development$1.Memo = REACT_MEMO_TYPE;
-    reactIs_development$1.Portal = REACT_PORTAL_TYPE;
-    reactIs_development$1.Profiler = REACT_PROFILER_TYPE;
-    reactIs_development$1.StrictMode = REACT_STRICT_MODE_TYPE;
-    reactIs_development$1.Suspense = REACT_SUSPENSE_TYPE;
-    reactIs_development$1.SuspenseList = REACT_SUSPENSE_LIST_TYPE;
-    reactIs_development$1.isContextConsumer = function(object) {
+    reactIs_development$2.ContextConsumer = REACT_CONSUMER_TYPE;
+    reactIs_development$2.ContextProvider = REACT_CONTEXT_TYPE;
+    reactIs_development$2.Element = REACT_ELEMENT_TYPE;
+    reactIs_development$2.ForwardRef = REACT_FORWARD_REF_TYPE;
+    reactIs_development$2.Fragment = REACT_FRAGMENT_TYPE;
+    reactIs_development$2.Lazy = REACT_LAZY_TYPE;
+    reactIs_development$2.Memo = REACT_MEMO_TYPE;
+    reactIs_development$2.Portal = REACT_PORTAL_TYPE;
+    reactIs_development$2.Profiler = REACT_PROFILER_TYPE;
+    reactIs_development$2.StrictMode = REACT_STRICT_MODE_TYPE;
+    reactIs_development$2.Suspense = REACT_SUSPENSE_TYPE;
+    reactIs_development$2.SuspenseList = REACT_SUSPENSE_LIST_TYPE;
+    reactIs_development$2.isContextConsumer = function(object) {
       return typeOf(object) === REACT_CONSUMER_TYPE;
     };
-    reactIs_development$1.isContextProvider = function(object) {
+    reactIs_development$2.isContextProvider = function(object) {
       return typeOf(object) === REACT_CONTEXT_TYPE;
     };
-    reactIs_development$1.isElement = function(object) {
+    reactIs_development$2.isElement = function(object) {
       return "object" === typeof object && null !== object && object.$$typeof === REACT_ELEMENT_TYPE;
     };
-    reactIs_development$1.isForwardRef = function(object) {
+    reactIs_development$2.isForwardRef = function(object) {
       return typeOf(object) === REACT_FORWARD_REF_TYPE;
     };
-    reactIs_development$1.isFragment = function(object) {
+    reactIs_development$2.isFragment = function(object) {
       return typeOf(object) === REACT_FRAGMENT_TYPE;
     };
-    reactIs_development$1.isLazy = function(object) {
+    reactIs_development$2.isLazy = function(object) {
       return typeOf(object) === REACT_LAZY_TYPE;
     };
-    reactIs_development$1.isMemo = function(object) {
+    reactIs_development$2.isMemo = function(object) {
       return typeOf(object) === REACT_MEMO_TYPE;
     };
-    reactIs_development$1.isPortal = function(object) {
+    reactIs_development$2.isPortal = function(object) {
       return typeOf(object) === REACT_PORTAL_TYPE;
     };
-    reactIs_development$1.isProfiler = function(object) {
+    reactIs_development$2.isProfiler = function(object) {
       return typeOf(object) === REACT_PROFILER_TYPE;
     };
-    reactIs_development$1.isStrictMode = function(object) {
+    reactIs_development$2.isStrictMode = function(object) {
       return typeOf(object) === REACT_STRICT_MODE_TYPE;
     };
-    reactIs_development$1.isSuspense = function(object) {
+    reactIs_development$2.isSuspense = function(object) {
       return typeOf(object) === REACT_SUSPENSE_TYPE;
     };
-    reactIs_development$1.isSuspenseList = function(object) {
+    reactIs_development$2.isSuspenseList = function(object) {
       return typeOf(object) === REACT_SUSPENSE_LIST_TYPE;
     };
-    reactIs_development$1.isValidElementType = function(type) {
+    reactIs_development$2.isValidElementType = function(type) {
       return "string" === typeof type || "function" === typeof type || type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_OFFSCREEN_TYPE || "object" === typeof type && null !== type && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_CONSUMER_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_CLIENT_REFERENCE || void 0 !== type.getModuleId) ? true : false;
     };
-    reactIs_development$1.typeOf = typeOf;
+    reactIs_development$2.typeOf = typeOf;
   }();
-  return reactIs_development$1;
+  return reactIs_development$2;
 }
 if (process.env.NODE_ENV === "production") {
-  reactIs$1.exports = requireReactIs_production();
+  reactIs$2.exports = requireReactIs_production$1();
 } else {
-  reactIs$1.exports = requireReactIs_development$1();
+  reactIs$2.exports = requireReactIs_development$2();
 }
-var reactIsExports = reactIs$1.exports;
-function isPlainObject(item) {
+var reactIsExports$1 = reactIs$2.exports;
+function isPlainObject$1(item) {
   if (typeof item !== "object" || item === null) {
     return false;
   }
   const prototype = Object.getPrototypeOf(item);
   return (prototype === null || prototype === Object.prototype || Object.getPrototypeOf(prototype) === null) && !(Symbol.toStringTag in item) && !(Symbol.iterator in item);
 }
-function deepClone(source) {
-  if (/* @__PURE__ */ React.isValidElement(source) || reactIsExports.isValidElementType(source) || !isPlainObject(source)) {
+function deepClone$1(source) {
+  if (/* @__PURE__ */ React.isValidElement(source) || reactIsExports$1.isValidElementType(source) || !isPlainObject$1(source)) {
     return source;
   }
   const output = {};
   Object.keys(source).forEach((key) => {
-    output[key] = deepClone(source[key]);
+    output[key] = deepClone$1(source[key]);
   });
   return output;
 }
-function deepmerge(target, source, options = {
+function deepmerge$1(target, source, options = {
   clone: true
 }) {
   const output = options.clone ? {
     ...target
   } : target;
-  if (isPlainObject(target) && isPlainObject(source)) {
+  if (isPlainObject$1(target) && isPlainObject$1(source)) {
     Object.keys(source).forEach((key) => {
-      if (/* @__PURE__ */ React.isValidElement(source[key]) || reactIsExports.isValidElementType(source[key])) {
+      if (/* @__PURE__ */ React.isValidElement(source[key]) || reactIsExports$1.isValidElementType(source[key])) {
         output[key] = source[key];
-      } else if (isPlainObject(source[key]) && // Avoid prototype pollution
-      Object.prototype.hasOwnProperty.call(target, key) && isPlainObject(target[key])) {
-        output[key] = deepmerge(target[key], source[key], options);
+      } else if (isPlainObject$1(source[key]) && // Avoid prototype pollution
+      Object.prototype.hasOwnProperty.call(target, key) && isPlainObject$1(target[key])) {
+        output[key] = deepmerge$1(target[key], source[key], options);
       } else if (options.clone) {
-        output[key] = isPlainObject(source[key]) ? deepClone(source[key]) : source[key];
+        output[key] = isPlainObject$1(source[key]) ? deepClone$1(source[key]) : source[key];
       } else {
         output[key] = source[key];
       }
@@ -739,7 +739,7 @@ function deepmerge(target, source, options = {
   return output;
 }
 var propTypes = { exports: {} };
-var reactIs = { exports: {} };
+var reactIs$1 = { exports: {} };
 var reactIs_production_min = {};
 /** @license React v16.13.1
  * react-is.production.min.js
@@ -843,7 +843,7 @@ function requireReactIs_production_min() {
   reactIs_production_min.typeOf = z;
   return reactIs_production_min;
 }
-var reactIs_development = {};
+var reactIs_development$1 = {};
 /** @license React v16.13.1
  * react-is.development.js
  *
@@ -852,10 +852,10 @@ var reactIs_development = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var hasRequiredReactIs_development;
-function requireReactIs_development() {
-  if (hasRequiredReactIs_development) return reactIs_development;
-  hasRequiredReactIs_development = 1;
+var hasRequiredReactIs_development$1;
+function requireReactIs_development$1() {
+  if (hasRequiredReactIs_development$1) return reactIs_development$1;
+  hasRequiredReactIs_development$1 = 1;
   if (process.env.NODE_ENV !== "production") {
     (function() {
       var hasSymbol = typeof Symbol === "function" && Symbol.for;
@@ -973,48 +973,48 @@ function requireReactIs_development() {
       function isSuspense(object) {
         return typeOf(object) === REACT_SUSPENSE_TYPE;
       }
-      reactIs_development.AsyncMode = AsyncMode;
-      reactIs_development.ConcurrentMode = ConcurrentMode;
-      reactIs_development.ContextConsumer = ContextConsumer;
-      reactIs_development.ContextProvider = ContextProvider;
-      reactIs_development.Element = Element2;
-      reactIs_development.ForwardRef = ForwardRef;
-      reactIs_development.Fragment = Fragment2;
-      reactIs_development.Lazy = Lazy;
-      reactIs_development.Memo = Memo;
-      reactIs_development.Portal = Portal;
-      reactIs_development.Profiler = Profiler;
-      reactIs_development.StrictMode = StrictMode;
-      reactIs_development.Suspense = Suspense;
-      reactIs_development.isAsyncMode = isAsyncMode;
-      reactIs_development.isConcurrentMode = isConcurrentMode;
-      reactIs_development.isContextConsumer = isContextConsumer;
-      reactIs_development.isContextProvider = isContextProvider;
-      reactIs_development.isElement = isElement;
-      reactIs_development.isForwardRef = isForwardRef;
-      reactIs_development.isFragment = isFragment;
-      reactIs_development.isLazy = isLazy;
-      reactIs_development.isMemo = isMemo;
-      reactIs_development.isPortal = isPortal;
-      reactIs_development.isProfiler = isProfiler;
-      reactIs_development.isStrictMode = isStrictMode;
-      reactIs_development.isSuspense = isSuspense;
-      reactIs_development.isValidElementType = isValidElementType;
-      reactIs_development.typeOf = typeOf;
+      reactIs_development$1.AsyncMode = AsyncMode;
+      reactIs_development$1.ConcurrentMode = ConcurrentMode;
+      reactIs_development$1.ContextConsumer = ContextConsumer;
+      reactIs_development$1.ContextProvider = ContextProvider;
+      reactIs_development$1.Element = Element2;
+      reactIs_development$1.ForwardRef = ForwardRef;
+      reactIs_development$1.Fragment = Fragment2;
+      reactIs_development$1.Lazy = Lazy;
+      reactIs_development$1.Memo = Memo;
+      reactIs_development$1.Portal = Portal;
+      reactIs_development$1.Profiler = Profiler;
+      reactIs_development$1.StrictMode = StrictMode;
+      reactIs_development$1.Suspense = Suspense;
+      reactIs_development$1.isAsyncMode = isAsyncMode;
+      reactIs_development$1.isConcurrentMode = isConcurrentMode;
+      reactIs_development$1.isContextConsumer = isContextConsumer;
+      reactIs_development$1.isContextProvider = isContextProvider;
+      reactIs_development$1.isElement = isElement;
+      reactIs_development$1.isForwardRef = isForwardRef;
+      reactIs_development$1.isFragment = isFragment;
+      reactIs_development$1.isLazy = isLazy;
+      reactIs_development$1.isMemo = isMemo;
+      reactIs_development$1.isPortal = isPortal;
+      reactIs_development$1.isProfiler = isProfiler;
+      reactIs_development$1.isStrictMode = isStrictMode;
+      reactIs_development$1.isSuspense = isSuspense;
+      reactIs_development$1.isValidElementType = isValidElementType;
+      reactIs_development$1.typeOf = typeOf;
     })();
   }
-  return reactIs_development;
+  return reactIs_development$1;
 }
 var hasRequiredReactIs;
 function requireReactIs() {
-  if (hasRequiredReactIs) return reactIs.exports;
+  if (hasRequiredReactIs) return reactIs$1.exports;
   hasRequiredReactIs = 1;
   if (process.env.NODE_ENV === "production") {
-    reactIs.exports = requireReactIs_production_min();
+    reactIs$1.exports = requireReactIs_production_min();
   } else {
-    reactIs.exports = requireReactIs_development();
+    reactIs$1.exports = requireReactIs_development$1();
   }
-  return reactIs.exports;
+  return reactIs$1.exports;
 }
 /*
 object-assign
@@ -1677,19 +1677,19 @@ if (process.env.NODE_ENV !== "production") {
 }
 var propTypesExports = propTypes.exports;
 const PropTypes = /* @__PURE__ */ getDefaultExportFromCjs(propTypesExports);
-function formatMuiErrorMessage(code, ...args) {
+function formatMuiErrorMessage$2(code, ...args) {
   const url = new URL(`https://mui.com/production-error/?code=${code}`);
   args.forEach((arg2) => url.searchParams.append("args[]", arg2));
   return `Minified MUI error #${code}; visit ${url} for the full message.`;
 }
-function getFunctionComponentName(Component2, fallback = "") {
+function getFunctionComponentName$1(Component2, fallback = "") {
   return Component2.displayName || Component2.name || fallback;
 }
-function getWrappedName(outerType, innerType, wrapperName) {
-  const functionName = getFunctionComponentName(innerType);
+function getWrappedName$1(outerType, innerType, wrapperName) {
+  const functionName = getFunctionComponentName$1(innerType);
   return outerType.displayName || (functionName !== "" ? `${wrapperName}(${functionName})` : wrapperName);
 }
-function getDisplayName(Component2) {
+function getDisplayName$1(Component2) {
   if (Component2 == null) {
     return void 0;
   }
@@ -1697,27 +1697,27 @@ function getDisplayName(Component2) {
     return Component2;
   }
   if (typeof Component2 === "function") {
-    return getFunctionComponentName(Component2, "Component");
+    return getFunctionComponentName$1(Component2, "Component");
   }
   if (typeof Component2 === "object") {
     switch (Component2.$$typeof) {
-      case reactIsExports.ForwardRef:
-        return getWrappedName(Component2, Component2.render, "ForwardRef");
-      case reactIsExports.Memo:
-        return getWrappedName(Component2, Component2.type, "memo");
+      case reactIsExports$1.ForwardRef:
+        return getWrappedName$1(Component2, Component2.render, "ForwardRef");
+      case reactIsExports$1.Memo:
+        return getWrappedName$1(Component2, Component2.type, "memo");
       default:
         return void 0;
     }
   }
   return void 0;
 }
-function capitalize(string) {
+function capitalize$1(string) {
   if (typeof string !== "string") {
-    throw new Error(process.env.NODE_ENV !== "production" ? "MUI: `capitalize(string)` expects a string argument." : formatMuiErrorMessage(7));
+    throw new Error(process.env.NODE_ENV !== "production" ? "MUI: `capitalize(string)` expects a string argument." : formatMuiErrorMessage$2(7));
   }
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
-function resolveProps(defaultProps, props) {
+function resolveProps$1(defaultProps, props) {
   const output = {
     ...props
   };
@@ -1743,7 +1743,7 @@ function resolveProps(defaultProps, props) {
           for (const slotKey in defaultSlotProps) {
             if (Object.prototype.hasOwnProperty.call(defaultSlotProps, slotKey)) {
               const slotPropName = slotKey;
-              output[propName][slotPropName] = resolveProps(defaultSlotProps[slotPropName], slotProps[slotPropName]);
+              output[propName][slotPropName] = resolveProps$1(defaultSlotProps[slotPropName], slotProps[slotPropName]);
             }
           }
         }
@@ -1754,7 +1754,7 @@ function resolveProps(defaultProps, props) {
   }
   return output;
 }
-function composeClasses(slots, getUtilityClass, classes = void 0) {
+function composeClasses$1(slots, getUtilityClass, classes = void 0) {
   const output = {};
   for (const slotName in slots) {
     const slot = slots[slotName];
@@ -1774,9 +1774,9 @@ function composeClasses(slots, getUtilityClass, classes = void 0) {
   }
   return output;
 }
-const defaultGenerator = (componentName) => componentName;
-const createClassNameGenerator = () => {
-  let generate = defaultGenerator;
+const defaultGenerator$1 = (componentName) => componentName;
+const createClassNameGenerator$1 = () => {
+  let generate = defaultGenerator$1;
   return {
     configure(generator) {
       generate = generator;
@@ -1785,12 +1785,12 @@ const createClassNameGenerator = () => {
       return generate(componentName);
     },
     reset() {
-      generate = defaultGenerator;
+      generate = defaultGenerator$1;
     }
   };
 };
-const ClassNameGenerator = createClassNameGenerator();
-const globalStateClasses = {
+const ClassNameGenerator$1 = createClassNameGenerator$1();
+const globalStateClasses$1 = {
   active: "active",
   checked: "checked",
   completed: "completed",
@@ -1804,43 +1804,43 @@ const globalStateClasses = {
   required: "required",
   selected: "selected"
 };
-function generateUtilityClass(componentName, slot, globalStatePrefix = "Mui") {
-  const globalStateClass = globalStateClasses[slot];
-  return globalStateClass ? `${globalStatePrefix}-${globalStateClass}` : `${ClassNameGenerator.generate(componentName)}-${slot}`;
+function generateUtilityClass$2(componentName, slot, globalStatePrefix = "Mui") {
+  const globalStateClass = globalStateClasses$1[slot];
+  return globalStateClass ? `${globalStatePrefix}-${globalStateClass}` : `${ClassNameGenerator$1.generate(componentName)}-${slot}`;
 }
-function generateUtilityClasses(componentName, slots, globalStatePrefix = "Mui") {
+function generateUtilityClasses$2(componentName, slots, globalStatePrefix = "Mui") {
   const result = {};
   slots.forEach((slot) => {
-    result[slot] = generateUtilityClass(componentName, slot, globalStatePrefix);
+    result[slot] = generateUtilityClass$2(componentName, slot, globalStatePrefix);
   });
   return result;
 }
 function clamp(val, min = Number.MIN_SAFE_INTEGER, max = Number.MAX_SAFE_INTEGER) {
   return Math.max(min, Math.min(val, max));
 }
-function r(e) {
+function r$1(e) {
   var t, f, n = "";
   if ("string" == typeof e || "number" == typeof e) n += e;
   else if ("object" == typeof e) if (Array.isArray(e)) {
     var o = e.length;
-    for (t = 0; t < o; t++) e[t] && (f = r(e[t])) && (n && (n += " "), n += f);
+    for (t = 0; t < o; t++) e[t] && (f = r$1(e[t])) && (n && (n += " "), n += f);
   } else for (f in e) e[f] && (n && (n += " "), n += f);
   return n;
 }
-function clsx() {
-  for (var e, t, f = 0, n = "", o = arguments.length; f < o; f++) (e = arguments[f]) && (t = r(e)) && (n && (n += " "), n += t);
+function clsx$1() {
+  for (var e, t, f = 0, n = "", o = arguments.length; f < o; f++) (e = arguments[f]) && (t = r$1(e)) && (n && (n += " "), n += t);
   return n;
 }
-function merge(acc, item) {
+function merge$1(acc, item) {
   if (!item) {
     return acc;
   }
-  return deepmerge(acc, item, {
+  return deepmerge$1(acc, item, {
     clone: false
     // No need to clone deep, it's way faster.
   });
 }
-const responsivePropType = process.env.NODE_ENV !== "production" ? PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object, PropTypes.array]) : {};
+const responsivePropType$1 = process.env.NODE_ENV !== "production" ? PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object, PropTypes.array]) : {};
 function sortContainerQueries(theme, css) {
   if (!theme.containerQueries) {
     return css;
@@ -1870,7 +1870,7 @@ function getContainerQuery(theme, shorthand) {
   if (!matches) {
     if (process.env.NODE_ENV !== "production") {
       throw new Error(process.env.NODE_ENV !== "production" ? `MUI: The provided shorthand ${`(${shorthand})`} is invalid. The format should be \`@<breakpoint | number>\` or \`@<breakpoint | number>/<container>\`.
-For example, \`@sm\` or \`@600\` or \`@40rem/sidebar\`.` : formatMuiErrorMessage(18, `(${shorthand})`));
+For example, \`@sm\` or \`@600\` or \`@40rem/sidebar\`.` : formatMuiErrorMessage$2(18, `(${shorthand})`));
     }
     return null;
   }
@@ -1904,7 +1904,7 @@ function cssContainerQueries(themeInput) {
     containerQueries
   };
 }
-const values = {
+const values$1 = {
   xs: 0,
   // phone
   sm: 600,
@@ -1916,16 +1916,16 @@ const values = {
   xl: 1536
   // large screen
 };
-const defaultBreakpoints = {
+const defaultBreakpoints$1 = {
   // Sorted ASC by size. That's important.
   // It can't be configured as it's used statically for propTypes.
   keys: ["xs", "sm", "md", "lg", "xl"],
-  up: (key) => `@media (min-width:${values[key]}px)`
+  up: (key) => `@media (min-width:${values$1[key]}px)`
 };
 const defaultContainerQueries = {
   containerQueries: (containerName) => ({
     up: (key) => {
-      let result = typeof key === "number" ? key : values[key] || key;
+      let result = typeof key === "number" ? key : values$1[key] || key;
       if (typeof result === "number") {
         result = `${result}px`;
       }
@@ -1933,24 +1933,24 @@ const defaultContainerQueries = {
     }
   })
 };
-function handleBreakpoints(props, propValue, styleFromPropValue) {
+function handleBreakpoints$1(props, propValue, styleFromPropValue) {
   const theme = props.theme || {};
   if (Array.isArray(propValue)) {
-    const themeBreakpoints = theme.breakpoints || defaultBreakpoints;
+    const themeBreakpoints = theme.breakpoints || defaultBreakpoints$1;
     return propValue.reduce((acc, item, index) => {
       acc[themeBreakpoints.up(themeBreakpoints.keys[index])] = styleFromPropValue(propValue[index]);
       return acc;
     }, {});
   }
   if (typeof propValue === "object") {
-    const themeBreakpoints = theme.breakpoints || defaultBreakpoints;
+    const themeBreakpoints = theme.breakpoints || defaultBreakpoints$1;
     return Object.keys(propValue).reduce((acc, breakpoint) => {
       if (isCqShorthand(themeBreakpoints.keys, breakpoint)) {
         const containerKey = getContainerQuery(theme.containerQueries ? theme : defaultContainerQueries, breakpoint);
         if (containerKey) {
           acc[containerKey] = styleFromPropValue(propValue[breakpoint], breakpoint);
         }
-      } else if (Object.keys(themeBreakpoints.values || values).includes(breakpoint)) {
+      } else if (Object.keys(themeBreakpoints.values || values$1).includes(breakpoint)) {
         const mediaKey = themeBreakpoints.up(breakpoint);
         acc[mediaKey] = styleFromPropValue(propValue[breakpoint], breakpoint);
       } else {
@@ -1963,7 +1963,7 @@ function handleBreakpoints(props, propValue, styleFromPropValue) {
   const output = styleFromPropValue(propValue);
   return output;
 }
-function createEmptyBreakpointObject(breakpointsInput = {}) {
+function createEmptyBreakpointObject$1(breakpointsInput = {}) {
   var _a;
   const breakpointsInOrder = (_a = breakpointsInput.keys) == null ? void 0 : _a.reduce((acc, key) => {
     const breakpointStyleKey = breakpointsInput.up(key);
@@ -1972,7 +1972,7 @@ function createEmptyBreakpointObject(breakpointsInput = {}) {
   }, {});
   return breakpointsInOrder || {};
 }
-function removeUnusedBreakpoints(breakpointKeys, style2) {
+function removeUnusedBreakpoints$1(breakpointKeys, style2) {
   return breakpointKeys.reduce((acc, key) => {
     const breakpointOutput = acc[key];
     const isBreakpointUnused = !breakpointOutput || Object.keys(breakpointOutput).length === 0;
@@ -1982,7 +1982,7 @@ function removeUnusedBreakpoints(breakpointKeys, style2) {
     return acc;
   }, style2);
 }
-function getPath(obj, path, checkVars = true) {
+function getPath$1(obj, path, checkVars = true) {
   if (!path || typeof path !== "string") {
     return null;
   }
@@ -1999,21 +1999,21 @@ function getPath(obj, path, checkVars = true) {
     return null;
   }, obj);
 }
-function getStyleValue(themeMapping, transform, propValueFinal, userValue = propValueFinal) {
+function getStyleValue$2(themeMapping, transform, propValueFinal, userValue = propValueFinal) {
   let value;
   if (typeof themeMapping === "function") {
     value = themeMapping(propValueFinal);
   } else if (Array.isArray(themeMapping)) {
     value = themeMapping[propValueFinal] || userValue;
   } else {
-    value = getPath(themeMapping, propValueFinal) || userValue;
+    value = getPath$1(themeMapping, propValueFinal) || userValue;
   }
   if (transform) {
     value = transform(value, userValue, themeMapping);
   }
   return value;
 }
-function style$1(options) {
+function style$3(options) {
   const {
     prop,
     cssProperty = options.prop,
@@ -2026,11 +2026,11 @@ function style$1(options) {
     }
     const propValue = props[prop];
     const theme = props.theme;
-    const themeMapping = getPath(theme, themeKey) || {};
+    const themeMapping = getPath$1(theme, themeKey) || {};
     const styleFromPropValue = (propValueFinal) => {
-      let value = getStyleValue(themeMapping, transform, propValueFinal);
+      let value = getStyleValue$2(themeMapping, transform, propValueFinal);
       if (propValueFinal === value && typeof propValueFinal === "string") {
-        value = getStyleValue(themeMapping, transform, `${prop}${propValueFinal === "default" ? "" : capitalize(propValueFinal)}`, propValueFinal);
+        value = getStyleValue$2(themeMapping, transform, `${prop}${propValueFinal === "default" ? "" : capitalize$1(propValueFinal)}`, propValueFinal);
       }
       if (cssProperty === false) {
         return value;
@@ -2039,15 +2039,15 @@ function style$1(options) {
         [cssProperty]: value
       };
     };
-    return handleBreakpoints(props, propValue, styleFromPropValue);
+    return handleBreakpoints$1(props, propValue, styleFromPropValue);
   };
   fn.propTypes = process.env.NODE_ENV !== "production" ? {
-    [prop]: responsivePropType
+    [prop]: responsivePropType$1
   } : {};
   fn.filterProps = [prop];
   return fn;
 }
-function memoize$1(fn) {
+function memoize$2(fn) {
   const cache = {};
   return (arg2) => {
     if (cache[arg2] === void 0) {
@@ -2056,11 +2056,11 @@ function memoize$1(fn) {
     return cache[arg2];
   };
 }
-const properties = {
+const properties$1 = {
   m: "margin",
   p: "padding"
 };
-const directions = {
+const directions$1 = {
   t: "Top",
   r: "Right",
   b: "Bottom",
@@ -2068,30 +2068,30 @@ const directions = {
   x: ["Left", "Right"],
   y: ["Top", "Bottom"]
 };
-const aliases = {
+const aliases$1 = {
   marginX: "mx",
   marginY: "my",
   paddingX: "px",
   paddingY: "py"
 };
-const getCssProperties = memoize$1((prop) => {
+const getCssProperties$1 = memoize$2((prop) => {
   if (prop.length > 2) {
-    if (aliases[prop]) {
-      prop = aliases[prop];
+    if (aliases$1[prop]) {
+      prop = aliases$1[prop];
     } else {
       return [prop];
     }
   }
   const [a, b] = prop.split("");
-  const property = properties[a];
-  const direction = directions[b] || "";
+  const property = properties$1[a];
+  const direction = directions$1[b] || "";
   return Array.isArray(direction) ? direction.map((dir) => property + dir) : [property + direction];
 });
-const marginKeys = ["m", "mt", "mr", "mb", "ml", "mx", "my", "margin", "marginTop", "marginRight", "marginBottom", "marginLeft", "marginX", "marginY", "marginInline", "marginInlineStart", "marginInlineEnd", "marginBlock", "marginBlockStart", "marginBlockEnd"];
-const paddingKeys = ["p", "pt", "pr", "pb", "pl", "px", "py", "padding", "paddingTop", "paddingRight", "paddingBottom", "paddingLeft", "paddingX", "paddingY", "paddingInline", "paddingInlineStart", "paddingInlineEnd", "paddingBlock", "paddingBlockStart", "paddingBlockEnd"];
-const spacingKeys = [...marginKeys, ...paddingKeys];
-function createUnaryUnit(theme, themeKey, defaultValue, propName) {
-  const themeSpacing = getPath(theme, themeKey, true) ?? defaultValue;
+const marginKeys$1 = ["m", "mt", "mr", "mb", "ml", "mx", "my", "margin", "marginTop", "marginRight", "marginBottom", "marginLeft", "marginX", "marginY", "marginInline", "marginInlineStart", "marginInlineEnd", "marginBlock", "marginBlockStart", "marginBlockEnd"];
+const paddingKeys$1 = ["p", "pt", "pr", "pb", "pl", "px", "py", "padding", "paddingTop", "paddingRight", "paddingBottom", "paddingLeft", "paddingX", "paddingY", "paddingInline", "paddingInlineStart", "paddingInlineEnd", "paddingBlock", "paddingBlockStart", "paddingBlockEnd"];
+const spacingKeys$1 = [...marginKeys$1, ...paddingKeys$1];
+function createUnaryUnit$1(theme, themeKey, defaultValue, propName) {
+  const themeSpacing = getPath$1(theme, themeKey, true) ?? defaultValue;
   if (typeof themeSpacing === "number" || typeof themeSpacing === "string") {
     return (val) => {
       if (typeof val === "string") {
@@ -2139,55 +2139,55 @@ function createUnaryUnit(theme, themeKey, defaultValue, propName) {
   }
   return () => void 0;
 }
-function createUnarySpacing(theme) {
-  return createUnaryUnit(theme, "spacing", 8, "spacing");
+function createUnarySpacing$1(theme) {
+  return createUnaryUnit$1(theme, "spacing", 8, "spacing");
 }
-function getValue(transformer, propValue) {
+function getValue$1(transformer, propValue) {
   if (typeof propValue === "string" || propValue == null) {
     return propValue;
   }
   return transformer(propValue);
 }
-function getStyleFromPropValue(cssProperties, transformer) {
+function getStyleFromPropValue$1(cssProperties, transformer) {
   return (propValue) => cssProperties.reduce((acc, cssProperty) => {
-    acc[cssProperty] = getValue(transformer, propValue);
+    acc[cssProperty] = getValue$1(transformer, propValue);
     return acc;
   }, {});
 }
-function resolveCssProperty(props, keys, prop, transformer) {
+function resolveCssProperty$1(props, keys, prop, transformer) {
   if (!keys.includes(prop)) {
     return null;
   }
-  const cssProperties = getCssProperties(prop);
-  const styleFromPropValue = getStyleFromPropValue(cssProperties, transformer);
+  const cssProperties = getCssProperties$1(prop);
+  const styleFromPropValue = getStyleFromPropValue$1(cssProperties, transformer);
   const propValue = props[prop];
-  return handleBreakpoints(props, propValue, styleFromPropValue);
+  return handleBreakpoints$1(props, propValue, styleFromPropValue);
 }
-function style(props, keys) {
-  const transformer = createUnarySpacing(props.theme);
-  return Object.keys(props).map((prop) => resolveCssProperty(props, keys, prop, transformer)).reduce(merge, {});
+function style$2(props, keys) {
+  const transformer = createUnarySpacing$1(props.theme);
+  return Object.keys(props).map((prop) => resolveCssProperty$1(props, keys, prop, transformer)).reduce(merge$1, {});
 }
-function margin(props) {
-  return style(props, marginKeys);
+function margin$1(props) {
+  return style$2(props, marginKeys$1);
 }
-margin.propTypes = process.env.NODE_ENV !== "production" ? marginKeys.reduce((obj, key) => {
-  obj[key] = responsivePropType;
+margin$1.propTypes = process.env.NODE_ENV !== "production" ? marginKeys$1.reduce((obj, key) => {
+  obj[key] = responsivePropType$1;
   return obj;
 }, {}) : {};
-margin.filterProps = marginKeys;
-function padding(props) {
-  return style(props, paddingKeys);
+margin$1.filterProps = marginKeys$1;
+function padding$1(props) {
+  return style$2(props, paddingKeys$1);
 }
-padding.propTypes = process.env.NODE_ENV !== "production" ? paddingKeys.reduce((obj, key) => {
-  obj[key] = responsivePropType;
+padding$1.propTypes = process.env.NODE_ENV !== "production" ? paddingKeys$1.reduce((obj, key) => {
+  obj[key] = responsivePropType$1;
   return obj;
 }, {}) : {};
-padding.filterProps = paddingKeys;
-process.env.NODE_ENV !== "production" ? spacingKeys.reduce((obj, key) => {
-  obj[key] = responsivePropType;
+padding$1.filterProps = paddingKeys$1;
+process.env.NODE_ENV !== "production" ? spacingKeys$1.reduce((obj, key) => {
+  obj[key] = responsivePropType$1;
   return obj;
 }, {}) : {};
-function compose(...styles2) {
+function compose$1(...styles2) {
   const handlers = styles2.reduce((acc, style2) => {
     style2.filterProps.forEach((prop) => {
       acc[prop] = style2;
@@ -2197,7 +2197,7 @@ function compose(...styles2) {
   const fn = (props) => {
     return Object.keys(props).reduce((acc, prop) => {
       if (handlers[prop]) {
-        return merge(acc, handlers[prop](props));
+        return merge$1(acc, handlers[prop](props));
       }
       return acc;
     }, {});
@@ -2206,154 +2206,154 @@ function compose(...styles2) {
   fn.filterProps = styles2.reduce((acc, style2) => acc.concat(style2.filterProps), []);
   return fn;
 }
-function borderTransform(value) {
+function borderTransform$1(value) {
   if (typeof value !== "number") {
     return value;
   }
   return `${value}px solid`;
 }
-function createBorderStyle(prop, transform) {
-  return style$1({
+function createBorderStyle$1(prop, transform) {
+  return style$3({
     prop,
     themeKey: "borders",
     transform
   });
 }
-const border = createBorderStyle("border", borderTransform);
-const borderTop = createBorderStyle("borderTop", borderTransform);
-const borderRight = createBorderStyle("borderRight", borderTransform);
-const borderBottom = createBorderStyle("borderBottom", borderTransform);
-const borderLeft = createBorderStyle("borderLeft", borderTransform);
-const borderColor = createBorderStyle("borderColor");
-const borderTopColor = createBorderStyle("borderTopColor");
-const borderRightColor = createBorderStyle("borderRightColor");
-const borderBottomColor = createBorderStyle("borderBottomColor");
-const borderLeftColor = createBorderStyle("borderLeftColor");
-const outline = createBorderStyle("outline", borderTransform);
-const outlineColor = createBorderStyle("outlineColor");
-const borderRadius = (props) => {
+const border$1 = createBorderStyle$1("border", borderTransform$1);
+const borderTop$1 = createBorderStyle$1("borderTop", borderTransform$1);
+const borderRight$1 = createBorderStyle$1("borderRight", borderTransform$1);
+const borderBottom$1 = createBorderStyle$1("borderBottom", borderTransform$1);
+const borderLeft$1 = createBorderStyle$1("borderLeft", borderTransform$1);
+const borderColor$1 = createBorderStyle$1("borderColor");
+const borderTopColor$1 = createBorderStyle$1("borderTopColor");
+const borderRightColor$1 = createBorderStyle$1("borderRightColor");
+const borderBottomColor$1 = createBorderStyle$1("borderBottomColor");
+const borderLeftColor$1 = createBorderStyle$1("borderLeftColor");
+const outline$1 = createBorderStyle$1("outline", borderTransform$1);
+const outlineColor$1 = createBorderStyle$1("outlineColor");
+const borderRadius$1 = (props) => {
   if (props.borderRadius !== void 0 && props.borderRadius !== null) {
-    const transformer = createUnaryUnit(props.theme, "shape.borderRadius", 4, "borderRadius");
+    const transformer = createUnaryUnit$1(props.theme, "shape.borderRadius", 4, "borderRadius");
     const styleFromPropValue = (propValue) => ({
-      borderRadius: getValue(transformer, propValue)
+      borderRadius: getValue$1(transformer, propValue)
     });
-    return handleBreakpoints(props, props.borderRadius, styleFromPropValue);
+    return handleBreakpoints$1(props, props.borderRadius, styleFromPropValue);
   }
   return null;
 };
-borderRadius.propTypes = process.env.NODE_ENV !== "production" ? {
-  borderRadius: responsivePropType
+borderRadius$1.propTypes = process.env.NODE_ENV !== "production" ? {
+  borderRadius: responsivePropType$1
 } : {};
-borderRadius.filterProps = ["borderRadius"];
-compose(border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderTopColor, borderRightColor, borderBottomColor, borderLeftColor, borderRadius, outline, outlineColor);
-const gap = (props) => {
+borderRadius$1.filterProps = ["borderRadius"];
+compose$1(border$1, borderTop$1, borderRight$1, borderBottom$1, borderLeft$1, borderColor$1, borderTopColor$1, borderRightColor$1, borderBottomColor$1, borderLeftColor$1, borderRadius$1, outline$1, outlineColor$1);
+const gap$1 = (props) => {
   if (props.gap !== void 0 && props.gap !== null) {
-    const transformer = createUnaryUnit(props.theme, "spacing", 8, "gap");
+    const transformer = createUnaryUnit$1(props.theme, "spacing", 8, "gap");
     const styleFromPropValue = (propValue) => ({
-      gap: getValue(transformer, propValue)
+      gap: getValue$1(transformer, propValue)
     });
-    return handleBreakpoints(props, props.gap, styleFromPropValue);
+    return handleBreakpoints$1(props, props.gap, styleFromPropValue);
   }
   return null;
 };
-gap.propTypes = process.env.NODE_ENV !== "production" ? {
-  gap: responsivePropType
+gap$1.propTypes = process.env.NODE_ENV !== "production" ? {
+  gap: responsivePropType$1
 } : {};
-gap.filterProps = ["gap"];
-const columnGap = (props) => {
+gap$1.filterProps = ["gap"];
+const columnGap$1 = (props) => {
   if (props.columnGap !== void 0 && props.columnGap !== null) {
-    const transformer = createUnaryUnit(props.theme, "spacing", 8, "columnGap");
+    const transformer = createUnaryUnit$1(props.theme, "spacing", 8, "columnGap");
     const styleFromPropValue = (propValue) => ({
-      columnGap: getValue(transformer, propValue)
+      columnGap: getValue$1(transformer, propValue)
     });
-    return handleBreakpoints(props, props.columnGap, styleFromPropValue);
+    return handleBreakpoints$1(props, props.columnGap, styleFromPropValue);
   }
   return null;
 };
-columnGap.propTypes = process.env.NODE_ENV !== "production" ? {
-  columnGap: responsivePropType
+columnGap$1.propTypes = process.env.NODE_ENV !== "production" ? {
+  columnGap: responsivePropType$1
 } : {};
-columnGap.filterProps = ["columnGap"];
-const rowGap = (props) => {
+columnGap$1.filterProps = ["columnGap"];
+const rowGap$1 = (props) => {
   if (props.rowGap !== void 0 && props.rowGap !== null) {
-    const transformer = createUnaryUnit(props.theme, "spacing", 8, "rowGap");
+    const transformer = createUnaryUnit$1(props.theme, "spacing", 8, "rowGap");
     const styleFromPropValue = (propValue) => ({
-      rowGap: getValue(transformer, propValue)
+      rowGap: getValue$1(transformer, propValue)
     });
-    return handleBreakpoints(props, props.rowGap, styleFromPropValue);
+    return handleBreakpoints$1(props, props.rowGap, styleFromPropValue);
   }
   return null;
 };
-rowGap.propTypes = process.env.NODE_ENV !== "production" ? {
-  rowGap: responsivePropType
+rowGap$1.propTypes = process.env.NODE_ENV !== "production" ? {
+  rowGap: responsivePropType$1
 } : {};
-rowGap.filterProps = ["rowGap"];
-const gridColumn = style$1({
+rowGap$1.filterProps = ["rowGap"];
+const gridColumn$1 = style$3({
   prop: "gridColumn"
 });
-const gridRow = style$1({
+const gridRow$1 = style$3({
   prop: "gridRow"
 });
-const gridAutoFlow = style$1({
+const gridAutoFlow$1 = style$3({
   prop: "gridAutoFlow"
 });
-const gridAutoColumns = style$1({
+const gridAutoColumns$1 = style$3({
   prop: "gridAutoColumns"
 });
-const gridAutoRows = style$1({
+const gridAutoRows$1 = style$3({
   prop: "gridAutoRows"
 });
-const gridTemplateColumns = style$1({
+const gridTemplateColumns$1 = style$3({
   prop: "gridTemplateColumns"
 });
-const gridTemplateRows = style$1({
+const gridTemplateRows$1 = style$3({
   prop: "gridTemplateRows"
 });
-const gridTemplateAreas = style$1({
+const gridTemplateAreas$1 = style$3({
   prop: "gridTemplateAreas"
 });
-const gridArea = style$1({
+const gridArea$1 = style$3({
   prop: "gridArea"
 });
-compose(gap, columnGap, rowGap, gridColumn, gridRow, gridAutoFlow, gridAutoColumns, gridAutoRows, gridTemplateColumns, gridTemplateRows, gridTemplateAreas, gridArea);
-function paletteTransform(value, userValue) {
+compose$1(gap$1, columnGap$1, rowGap$1, gridColumn$1, gridRow$1, gridAutoFlow$1, gridAutoColumns$1, gridAutoRows$1, gridTemplateColumns$1, gridTemplateRows$1, gridTemplateAreas$1, gridArea$1);
+function paletteTransform$1(value, userValue) {
   if (userValue === "grey") {
     return userValue;
   }
   return value;
 }
-const color = style$1({
+const color$1 = style$3({
   prop: "color",
   themeKey: "palette",
-  transform: paletteTransform
+  transform: paletteTransform$1
 });
-const bgcolor = style$1({
+const bgcolor$1 = style$3({
   prop: "bgcolor",
   cssProperty: "backgroundColor",
   themeKey: "palette",
-  transform: paletteTransform
+  transform: paletteTransform$1
 });
-const backgroundColor = style$1({
+const backgroundColor$1 = style$3({
   prop: "backgroundColor",
   themeKey: "palette",
-  transform: paletteTransform
+  transform: paletteTransform$1
 });
-compose(color, bgcolor, backgroundColor);
-function sizingTransform(value) {
+compose$1(color$1, bgcolor$1, backgroundColor$1);
+function sizingTransform$1(value) {
   return value <= 1 && value !== 0 ? `${value * 100}%` : value;
 }
-const width = style$1({
+const width$1 = style$3({
   prop: "width",
-  transform: sizingTransform
+  transform: sizingTransform$1
 });
-const maxWidth = (props) => {
+const maxWidth$1 = (props) => {
   if (props.maxWidth !== void 0 && props.maxWidth !== null) {
     const styleFromPropValue = (propValue) => {
       var _a, _b, _c, _d, _e;
-      const breakpoint = ((_c = (_b = (_a = props.theme) == null ? void 0 : _a.breakpoints) == null ? void 0 : _b.values) == null ? void 0 : _c[propValue]) || values[propValue];
+      const breakpoint = ((_c = (_b = (_a = props.theme) == null ? void 0 : _a.breakpoints) == null ? void 0 : _b.values) == null ? void 0 : _c[propValue]) || values$1[propValue];
       if (!breakpoint) {
         return {
-          maxWidth: sizingTransform(propValue)
+          maxWidth: sizingTransform$1(propValue)
         };
       }
       if (((_e = (_d = props.theme) == null ? void 0 : _d.breakpoints) == null ? void 0 : _e.unit) !== "px") {
@@ -2365,62 +2365,62 @@ const maxWidth = (props) => {
         maxWidth: breakpoint
       };
     };
-    return handleBreakpoints(props, props.maxWidth, styleFromPropValue);
+    return handleBreakpoints$1(props, props.maxWidth, styleFromPropValue);
   }
   return null;
 };
-maxWidth.filterProps = ["maxWidth"];
-const minWidth = style$1({
+maxWidth$1.filterProps = ["maxWidth"];
+const minWidth$1 = style$3({
   prop: "minWidth",
-  transform: sizingTransform
+  transform: sizingTransform$1
 });
-const height = style$1({
+const height$1 = style$3({
   prop: "height",
-  transform: sizingTransform
+  transform: sizingTransform$1
 });
-const maxHeight = style$1({
+const maxHeight$1 = style$3({
   prop: "maxHeight",
-  transform: sizingTransform
+  transform: sizingTransform$1
 });
-const minHeight = style$1({
+const minHeight$1 = style$3({
   prop: "minHeight",
-  transform: sizingTransform
+  transform: sizingTransform$1
 });
-style$1({
+style$3({
   prop: "size",
   cssProperty: "width",
-  transform: sizingTransform
+  transform: sizingTransform$1
 });
-style$1({
+style$3({
   prop: "size",
   cssProperty: "height",
-  transform: sizingTransform
+  transform: sizingTransform$1
 });
-const boxSizing = style$1({
+const boxSizing$1 = style$3({
   prop: "boxSizing"
 });
-compose(width, maxWidth, minWidth, height, maxHeight, minHeight, boxSizing);
-const defaultSxConfig = {
+compose$1(width$1, maxWidth$1, minWidth$1, height$1, maxHeight$1, minHeight$1, boxSizing$1);
+const defaultSxConfig$1 = {
   // borders
   border: {
     themeKey: "borders",
-    transform: borderTransform
+    transform: borderTransform$1
   },
   borderTop: {
     themeKey: "borders",
-    transform: borderTransform
+    transform: borderTransform$1
   },
   borderRight: {
     themeKey: "borders",
-    transform: borderTransform
+    transform: borderTransform$1
   },
   borderBottom: {
     themeKey: "borders",
-    transform: borderTransform
+    transform: borderTransform$1
   },
   borderLeft: {
     themeKey: "borders",
-    transform: borderTransform
+    transform: borderTransform$1
   },
   borderColor: {
     themeKey: "palette"
@@ -2439,149 +2439,149 @@ const defaultSxConfig = {
   },
   outline: {
     themeKey: "borders",
-    transform: borderTransform
+    transform: borderTransform$1
   },
   outlineColor: {
     themeKey: "palette"
   },
   borderRadius: {
     themeKey: "shape.borderRadius",
-    style: borderRadius
+    style: borderRadius$1
   },
   // palette
   color: {
     themeKey: "palette",
-    transform: paletteTransform
+    transform: paletteTransform$1
   },
   bgcolor: {
     themeKey: "palette",
     cssProperty: "backgroundColor",
-    transform: paletteTransform
+    transform: paletteTransform$1
   },
   backgroundColor: {
     themeKey: "palette",
-    transform: paletteTransform
+    transform: paletteTransform$1
   },
   // spacing
   p: {
-    style: padding
+    style: padding$1
   },
   pt: {
-    style: padding
+    style: padding$1
   },
   pr: {
-    style: padding
+    style: padding$1
   },
   pb: {
-    style: padding
+    style: padding$1
   },
   pl: {
-    style: padding
+    style: padding$1
   },
   px: {
-    style: padding
+    style: padding$1
   },
   py: {
-    style: padding
+    style: padding$1
   },
   padding: {
-    style: padding
+    style: padding$1
   },
   paddingTop: {
-    style: padding
+    style: padding$1
   },
   paddingRight: {
-    style: padding
+    style: padding$1
   },
   paddingBottom: {
-    style: padding
+    style: padding$1
   },
   paddingLeft: {
-    style: padding
+    style: padding$1
   },
   paddingX: {
-    style: padding
+    style: padding$1
   },
   paddingY: {
-    style: padding
+    style: padding$1
   },
   paddingInline: {
-    style: padding
+    style: padding$1
   },
   paddingInlineStart: {
-    style: padding
+    style: padding$1
   },
   paddingInlineEnd: {
-    style: padding
+    style: padding$1
   },
   paddingBlock: {
-    style: padding
+    style: padding$1
   },
   paddingBlockStart: {
-    style: padding
+    style: padding$1
   },
   paddingBlockEnd: {
-    style: padding
+    style: padding$1
   },
   m: {
-    style: margin
+    style: margin$1
   },
   mt: {
-    style: margin
+    style: margin$1
   },
   mr: {
-    style: margin
+    style: margin$1
   },
   mb: {
-    style: margin
+    style: margin$1
   },
   ml: {
-    style: margin
+    style: margin$1
   },
   mx: {
-    style: margin
+    style: margin$1
   },
   my: {
-    style: margin
+    style: margin$1
   },
   margin: {
-    style: margin
+    style: margin$1
   },
   marginTop: {
-    style: margin
+    style: margin$1
   },
   marginRight: {
-    style: margin
+    style: margin$1
   },
   marginBottom: {
-    style: margin
+    style: margin$1
   },
   marginLeft: {
-    style: margin
+    style: margin$1
   },
   marginX: {
-    style: margin
+    style: margin$1
   },
   marginY: {
-    style: margin
+    style: margin$1
   },
   marginInline: {
-    style: margin
+    style: margin$1
   },
   marginInlineStart: {
-    style: margin
+    style: margin$1
   },
   marginInlineEnd: {
-    style: margin
+    style: margin$1
   },
   marginBlock: {
-    style: margin
+    style: margin$1
   },
   marginBlockStart: {
-    style: margin
+    style: margin$1
   },
   marginBlockEnd: {
-    style: margin
+    style: margin$1
   },
   // display
   displayPrint: {
@@ -2613,13 +2613,13 @@ const defaultSxConfig = {
   justifySelf: {},
   // grid
   gap: {
-    style: gap
+    style: gap$1
   },
   rowGap: {
-    style: rowGap
+    style: rowGap$1
   },
   columnGap: {
-    style: columnGap
+    style: columnGap$1
   },
   gridColumn: {},
   gridRow: {},
@@ -2645,22 +2645,22 @@ const defaultSxConfig = {
   },
   // sizing
   width: {
-    transform: sizingTransform
+    transform: sizingTransform$1
   },
   maxWidth: {
-    style: maxWidth
+    style: maxWidth$1
   },
   minWidth: {
-    transform: sizingTransform
+    transform: sizingTransform$1
   },
   height: {
-    transform: sizingTransform
+    transform: sizingTransform$1
   },
   maxHeight: {
-    transform: sizingTransform
+    transform: sizingTransform$1
   },
   minHeight: {
-    transform: sizingTransform
+    transform: sizingTransform$1
   },
   boxSizing: {},
   // typography
@@ -2688,15 +2688,15 @@ const defaultSxConfig = {
     themeKey: "typography"
   }
 };
-function objectsHaveSameKeys(...objects) {
+function objectsHaveSameKeys$1(...objects) {
   const allKeys = objects.reduce((keys, object) => keys.concat(Object.keys(object)), []);
   const union = new Set(allKeys);
   return objects.every((object) => union.size === Object.keys(object).length);
 }
-function callIfFn(maybeFn, arg2) {
+function callIfFn$1(maybeFn, arg2) {
   return typeof maybeFn === "function" ? maybeFn(arg2) : maybeFn;
 }
-function unstable_createStyleFunctionSx() {
+function unstable_createStyleFunctionSx$1() {
   function getThemeValue(prop, val, theme, config) {
     const props = {
       [prop]: val,
@@ -2722,14 +2722,14 @@ function unstable_createStyleFunctionSx() {
         [prop]: val
       };
     }
-    const themeMapping = getPath(theme, themeKey) || {};
+    const themeMapping = getPath$1(theme, themeKey) || {};
     if (style2) {
       return style2(props);
     }
     const styleFromPropValue = (propValueFinal) => {
-      let value = getStyleValue(themeMapping, transform, propValueFinal);
+      let value = getStyleValue$2(themeMapping, transform, propValueFinal);
       if (propValueFinal === value && typeof propValueFinal === "string") {
-        value = getStyleValue(themeMapping, transform, `${prop}${propValueFinal === "default" ? "" : capitalize(propValueFinal)}`, propValueFinal);
+        value = getStyleValue$2(themeMapping, transform, `${prop}${propValueFinal === "default" ? "" : capitalize$1(propValueFinal)}`, propValueFinal);
       }
       if (cssProperty === false) {
         return value;
@@ -2738,7 +2738,7 @@ function unstable_createStyleFunctionSx() {
         [cssProperty]: value
       };
     };
-    return handleBreakpoints(props, val, styleFromPropValue);
+    return handleBreakpoints$1(props, val, styleFromPropValue);
   }
   function styleFunctionSx2(props) {
     const {
@@ -2748,7 +2748,7 @@ function unstable_createStyleFunctionSx() {
     if (!sx) {
       return null;
     }
-    const config = theme.unstable_sxConfig ?? defaultSxConfig;
+    const config = theme.unstable_sxConfig ?? defaultSxConfig$1;
     function traverse(sxInput) {
       let sxObject = sxInput;
       if (typeof sxInput === "function") {
@@ -2759,43 +2759,43 @@ function unstable_createStyleFunctionSx() {
       if (!sxObject) {
         return null;
       }
-      const emptyBreakpoints = createEmptyBreakpointObject(theme.breakpoints);
+      const emptyBreakpoints = createEmptyBreakpointObject$1(theme.breakpoints);
       const breakpointsKeys = Object.keys(emptyBreakpoints);
       let css = emptyBreakpoints;
       Object.keys(sxObject).forEach((styleKey) => {
-        const value = callIfFn(sxObject[styleKey], theme);
+        const value = callIfFn$1(sxObject[styleKey], theme);
         if (value !== null && value !== void 0) {
           if (typeof value === "object") {
             if (config[styleKey]) {
-              css = merge(css, getThemeValue(styleKey, value, theme, config));
+              css = merge$1(css, getThemeValue(styleKey, value, theme, config));
             } else {
-              const breakpointsValues = handleBreakpoints({
+              const breakpointsValues = handleBreakpoints$1({
                 theme
               }, value, (x) => ({
                 [styleKey]: x
               }));
-              if (objectsHaveSameKeys(breakpointsValues, value)) {
+              if (objectsHaveSameKeys$1(breakpointsValues, value)) {
                 css[styleKey] = styleFunctionSx2({
                   sx: value,
                   theme
                 });
               } else {
-                css = merge(css, breakpointsValues);
+                css = merge$1(css, breakpointsValues);
               }
             }
           } else {
-            css = merge(css, getThemeValue(styleKey, value, theme, config));
+            css = merge$1(css, getThemeValue(styleKey, value, theme, config));
           }
         }
       });
-      return sortContainerQueries(theme, removeUnusedBreakpoints(breakpointsKeys, css));
+      return sortContainerQueries(theme, removeUnusedBreakpoints$1(breakpointsKeys, css));
     }
     return Array.isArray(sx) ? sx.map(traverse) : traverse(sx);
   }
   return styleFunctionSx2;
 }
-const styleFunctionSx = unstable_createStyleFunctionSx();
-styleFunctionSx.filterProps = ["sx"];
+const styleFunctionSx$1 = unstable_createStyleFunctionSx$1();
+styleFunctionSx$1.filterProps = ["sx"];
 function _extends() {
   return _extends = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
@@ -3225,7 +3225,7 @@ function rulesheet(callback) {
     }
   };
 }
-function memoize(fn) {
+function memoize$1(fn) {
   var cache = /* @__PURE__ */ Object.create(null);
   return function(arg2) {
     if (cache[arg2] === void 0) cache[arg2] = fn(arg2);
@@ -3660,7 +3660,7 @@ var isCustomProperty = function isCustomProperty2(property) {
 var isProcessableValue = function isProcessableValue2(value) {
   return value != null && typeof value !== "boolean";
 };
-var processStyleName = /* @__PURE__ */ memoize(function(styleName) {
+var processStyleName = /* @__PURE__ */ memoize$1(function(styleName) {
   return isCustomProperty(styleName) ? styleName : styleName.replace(hyphenateRegex, "-$&").toLowerCase();
 });
 var processStyleValue = function processStyleValue2(key, value) {
@@ -3848,7 +3848,7 @@ var withEmotionCache = function withEmotionCache2(func) {
 };
 var ThemeContext = /* @__PURE__ */ React.createContext({});
 var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|disableRemotePlayback|download|draggable|encType|enterKeyHint|fetchpriority|fetchPriority|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/;
-var isPropValid = /* @__PURE__ */ memoize(
+var isPropValid = /* @__PURE__ */ memoize$1(
   function(prop) {
     return reactPropsRegex.test(prop) || prop.charCodeAt(0) === 111 && prop.charCodeAt(1) === 110 && prop.charCodeAt(2) < 91;
   }
@@ -3886,7 +3886,7 @@ var Insertion = function Insertion2(_ref) {
   });
   return null;
 };
-var createStyled$1 = function createStyled(tag, options) {
+var createStyled$2 = function createStyled(tag, options) {
   var isReal = tag.__emotion_real === tag;
   var baseTag = isReal && tag.__emotion_base || tag;
   var identifierName;
@@ -4115,7 +4115,7 @@ var tags = [
   "text",
   "tspan"
 ];
-var newStyled = createStyled$1.bind(null);
+var newStyled = createStyled$2.bind(null);
 tags.forEach(function(tagName) {
   newStyled[tagName] = newStyled(tagName);
 });
@@ -4126,7 +4126,7 @@ tags.forEach(function(tagName) {
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-function styled$1(tag, options) {
+function styled$3(tag, options) {
   const stylesFactory = newStyled(tag, options);
   if (process.env.NODE_ENV !== "production") {
     return (...styles2) => {
@@ -4151,7 +4151,7 @@ function internal_serializeStyles(styles2) {
   wrapper[0] = styles2;
   return serializeStyles(wrapper);
 }
-const sortBreakpointsValues = (values2) => {
+const sortBreakpointsValues$1 = (values2) => {
   const breakpointsAsArray = Object.keys(values2).map((key) => ({
     key,
     val: values2[key]
@@ -4164,7 +4164,7 @@ const sortBreakpointsValues = (values2) => {
     };
   }, {});
 };
-function createBreakpoints(breakpoints) {
+function createBreakpoints$1(breakpoints) {
   const {
     // The breakpoint **start** at this value.
     // For instance with the first breakpoint xs: [xs, sm).
@@ -4184,7 +4184,7 @@ function createBreakpoints(breakpoints) {
     step = 5,
     ...other
   } = breakpoints;
-  const sortedValues = sortBreakpointsValues(values2);
+  const sortedValues = sortBreakpointsValues$1(values2);
   const keys = Object.keys(sortedValues);
   function up(key) {
     const value = typeof values2[key] === "number" ? values2[key] : key;
@@ -4226,10 +4226,10 @@ function createBreakpoints(breakpoints) {
     ...other
   };
 }
-const shape = {
+const shape$1 = {
   borderRadius: 4
 };
-function createSpacing(spacingInput = 8, transform = createUnarySpacing({
+function createSpacing$1(spacingInput = 8, transform = createUnarySpacing$1({
   spacing: spacingInput
 })) {
   if (spacingInput.mui) {
@@ -4250,7 +4250,7 @@ function createSpacing(spacingInput = 8, transform = createUnarySpacing({
   spacing.mui = true;
   return spacing;
 }
-function applyStyles(key, styles2) {
+function applyStyles$1(key, styles2) {
   var _a;
   const theme = this;
   if (theme.vars) {
@@ -4273,7 +4273,7 @@ function applyStyles(key, styles2) {
   }
   return {};
 }
-function createTheme$1(options = {}, ...args) {
+function createTheme$2(options = {}, ...args) {
   const {
     breakpoints: breakpointsInput = {},
     palette: paletteInput = {},
@@ -4281,9 +4281,9 @@ function createTheme$1(options = {}, ...args) {
     shape: shapeInput = {},
     ...other
   } = options;
-  const breakpoints = createBreakpoints(breakpointsInput);
-  const spacing = createSpacing(spacingInput);
-  let muiTheme = deepmerge({
+  const breakpoints = createBreakpoints$1(breakpointsInput);
+  const spacing = createSpacing$1(spacingInput);
+  let muiTheme = deepmerge$1({
     breakpoints,
     direction: "ltr",
     components: {},
@@ -4294,19 +4294,19 @@ function createTheme$1(options = {}, ...args) {
     },
     spacing,
     shape: {
-      ...shape,
+      ...shape$1,
       ...shapeInput
     }
   }, other);
   muiTheme = cssContainerQueries(muiTheme);
-  muiTheme.applyStyles = applyStyles;
-  muiTheme = args.reduce((acc, argument) => deepmerge(acc, argument), muiTheme);
+  muiTheme.applyStyles = applyStyles$1;
+  muiTheme = args.reduce((acc, argument) => deepmerge$1(acc, argument), muiTheme);
   muiTheme.unstable_sxConfig = {
-    ...defaultSxConfig,
+    ...defaultSxConfig$1,
     ...other == null ? void 0 : other.unstable_sxConfig
   };
   muiTheme.unstable_sx = function sx(props) {
-    return styleFunctionSx({
+    return styleFunctionSx$1({
       sx: props,
       theme: this
     });
@@ -4335,18 +4335,18 @@ function preprocessStyles(input) {
   }
   return result;
 }
-const systemDefaultTheme = createTheme$1();
-function shouldForwardProp(prop) {
+const systemDefaultTheme$2 = createTheme$2();
+function shouldForwardProp$1(prop) {
   return prop !== "ownerState" && prop !== "theme" && prop !== "sx" && prop !== "as";
 }
-function defaultOverridesResolver(slot) {
+function defaultOverridesResolver$1(slot) {
   if (!slot) {
     return null;
   }
   return (_props, styles2) => styles2[slot];
 }
 function attachTheme(props, themeId, defaultTheme2) {
-  props.theme = isObjectEmpty(props.theme) ? defaultTheme2 : props.theme[themeId] || props.theme;
+  props.theme = isObjectEmpty$1(props.theme) ? defaultTheme2 : props.theme[themeId] || props.theme;
 }
 function processStyle(props, style2) {
   const resolvedStyle = typeof style2 === "function" ? style2(props) : style2;
@@ -4405,18 +4405,18 @@ function processStyleVariants(props, variants, results = []) {
   }
   return results;
 }
-function createStyled2(input = {}) {
+function createStyled$1(input = {}) {
   const {
     themeId,
-    defaultTheme: defaultTheme2 = systemDefaultTheme,
-    rootShouldForwardProp: rootShouldForwardProp2 = shouldForwardProp,
-    slotShouldForwardProp: slotShouldForwardProp2 = shouldForwardProp
+    defaultTheme: defaultTheme2 = systemDefaultTheme$2,
+    rootShouldForwardProp: rootShouldForwardProp2 = shouldForwardProp$1,
+    slotShouldForwardProp: slotShouldForwardProp2 = shouldForwardProp$1
   } = input;
   function styleAttachTheme(props) {
     attachTheme(props, themeId, defaultTheme2);
   }
   const styled2 = (tag, inputOptions = {}) => {
-    internal_mutateStyles(tag, (styles2) => styles2.filter((style2) => style2 !== styleFunctionSx));
+    internal_mutateStyles(tag, (styles2) => styles2.filter((style2) => style2 !== styleFunctionSx$1));
     const {
       name: componentName,
       slot: componentSlot,
@@ -4424,7 +4424,7 @@ function createStyled2(input = {}) {
       skipSx: inputSkipSx,
       // TODO v6: remove `lowercaseFirstLetter()` in the next major release
       // For more details: https://github.com/mui/material-ui/pull/37908
-      overridesResolver = defaultOverridesResolver(lowercaseFirstLetter(componentSlot)),
+      overridesResolver = defaultOverridesResolver$1(lowercaseFirstLetter$1(componentSlot)),
       ...options
     } = inputOptions;
     const skipVariantsResolver = inputSkipVariantsResolver !== void 0 ? inputSkipVariantsResolver : (
@@ -4433,15 +4433,15 @@ function createStyled2(input = {}) {
       componentSlot && componentSlot !== "Root" && componentSlot !== "root" || false
     );
     const skipSx = inputSkipSx || false;
-    let shouldForwardPropOption = shouldForwardProp;
+    let shouldForwardPropOption = shouldForwardProp$1;
     if (componentSlot === "Root" || componentSlot === "root") {
       shouldForwardPropOption = rootShouldForwardProp2;
     } else if (componentSlot) {
       shouldForwardPropOption = slotShouldForwardProp2;
-    } else if (isStringTag(tag)) {
+    } else if (isStringTag$1(tag)) {
       shouldForwardPropOption = void 0;
     }
-    const defaultStyledResolver = styled$1(tag, {
+    const defaultStyledResolver = styled$3(tag, {
       shouldForwardProp: shouldForwardPropOption,
       label: generateStyledLabel(componentName, componentSlot),
       ...options
@@ -4452,7 +4452,7 @@ function createStyled2(input = {}) {
           return processStyle(props, style2);
         };
       }
-      if (isPlainObject(style2)) {
+      if (isPlainObject$1(style2)) {
         const serialized = preprocessStyles(style2);
         if (!serialized.variants) {
           return serialized.style;
@@ -4495,7 +4495,7 @@ function createStyled2(input = {}) {
         });
       }
       if (!skipSx) {
-        expressionsTail.push(styleFunctionSx);
+        expressionsTail.push(styleFunctionSx$1);
       }
       if (Array.isArray(expressionsBody[0])) {
         const inputStrings = expressionsBody.shift();
@@ -4527,32 +4527,32 @@ function createStyled2(input = {}) {
 }
 function generateDisplayName(componentName, componentSlot, tag) {
   if (componentName) {
-    return `${componentName}${capitalize(componentSlot || "")}`;
+    return `${componentName}${capitalize$1(componentSlot || "")}`;
   }
-  return `Styled(${getDisplayName(tag)})`;
+  return `Styled(${getDisplayName$1(tag)})`;
 }
 function generateStyledLabel(componentName, componentSlot) {
   let label;
   if (process.env.NODE_ENV !== "production") {
     if (componentName) {
-      label = `${componentName}-${lowercaseFirstLetter(componentSlot || "Root")}`;
+      label = `${componentName}-${lowercaseFirstLetter$1(componentSlot || "Root")}`;
     }
   }
   return label;
 }
-function isObjectEmpty(object) {
+function isObjectEmpty$1(object) {
   for (const _ in object) {
     return false;
   }
   return true;
 }
-function isStringTag(tag) {
+function isStringTag$1(tag) {
   return typeof tag === "string" && // 96 is one less than the char code
   // for "a" so this is checking that
   // it's a lowercase character
   tag.charCodeAt(0) > 96;
 }
-function lowercaseFirstLetter(string) {
+function lowercaseFirstLetter$1(string) {
   if (!string) {
     return string;
   }
@@ -4566,34 +4566,34 @@ function clampWrapper(value, min = 0, max = 1) {
   }
   return clamp(value, min, max);
 }
-function hexToRgb(color2) {
+function hexToRgb$1(color2) {
   color2 = color2.slice(1);
   const re = new RegExp(`.{1,${color2.length >= 6 ? 2 : 1}}`, "g");
-  let colors = color2.match(re);
-  if (colors && colors[0].length === 1) {
-    colors = colors.map((n) => n + n);
+  let colors2 = color2.match(re);
+  if (colors2 && colors2[0].length === 1) {
+    colors2 = colors2.map((n) => n + n);
   }
   if (process.env.NODE_ENV !== "production") {
     if (color2.length !== color2.trim().length) {
       console.error(`MUI: The color: "${color2}" is invalid. Make sure the color input doesn't contain leading/trailing space.`);
     }
   }
-  return colors ? `rgb${colors.length === 4 ? "a" : ""}(${colors.map((n, index) => {
+  return colors2 ? `rgb${colors2.length === 4 ? "a" : ""}(${colors2.map((n, index) => {
     return index < 3 ? parseInt(n, 16) : Math.round(parseInt(n, 16) / 255 * 1e3) / 1e3;
   }).join(", ")})` : "";
 }
-function decomposeColor(color2) {
+function decomposeColor$1(color2) {
   if (color2.type) {
     return color2;
   }
   if (color2.charAt(0) === "#") {
-    return decomposeColor(hexToRgb(color2));
+    return decomposeColor$1(hexToRgb$1(color2));
   }
   const marker = color2.indexOf("(");
   const type = color2.substring(0, marker);
   if (!["rgb", "rgba", "hsl", "hsla", "color"].includes(type)) {
     throw new Error(process.env.NODE_ENV !== "production" ? `MUI: Unsupported \`${color2}\` color.
-The following formats are supported: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla(), color().` : formatMuiErrorMessage(9, color2));
+The following formats are supported: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla(), color().` : formatMuiErrorMessage$2(9, color2));
   }
   let values2 = color2.substring(marker + 1, color2.length - 1);
   let colorSpace;
@@ -4605,7 +4605,7 @@ The following formats are supported: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla()
     }
     if (!["srgb", "display-p3", "a98-rgb", "prophoto-rgb", "rec-2020"].includes(colorSpace)) {
       throw new Error(process.env.NODE_ENV !== "production" ? `MUI: unsupported \`${colorSpace}\` color space.
-The following color spaces are supported: srgb, display-p3, a98-rgb, prophoto-rgb, rec-2020.` : formatMuiErrorMessage(10, colorSpace));
+The following color spaces are supported: srgb, display-p3, a98-rgb, prophoto-rgb, rec-2020.` : formatMuiErrorMessage$2(10, colorSpace));
     }
   } else {
     values2 = values2.split(",");
@@ -4617,13 +4617,13 @@ The following color spaces are supported: srgb, display-p3, a98-rgb, prophoto-rg
     colorSpace
   };
 }
-const colorChannel = (color2) => {
-  const decomposedColor = decomposeColor(color2);
+const colorChannel$1 = (color2) => {
+  const decomposedColor = decomposeColor$1(color2);
   return decomposedColor.values.slice(0, 3).map((val, idx) => decomposedColor.type.includes("hsl") && idx !== 0 ? `${val}%` : val).join(" ");
 };
 const private_safeColorChannel = (color2, warning) => {
   try {
-    return colorChannel(color2);
+    return colorChannel$1(color2);
   } catch (error) {
     if (warning && process.env.NODE_ENV !== "production") {
       console.warn(warning);
@@ -4653,7 +4653,7 @@ function recomposeColor(color2) {
   return `${type}(${values2})`;
 }
 function hslToRgb(color2) {
-  color2 = decomposeColor(color2);
+  color2 = decomposeColor$1(color2);
   const {
     values: values2
   } = color2;
@@ -4674,8 +4674,8 @@ function hslToRgb(color2) {
   });
 }
 function getLuminance(color2) {
-  color2 = decomposeColor(color2);
-  let rgb = color2.type === "hsl" || color2.type === "hsla" ? decomposeColor(hslToRgb(color2)).values : color2.values;
+  color2 = decomposeColor$1(color2);
+  let rgb = color2.type === "hsl" || color2.type === "hsla" ? decomposeColor$1(hslToRgb(color2)).values : color2.values;
   rgb = rgb.map((val) => {
     if (color2.type !== "color") {
       val /= 255;
@@ -4690,7 +4690,7 @@ function getContrastRatio(foreground, background) {
   return (Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05);
 }
 function alpha(color2, value) {
-  color2 = decomposeColor(color2);
+  color2 = decomposeColor$1(color2);
   value = clampWrapper(value);
   if (color2.type === "rgb" || color2.type === "hsl") {
     color2.type += "a";
@@ -4710,7 +4710,7 @@ function private_safeAlpha(color2, value, warning) {
   }
 }
 function darken(color2, coefficient) {
-  color2 = decomposeColor(color2);
+  color2 = decomposeColor$1(color2);
   coefficient = clampWrapper(coefficient);
   if (color2.type.includes("hsl")) {
     color2.values[2] *= 1 - coefficient;
@@ -4729,7 +4729,7 @@ function private_safeDarken(color2, coefficient, warning) {
   }
 }
 function lighten(color2, coefficient) {
-  color2 = decomposeColor(color2);
+  color2 = decomposeColor$1(color2);
   coefficient = clampWrapper(coefficient);
   if (color2.type.includes("hsl")) {
     color2.values[2] += (100 - color2.values[2]) * coefficient;
@@ -4776,7 +4776,7 @@ process.env.NODE_ENV !== "production" ? {
    */
   value: PropTypes.object
 } : void 0;
-function getThemeProps(params) {
+function getThemeProps$1(params) {
   const {
     theme,
     name,
@@ -4787,10 +4787,10 @@ function getThemeProps(params) {
   }
   const config = theme.components[name];
   if (config.defaultProps) {
-    return resolveProps(config.defaultProps, props);
+    return resolveProps$1(config.defaultProps, props);
   }
   if (!config.styleOverrides && !config.variants) {
-    return resolveProps(config, props);
+    return resolveProps$1(config, props);
   }
   return props;
 }
@@ -4799,7 +4799,7 @@ function useDefaultProps$1({
   name
 }) {
   const ctx = React.useContext(PropsContext);
-  return getThemeProps({
+  return getThemeProps$1({
     props,
     name,
     theme: {
@@ -4824,7 +4824,7 @@ function unstable_memoTheme(styleFn) {
     return value;
   };
 }
-function createGetCssVar$1(prefix2 = "") {
+function createGetCssVar$3(prefix2 = "") {
   function appendVar(...vars) {
     if (!vars.length) {
       return "";
@@ -4840,7 +4840,7 @@ function createGetCssVar$1(prefix2 = "") {
   };
   return getCssVar;
 }
-const assignNestedKeys = (obj, keys, value, arrayKeys = []) => {
+const assignNestedKeys$1 = (obj, keys, value, arrayKeys = []) => {
   let temp = obj;
   keys.forEach((k, index) => {
     if (index === keys.length - 1) {
@@ -4857,7 +4857,7 @@ const assignNestedKeys = (obj, keys, value, arrayKeys = []) => {
     }
   });
 };
-const walkObjectDeep = (obj, callback, shouldSkipPaths) => {
+const walkObjectDeep$1 = (obj, callback, shouldSkipPaths) => {
   function recurse(object, parentKeys = [], arrayKeys = []) {
     Object.entries(object).forEach(([key, value]) => {
       if (!shouldSkipPaths || shouldSkipPaths && !shouldSkipPaths([...parentKeys, key])) {
@@ -4873,7 +4873,7 @@ const walkObjectDeep = (obj, callback, shouldSkipPaths) => {
   }
   recurse(obj);
 };
-const getCssValue = (keys, value) => {
+const getCssValue$1 = (keys, value) => {
   if (typeof value === "number") {
     if (["lineHeight", "fontWeight", "opacity", "zIndex"].some((prop) => keys.includes(prop))) {
       return value;
@@ -4886,7 +4886,7 @@ const getCssValue = (keys, value) => {
   }
   return value;
 };
-function cssVarsParser(theme, options) {
+function cssVarsParser$1(theme, options) {
   const {
     prefix: prefix2,
     shouldSkipGeneratingVar: shouldSkipGeneratingVar2
@@ -4894,18 +4894,18 @@ function cssVarsParser(theme, options) {
   const css = {};
   const vars = {};
   const varsWithDefaults = {};
-  walkObjectDeep(
+  walkObjectDeep$1(
     theme,
     (keys, value, arrayKeys) => {
       if (typeof value === "string" || typeof value === "number") {
         if (!shouldSkipGeneratingVar2 || !shouldSkipGeneratingVar2(keys, value)) {
           const cssVar = `--${prefix2 ? `${prefix2}-` : ""}${keys.join("-")}`;
-          const resolvedValue = getCssValue(keys, value);
+          const resolvedValue = getCssValue$1(keys, value);
           Object.assign(css, {
             [cssVar]: resolvedValue
           });
-          assignNestedKeys(vars, keys, `var(${cssVar})`, arrayKeys);
-          assignNestedKeys(varsWithDefaults, keys, `var(${cssVar}, ${resolvedValue})`, arrayKeys);
+          assignNestedKeys$1(vars, keys, `var(${cssVar})`, arrayKeys);
+          assignNestedKeys$1(varsWithDefaults, keys, `var(${cssVar}, ${resolvedValue})`, arrayKeys);
         }
       }
     },
@@ -4918,7 +4918,7 @@ function cssVarsParser(theme, options) {
     varsWithDefaults
   };
 }
-function prepareCssVars(theme, parserConfig = {}) {
+function prepareCssVars$1(theme, parserConfig = {}) {
   const {
     getSelector = defaultGetSelector2,
     disableCssColorScheme,
@@ -4934,7 +4934,7 @@ function prepareCssVars(theme, parserConfig = {}) {
     vars: rootVars,
     css: rootCss,
     varsWithDefaults: rootVarsWithDefaults
-  } = cssVarsParser(otherTheme, parserConfig);
+  } = cssVarsParser$1(otherTheme, parserConfig);
   let themeVars = rootVarsWithDefaults;
   const colorSchemesMap = {};
   const {
@@ -4946,8 +4946,8 @@ function prepareCssVars(theme, parserConfig = {}) {
       vars,
       css,
       varsWithDefaults
-    } = cssVarsParser(scheme, parserConfig);
-    themeVars = deepmerge(themeVars, varsWithDefaults);
+    } = cssVarsParser$1(scheme, parserConfig);
+    themeVars = deepmerge$1(themeVars, varsWithDefaults);
     colorSchemesMap[key] = {
       css,
       vars
@@ -4958,8 +4958,8 @@ function prepareCssVars(theme, parserConfig = {}) {
       css,
       vars,
       varsWithDefaults
-    } = cssVarsParser(defaultScheme, parserConfig);
-    themeVars = deepmerge(themeVars, varsWithDefaults);
+    } = cssVarsParser$1(defaultScheme, parserConfig);
+    themeVars = deepmerge$1(themeVars, varsWithDefaults);
     colorSchemesMap[defaultColorScheme] = {
       css,
       vars
@@ -5005,7 +5005,7 @@ function prepareCssVars(theme, parserConfig = {}) {
     Object.entries(colorSchemesMap).forEach(([, {
       vars: schemeVars
     }]) => {
-      vars = deepmerge(vars, schemeVars);
+      vars = deepmerge$1(vars, schemeVars);
     });
     return vars;
   };
@@ -5414,7 +5414,7 @@ function createPalette(palette) {
     }
     if (!color2.hasOwnProperty("main")) {
       throw new Error(process.env.NODE_ENV !== "production" ? `MUI: The color${name ? ` (${name})` : ""} provided to augmentColor(color) is invalid.
-The color object needs to have a \`main\` property or a \`${mainShade}\` property.` : formatMuiErrorMessage(11, name ? ` (${name})` : "", mainShade));
+The color object needs to have a \`main\` property or a \`${mainShade}\` property.` : formatMuiErrorMessage$2(11, name ? ` (${name})` : "", mainShade));
     }
     if (typeof color2.main !== "string") {
       throw new Error(process.env.NODE_ENV !== "production" ? `MUI: The color${name ? ` (${name})` : ""} provided to augmentColor(color) is invalid.
@@ -5430,7 +5430,7 @@ const theme1 = createTheme({ palette: {
 
 const theme2 = createTheme({ palette: {
   primary: { main: green[500] },
-} });` : formatMuiErrorMessage(12, name ? ` (${name})` : "", JSON.stringify(color2.main)));
+} });` : formatMuiErrorMessage$2(12, name ? ` (${name})` : "", JSON.stringify(color2.main)));
     }
     addLightOrDark(color2, "light", lightShade, tonalOffset);
     addLightOrDark(color2, "dark", darkShade, tonalOffset);
@@ -5450,7 +5450,7 @@ const theme2 = createTheme({ palette: {
       console.error(`MUI: The palette mode \`${mode}\` is not supported.`);
     }
   }
-  const paletteOutput = deepmerge({
+  const paletteOutput = deepmerge$1({
     // A collection of common colors.
     common: {
       ...common
@@ -5608,7 +5608,7 @@ function createTypography(palette, typography) {
       letterSpacing: "inherit"
     }
   };
-  return deepmerge({
+  return deepmerge$1({
     htmlFontSize,
     pxToRem,
     fontFamily,
@@ -5723,7 +5723,7 @@ const zIndex = {
   tooltip: 1500
 };
 function isSerializable(val) {
-  return isPlainObject(val) || typeof val === "undefined" || typeof val === "string" || typeof val === "boolean" || typeof val === "number" || Array.isArray(val);
+  return isPlainObject$1(val) || typeof val === "undefined" || typeof val === "string" || typeof val === "boolean" || typeof val === "number" || Array.isArray(val);
 }
 function stringifyTheme(baseTheme = {}) {
   const serializableTheme = {
@@ -5735,7 +5735,7 @@ function stringifyTheme(baseTheme = {}) {
       const [key, value] = array[index];
       if (!isSerializable(value) || key.startsWith("unstable_")) {
         delete object[key];
-      } else if (isPlainObject(value)) {
+      } else if (isPlainObject$1(value)) {
         object[key] = {
           ...value
         };
@@ -5765,11 +5765,11 @@ function createThemeNoVars(options = {}, ...args) {
     ...other
   } = options;
   if (options.vars) {
-    throw new Error(process.env.NODE_ENV !== "production" ? "MUI: `vars` is a private field used for CSS variables support.\nPlease use another name." : formatMuiErrorMessage(20));
+    throw new Error(process.env.NODE_ENV !== "production" ? "MUI: `vars` is a private field used for CSS variables support.\nPlease use another name." : formatMuiErrorMessage$2(20));
   }
   const palette = createPalette(paletteInput);
-  const systemTheme = createTheme$1(options);
-  let muiTheme = deepmerge(systemTheme, {
+  const systemTheme = createTheme$2(options);
+  let muiTheme = deepmerge$1(systemTheme, {
     mixins: createMixins(systemTheme.breakpoints, mixinsInput),
     palette,
     // Don't use [...shadows] until you've verified its transpiled code is not invoking the iterator protocol.
@@ -5780,8 +5780,8 @@ function createThemeNoVars(options = {}, ...args) {
       ...zIndex
     }
   });
-  muiTheme = deepmerge(muiTheme, other);
-  muiTheme = args.reduce((acc, argument) => deepmerge(acc, argument), muiTheme);
+  muiTheme = deepmerge$1(muiTheme, other);
+  muiTheme = args.reduce((acc, argument) => deepmerge$1(acc, argument), muiTheme);
   if (process.env.NODE_ENV !== "production") {
     const stateClasses = ["active", "checked", "completed", "disabled", "error", "expanded", "focused", "focusVisible", "required", "selected"];
     const traverse = (node2, component) => {
@@ -5790,7 +5790,7 @@ function createThemeNoVars(options = {}, ...args) {
         const child = node2[key];
         if (stateClasses.includes(key) && Object.keys(child).length > 0) {
           if (process.env.NODE_ENV !== "production") {
-            const stateClass = generateUtilityClass("", key);
+            const stateClass = generateUtilityClass$2("", key);
             console.error([`MUI: The \`${component}\` component increases the CSS specificity of the \`${key}\` internal state.`, "You can not override it like this: ", JSON.stringify(node2, null, 2), "", `Instead, you need to use the '&.${stateClass}' syntax:`, JSON.stringify({
               root: {
                 [`&.${stateClass}`]: child
@@ -5809,11 +5809,11 @@ function createThemeNoVars(options = {}, ...args) {
     });
   }
   muiTheme.unstable_sxConfig = {
-    ...defaultSxConfig,
+    ...defaultSxConfig$1,
     ...other == null ? void 0 : other.unstable_sxConfig
   };
   muiTheme.unstable_sx = function sx(props) {
-    return styleFunctionSx({
+    return styleFunctionSx$1({
       sx: props,
       theme: this
     });
@@ -5869,7 +5869,7 @@ function createColorScheme(options) {
     ...rest
   };
 }
-function shouldSkipGeneratingVar(keys) {
+function shouldSkipGeneratingVar$1(keys) {
   var _a;
   return !!keys[0].match(/(cssVarPrefix|colorSchemeSelector|rootSelector|typography|mixins|breakpoints|direction|transitions)/) || !!keys[0].match(/sxConfig$/) || // ends with sxConfig
   keys[0] === "palette" && !!((_a = keys[1]) == null ? void 0 : _a.match(/(mode|contrastThreshold|tonalOffset)/));
@@ -5973,7 +5973,7 @@ const silent = (fn) => {
   }
   return void 0;
 };
-const createGetCssVar = (cssVarPrefix = "mui") => createGetCssVar$1(cssVarPrefix);
+const createGetCssVar$2 = (cssVarPrefix = "mui") => createGetCssVar$3(cssVarPrefix);
 function attachColorScheme$1(colorSchemes, scheme, restTheme, colorScheme) {
   if (!scheme) {
     return void 0;
@@ -6019,14 +6019,14 @@ function createThemeWithVars(options = {}, ...args) {
     defaultColorScheme: defaultColorSchemeInput,
     disableCssColorScheme = false,
     cssVarPrefix = "mui",
-    shouldSkipGeneratingVar: shouldSkipGeneratingVar$1 = shouldSkipGeneratingVar,
+    shouldSkipGeneratingVar: shouldSkipGeneratingVar2 = shouldSkipGeneratingVar$1,
     colorSchemeSelector: selector = colorSchemesInput.light && colorSchemesInput.dark ? "media" : void 0,
     rootSelector = ":root",
     ...input
   } = options;
   const firstColorScheme = Object.keys(colorSchemesInput)[0];
   const defaultColorScheme = defaultColorSchemeInput || (colorSchemesInput.light && firstColorScheme !== "light" ? "light" : firstColorScheme);
-  const getCssVar = createGetCssVar(cssVarPrefix);
+  const getCssVar = createGetCssVar$2(cssVarPrefix);
   const {
     [defaultColorScheme]: defaultSchemeInput,
     light: builtInLight,
@@ -6041,7 +6041,7 @@ function createThemeWithVars(options = {}, ...args) {
     defaultScheme = true;
   }
   if (!defaultScheme) {
-    throw new Error(process.env.NODE_ENV !== "production" ? `MUI: The \`colorSchemes.${defaultColorScheme}\` option is either missing or invalid.` : formatMuiErrorMessage(21, defaultColorScheme));
+    throw new Error(process.env.NODE_ENV !== "production" ? `MUI: The \`colorSchemes.${defaultColorScheme}\` option is either missing or invalid.` : formatMuiErrorMessage$2(21, defaultColorScheme));
   }
   const muiTheme = attachColorScheme$1(colorSchemes, defaultScheme, input, defaultColorScheme);
   if (builtInLight && !colorSchemes.light) {
@@ -6211,47 +6211,47 @@ function createThemeWithVars(options = {}, ...args) {
     setColorChannel(palette.common, "onBackground");
     setColorChannel(palette, "divider");
     Object.keys(palette).forEach((color2) => {
-      const colors = palette[color2];
-      if (color2 !== "tonalOffset" && colors && typeof colors === "object") {
-        if (colors.main) {
-          setColor(palette[color2], "mainChannel", private_safeColorChannel(toRgb(colors.main)));
+      const colors2 = palette[color2];
+      if (color2 !== "tonalOffset" && colors2 && typeof colors2 === "object") {
+        if (colors2.main) {
+          setColor(palette[color2], "mainChannel", private_safeColorChannel(toRgb(colors2.main)));
         }
-        if (colors.light) {
-          setColor(palette[color2], "lightChannel", private_safeColorChannel(toRgb(colors.light)));
+        if (colors2.light) {
+          setColor(palette[color2], "lightChannel", private_safeColorChannel(toRgb(colors2.light)));
         }
-        if (colors.dark) {
-          setColor(palette[color2], "darkChannel", private_safeColorChannel(toRgb(colors.dark)));
+        if (colors2.dark) {
+          setColor(palette[color2], "darkChannel", private_safeColorChannel(toRgb(colors2.dark)));
         }
-        if (colors.contrastText) {
-          setColor(palette[color2], "contrastTextChannel", private_safeColorChannel(toRgb(colors.contrastText)));
+        if (colors2.contrastText) {
+          setColor(palette[color2], "contrastTextChannel", private_safeColorChannel(toRgb(colors2.contrastText)));
         }
         if (color2 === "text") {
           setColorChannel(palette[color2], "primary");
           setColorChannel(palette[color2], "secondary");
         }
         if (color2 === "action") {
-          if (colors.active) {
+          if (colors2.active) {
             setColorChannel(palette[color2], "active");
           }
-          if (colors.selected) {
+          if (colors2.selected) {
             setColorChannel(palette[color2], "selected");
           }
         }
       }
     });
   });
-  theme = args.reduce((acc, argument) => deepmerge(acc, argument), theme);
+  theme = args.reduce((acc, argument) => deepmerge$1(acc, argument), theme);
   const parserConfig = {
     prefix: cssVarPrefix,
     disableCssColorScheme,
-    shouldSkipGeneratingVar: shouldSkipGeneratingVar$1,
+    shouldSkipGeneratingVar: shouldSkipGeneratingVar2,
     getSelector: defaultGetSelector(theme)
   };
   const {
     vars,
     generateThemeVars,
     generateStyleSheets
-  } = prepareCssVars(theme, parserConfig);
+  } = prepareCssVars$1(theme, parserConfig);
   theme.vars = vars;
   Object.entries(theme.colorSchemes[theme.defaultColorScheme]).forEach(([key, value]) => {
     theme[key] = value;
@@ -6259,17 +6259,17 @@ function createThemeWithVars(options = {}, ...args) {
   theme.generateThemeVars = generateThemeVars;
   theme.generateStyleSheets = generateStyleSheets;
   theme.generateSpacing = function generateSpacing() {
-    return createSpacing(input.spacing, createUnarySpacing(this));
+    return createSpacing$1(input.spacing, createUnarySpacing$1(this));
   };
   theme.getColorSchemeSelector = createGetColorSchemeSelector(selector);
   theme.spacing = theme.generateSpacing();
-  theme.shouldSkipGeneratingVar = shouldSkipGeneratingVar$1;
+  theme.shouldSkipGeneratingVar = shouldSkipGeneratingVar2;
   theme.unstable_sxConfig = {
-    ...defaultSxConfig,
+    ...defaultSxConfig$1,
     ...input == null ? void 0 : input.unstable_sxConfig
   };
   theme.unstable_sx = function sx(props) {
-    return styleFunctionSx({
+    return styleFunctionSx$1({
       sx: props,
       theme: this
     });
@@ -6292,7 +6292,7 @@ function attachColorScheme(theme, scheme, colorScheme) {
     };
   }
 }
-function createTheme(options = {}, ...args) {
+function createTheme$1(options = {}, ...args) {
   const {
     palette,
     cssVariables = false,
@@ -6361,15 +6361,15 @@ function createTheme(options = {}, ...args) {
     ...typeof cssVariables !== "boolean" && cssVariables
   }, ...args);
 }
-const defaultTheme = createTheme();
-const THEME_ID = "$$material";
+const defaultTheme$1 = createTheme$1();
+const THEME_ID$1 = "$$material";
 function slotShouldForwardProp(prop) {
   return prop !== "ownerState" && prop !== "theme" && prop !== "sx" && prop !== "as";
 }
 const rootShouldForwardProp = (prop) => slotShouldForwardProp(prop) && prop !== "classes";
-const styled = createStyled2({
-  themeId: THEME_ID,
-  defaultTheme,
+const styled$2 = createStyled$1({
+  themeId: THEME_ID$1,
+  defaultTheme: defaultTheme$1,
   rootShouldForwardProp
 });
 const memoTheme = unstable_memoTheme;
@@ -6391,28 +6391,28 @@ function useDefaultProps(params) {
   return useDefaultProps$1(params);
 }
 function getSvgIconUtilityClass(slot) {
-  return generateUtilityClass("MuiSvgIcon", slot);
+  return generateUtilityClass$2("MuiSvgIcon", slot);
 }
-generateUtilityClasses("MuiSvgIcon", ["root", "colorPrimary", "colorSecondary", "colorAction", "colorError", "colorDisabled", "fontSizeInherit", "fontSizeSmall", "fontSizeMedium", "fontSizeLarge"]);
-const useUtilityClasses = (ownerState) => {
+generateUtilityClasses$2("MuiSvgIcon", ["root", "colorPrimary", "colorSecondary", "colorAction", "colorError", "colorDisabled", "fontSizeInherit", "fontSizeSmall", "fontSizeMedium", "fontSizeLarge"]);
+const useUtilityClasses$1 = (ownerState) => {
   const {
     color: color2,
     fontSize,
     classes
   } = ownerState;
   const slots = {
-    root: ["root", color2 !== "inherit" && `color${capitalize(color2)}`, `fontSize${capitalize(fontSize)}`]
+    root: ["root", color2 !== "inherit" && `color${capitalize$1(color2)}`, `fontSize${capitalize$1(fontSize)}`]
   };
-  return composeClasses(slots, getSvgIconUtilityClass, classes);
+  return composeClasses$1(slots, getSvgIconUtilityClass, classes);
 };
-const SvgIconRoot = styled("svg", {
+const SvgIconRoot = styled$2("svg", {
   name: "MuiSvgIcon",
   slot: "Root",
   overridesResolver: (props, styles2) => {
     const {
       ownerState
     } = props;
-    return [styles2.root, ownerState.color !== "inherit" && styles2[`color${capitalize(ownerState.color)}`], styles2[`fontSize${capitalize(ownerState.fontSize)}`]];
+    return [styles2.root, ownerState.color !== "inherit" && styles2[`color${capitalize$1(ownerState.color)}`], styles2[`fontSize${capitalize$1(ownerState.fontSize)}`]];
   }
 })(memoTheme(({
   theme
@@ -6539,10 +6539,10 @@ const SvgIcon = /* @__PURE__ */ React.forwardRef(function SvgIcon2(inProps, ref)
   if (!inheritViewBox) {
     more.viewBox = viewBox;
   }
-  const classes = useUtilityClasses(ownerState);
+  const classes = useUtilityClasses$1(ownerState);
   return /* @__PURE__ */ jsxs(SvgIconRoot, {
     as: component,
-    className: clsx(classes.root, className),
+    className: clsx$1(classes.root, className),
     focusable: "false",
     color: htmlColor,
     "aria-hidden": titleAccess ? void 0 : true,
@@ -7066,13 +7066,13 @@ class PdfHighlighter extends PureComponent {
         )
       );
     });
-    __publicField(this, "debouncedAfterSelection", debounce(this.afterSelection, 500));
+    __publicField(this, "debouncedAfterSelection", debounce$1(this.afterSelection, 500));
     __publicField(this, "handleScaleValue", () => {
       if (this.viewer) {
         this.viewer.currentScaleValue = this.props.pdfScaleValue;
       }
     });
-    __publicField(this, "debouncedScaleValue", debounce(this.handleScaleValue, 500));
+    __publicField(this, "debouncedScaleValue", debounce$1(this.handleScaleValue, 500));
     __publicField(this, "handleHighlightMouseEnter", (e, errorData) => {
       const targetElement = e.target;
       const rect = targetElement.getBoundingClientRect();
@@ -7230,7 +7230,7 @@ class PdfHighlighter extends PureComponent {
     }
     return findOrCreateContainerLayer(
       textLayer.div,
-      `PdfHighlighter__highlight-layer ${styles$5.highlightLayer}`,
+      `PdfHighlighter__highlight-layer ${styles$6.highlightLayer}`,
       ".PdfHighlighter__highlight-layer"
     );
   }
@@ -7324,7 +7324,7 @@ class PdfHighlighter extends PureComponent {
     if (!this.viewer.viewer) {
       return;
     }
-    this.viewer.viewer.classList.toggle(styles$5.disableSelection, flag);
+    this.viewer.viewer.classList.toggle(styles$6.disableSelection, flag);
   }
   render() {
     return /* @__PURE__ */ jsxs(Fragment, { children: [
@@ -7332,7 +7332,7 @@ class PdfHighlighter extends PureComponent {
         "div",
         {
           ref: this.containerNodeRef,
-          className: styles$5.container,
+          className: styles$6.container,
           onContextMenu: (e) => e.preventDefault(),
           children: [
             /* @__PURE__ */ jsx("div", { className: "pdfViewer" }),
@@ -7479,12 +7479,3561 @@ async function waitForTextLayer() {
     checkTextLayer();
   });
 }
-const compact = "_compact_1lsqy_1";
-const card = "_card_1lsqy_19";
-const styles$2 = {
+const compact = "_compact_hmlwj_1";
+const card = "_card_hmlwj_10";
+const emojiGrid = "_emojiGrid_hmlwj_30";
+const emojiLabel = "_emojiLabel_hmlwj_37";
+const emojiInput = "_emojiInput_hmlwj_54";
+const emojiDisplay = "_emojiDisplay_hmlwj_61";
+const submitButton = "_submitButton_hmlwj_79";
+const styles$3 = {
   compact,
-  card
+  card,
+  emojiGrid,
+  emojiLabel,
+  emojiInput,
+  emojiDisplay,
+  submitButton
 };
+function _objectWithoutPropertiesLoose(r2, e) {
+  if (null == r2) return {};
+  var t = {};
+  for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
+    if (-1 !== e.indexOf(n)) continue;
+    t[n] = r2[n];
+  }
+  return t;
+}
+function isPlainObject(item) {
+  if (typeof item !== "object" || item === null) {
+    return false;
+  }
+  const prototype = Object.getPrototypeOf(item);
+  return (prototype === null || prototype === Object.prototype || Object.getPrototypeOf(prototype) === null) && !(Symbol.toStringTag in item) && !(Symbol.iterator in item);
+}
+function deepClone(source) {
+  if (/* @__PURE__ */ React.isValidElement(source) || !isPlainObject(source)) {
+    return source;
+  }
+  const output = {};
+  Object.keys(source).forEach((key) => {
+    output[key] = deepClone(source[key]);
+  });
+  return output;
+}
+function deepmerge(target, source, options = {
+  clone: true
+}) {
+  const output = options.clone ? _extends({}, target) : target;
+  if (isPlainObject(target) && isPlainObject(source)) {
+    Object.keys(source).forEach((key) => {
+      if (/* @__PURE__ */ React.isValidElement(source[key])) {
+        output[key] = source[key];
+      } else if (isPlainObject(source[key]) && // Avoid prototype pollution
+      Object.prototype.hasOwnProperty.call(target, key) && isPlainObject(target[key])) {
+        output[key] = deepmerge(target[key], source[key], options);
+      } else if (options.clone) {
+        output[key] = isPlainObject(source[key]) ? deepClone(source[key]) : source[key];
+      } else {
+        output[key] = source[key];
+      }
+    });
+  }
+  return output;
+}
+function formatMuiErrorMessage$1(code) {
+  let url = "https://mui.com/production-error/?code=" + code;
+  for (let i = 1; i < arguments.length; i += 1) {
+    url += "&args[]=" + encodeURIComponent(arguments[i]);
+  }
+  return "Minified MUI error #" + code + "; visit " + url + " for the full message.";
+}
+var reactIs = { exports: {} };
+var reactIs_production = {};
+/**
+ * @license React
+ * react-is.production.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+var hasRequiredReactIs_production;
+function requireReactIs_production() {
+  if (hasRequiredReactIs_production) return reactIs_production;
+  hasRequiredReactIs_production = 1;
+  var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler");
+  var REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_OFFSCREEN_TYPE = Symbol.for("react.offscreen"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference");
+  function typeOf(object) {
+    if ("object" === typeof object && null !== object) {
+      var $$typeof = object.$$typeof;
+      switch ($$typeof) {
+        case REACT_ELEMENT_TYPE:
+          switch (object = object.type, object) {
+            case REACT_FRAGMENT_TYPE:
+            case REACT_PROFILER_TYPE:
+            case REACT_STRICT_MODE_TYPE:
+            case REACT_SUSPENSE_TYPE:
+            case REACT_SUSPENSE_LIST_TYPE:
+              return object;
+            default:
+              switch (object = object && object.$$typeof, object) {
+                case REACT_CONTEXT_TYPE:
+                case REACT_FORWARD_REF_TYPE:
+                case REACT_LAZY_TYPE:
+                case REACT_MEMO_TYPE:
+                  return object;
+                case REACT_CONSUMER_TYPE:
+                  return object;
+                default:
+                  return $$typeof;
+              }
+          }
+        case REACT_PORTAL_TYPE:
+          return $$typeof;
+      }
+    }
+  }
+  reactIs_production.ContextConsumer = REACT_CONSUMER_TYPE;
+  reactIs_production.ContextProvider = REACT_CONTEXT_TYPE;
+  reactIs_production.Element = REACT_ELEMENT_TYPE;
+  reactIs_production.ForwardRef = REACT_FORWARD_REF_TYPE;
+  reactIs_production.Fragment = REACT_FRAGMENT_TYPE;
+  reactIs_production.Lazy = REACT_LAZY_TYPE;
+  reactIs_production.Memo = REACT_MEMO_TYPE;
+  reactIs_production.Portal = REACT_PORTAL_TYPE;
+  reactIs_production.Profiler = REACT_PROFILER_TYPE;
+  reactIs_production.StrictMode = REACT_STRICT_MODE_TYPE;
+  reactIs_production.Suspense = REACT_SUSPENSE_TYPE;
+  reactIs_production.SuspenseList = REACT_SUSPENSE_LIST_TYPE;
+  reactIs_production.isContextConsumer = function(object) {
+    return typeOf(object) === REACT_CONSUMER_TYPE;
+  };
+  reactIs_production.isContextProvider = function(object) {
+    return typeOf(object) === REACT_CONTEXT_TYPE;
+  };
+  reactIs_production.isElement = function(object) {
+    return "object" === typeof object && null !== object && object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+  reactIs_production.isForwardRef = function(object) {
+    return typeOf(object) === REACT_FORWARD_REF_TYPE;
+  };
+  reactIs_production.isFragment = function(object) {
+    return typeOf(object) === REACT_FRAGMENT_TYPE;
+  };
+  reactIs_production.isLazy = function(object) {
+    return typeOf(object) === REACT_LAZY_TYPE;
+  };
+  reactIs_production.isMemo = function(object) {
+    return typeOf(object) === REACT_MEMO_TYPE;
+  };
+  reactIs_production.isPortal = function(object) {
+    return typeOf(object) === REACT_PORTAL_TYPE;
+  };
+  reactIs_production.isProfiler = function(object) {
+    return typeOf(object) === REACT_PROFILER_TYPE;
+  };
+  reactIs_production.isStrictMode = function(object) {
+    return typeOf(object) === REACT_STRICT_MODE_TYPE;
+  };
+  reactIs_production.isSuspense = function(object) {
+    return typeOf(object) === REACT_SUSPENSE_TYPE;
+  };
+  reactIs_production.isSuspenseList = function(object) {
+    return typeOf(object) === REACT_SUSPENSE_LIST_TYPE;
+  };
+  reactIs_production.isValidElementType = function(type) {
+    return "string" === typeof type || "function" === typeof type || type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_OFFSCREEN_TYPE || "object" === typeof type && null !== type && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_CONSUMER_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_CLIENT_REFERENCE || void 0 !== type.getModuleId) ? true : false;
+  };
+  reactIs_production.typeOf = typeOf;
+  return reactIs_production;
+}
+var reactIs_development = {};
+/**
+ * @license React
+ * react-is.development.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+var hasRequiredReactIs_development;
+function requireReactIs_development() {
+  if (hasRequiredReactIs_development) return reactIs_development;
+  hasRequiredReactIs_development = 1;
+  "production" !== process.env.NODE_ENV && function() {
+    function typeOf(object) {
+      if ("object" === typeof object && null !== object) {
+        var $$typeof = object.$$typeof;
+        switch ($$typeof) {
+          case REACT_ELEMENT_TYPE:
+            switch (object = object.type, object) {
+              case REACT_FRAGMENT_TYPE:
+              case REACT_PROFILER_TYPE:
+              case REACT_STRICT_MODE_TYPE:
+              case REACT_SUSPENSE_TYPE:
+              case REACT_SUSPENSE_LIST_TYPE:
+                return object;
+              default:
+                switch (object = object && object.$$typeof, object) {
+                  case REACT_CONTEXT_TYPE:
+                  case REACT_FORWARD_REF_TYPE:
+                  case REACT_LAZY_TYPE:
+                  case REACT_MEMO_TYPE:
+                    return object;
+                  case REACT_CONSUMER_TYPE:
+                    return object;
+                  default:
+                    return $$typeof;
+                }
+            }
+          case REACT_PORTAL_TYPE:
+            return $$typeof;
+        }
+      }
+    }
+    var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler");
+    var REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_OFFSCREEN_TYPE = Symbol.for("react.offscreen"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference");
+    reactIs_development.ContextConsumer = REACT_CONSUMER_TYPE;
+    reactIs_development.ContextProvider = REACT_CONTEXT_TYPE;
+    reactIs_development.Element = REACT_ELEMENT_TYPE;
+    reactIs_development.ForwardRef = REACT_FORWARD_REF_TYPE;
+    reactIs_development.Fragment = REACT_FRAGMENT_TYPE;
+    reactIs_development.Lazy = REACT_LAZY_TYPE;
+    reactIs_development.Memo = REACT_MEMO_TYPE;
+    reactIs_development.Portal = REACT_PORTAL_TYPE;
+    reactIs_development.Profiler = REACT_PROFILER_TYPE;
+    reactIs_development.StrictMode = REACT_STRICT_MODE_TYPE;
+    reactIs_development.Suspense = REACT_SUSPENSE_TYPE;
+    reactIs_development.SuspenseList = REACT_SUSPENSE_LIST_TYPE;
+    reactIs_development.isContextConsumer = function(object) {
+      return typeOf(object) === REACT_CONSUMER_TYPE;
+    };
+    reactIs_development.isContextProvider = function(object) {
+      return typeOf(object) === REACT_CONTEXT_TYPE;
+    };
+    reactIs_development.isElement = function(object) {
+      return "object" === typeof object && null !== object && object.$$typeof === REACT_ELEMENT_TYPE;
+    };
+    reactIs_development.isForwardRef = function(object) {
+      return typeOf(object) === REACT_FORWARD_REF_TYPE;
+    };
+    reactIs_development.isFragment = function(object) {
+      return typeOf(object) === REACT_FRAGMENT_TYPE;
+    };
+    reactIs_development.isLazy = function(object) {
+      return typeOf(object) === REACT_LAZY_TYPE;
+    };
+    reactIs_development.isMemo = function(object) {
+      return typeOf(object) === REACT_MEMO_TYPE;
+    };
+    reactIs_development.isPortal = function(object) {
+      return typeOf(object) === REACT_PORTAL_TYPE;
+    };
+    reactIs_development.isProfiler = function(object) {
+      return typeOf(object) === REACT_PROFILER_TYPE;
+    };
+    reactIs_development.isStrictMode = function(object) {
+      return typeOf(object) === REACT_STRICT_MODE_TYPE;
+    };
+    reactIs_development.isSuspense = function(object) {
+      return typeOf(object) === REACT_SUSPENSE_TYPE;
+    };
+    reactIs_development.isSuspenseList = function(object) {
+      return typeOf(object) === REACT_SUSPENSE_LIST_TYPE;
+    };
+    reactIs_development.isValidElementType = function(type) {
+      return "string" === typeof type || "function" === typeof type || type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_OFFSCREEN_TYPE || "object" === typeof type && null !== type && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_CONSUMER_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_CLIENT_REFERENCE || void 0 !== type.getModuleId) ? true : false;
+    };
+    reactIs_development.typeOf = typeOf;
+  }();
+  return reactIs_development;
+}
+if (process.env.NODE_ENV === "production") {
+  reactIs.exports = requireReactIs_production();
+} else {
+  reactIs.exports = requireReactIs_development();
+}
+var reactIsExports = reactIs.exports;
+const fnNameMatchRegex = /^\s*function(?:\s|\s*\/\*.*\*\/\s*)+([^(\s/]*)\s*/;
+function getFunctionName(fn) {
+  const match2 = `${fn}`.match(fnNameMatchRegex);
+  const name = match2 && match2[1];
+  return name || "";
+}
+function getFunctionComponentName(Component2, fallback = "") {
+  return Component2.displayName || Component2.name || getFunctionName(Component2) || fallback;
+}
+function getWrappedName(outerType, innerType, wrapperName) {
+  const functionName = getFunctionComponentName(innerType);
+  return outerType.displayName || (functionName !== "" ? `${wrapperName}(${functionName})` : wrapperName);
+}
+function getDisplayName(Component2) {
+  if (Component2 == null) {
+    return void 0;
+  }
+  if (typeof Component2 === "string") {
+    return Component2;
+  }
+  if (typeof Component2 === "function") {
+    return getFunctionComponentName(Component2, "Component");
+  }
+  if (typeof Component2 === "object") {
+    switch (Component2.$$typeof) {
+      case reactIsExports.ForwardRef:
+        return getWrappedName(Component2, Component2.render, "ForwardRef");
+      case reactIsExports.Memo:
+        return getWrappedName(Component2, Component2.type, "memo");
+      default:
+        return void 0;
+    }
+  }
+  return void 0;
+}
+function capitalize(string) {
+  if (typeof string !== "string") {
+    throw new Error(process.env.NODE_ENV !== "production" ? `MUI: \`capitalize(string)\` expects a string argument.` : formatMuiErrorMessage$1(7));
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+function setRef$1(ref, value) {
+  if (typeof ref === "function") {
+    ref(value);
+  } else if (ref) {
+    ref.current = value;
+  }
+}
+function useForkRef$1(...refs) {
+  return React.useMemo(() => {
+    if (refs.every((ref) => ref == null)) {
+      return null;
+    }
+    return (instance) => {
+      refs.forEach((ref) => {
+        setRef$1(ref, instance);
+      });
+    };
+  }, refs);
+}
+function resolveProps(defaultProps, props) {
+  const output = _extends({}, props);
+  Object.keys(defaultProps).forEach((propName) => {
+    if (propName.toString().match(/^(components|slots)$/)) {
+      output[propName] = _extends({}, defaultProps[propName], output[propName]);
+    } else if (propName.toString().match(/^(componentsProps|slotProps)$/)) {
+      const defaultSlotProps = defaultProps[propName] || {};
+      const slotProps = props[propName];
+      output[propName] = {};
+      if (!slotProps || !Object.keys(slotProps)) {
+        output[propName] = defaultSlotProps;
+      } else if (!defaultSlotProps || !Object.keys(defaultSlotProps)) {
+        output[propName] = slotProps;
+      } else {
+        output[propName] = _extends({}, slotProps);
+        Object.keys(defaultSlotProps).forEach((slotPropName) => {
+          output[propName][slotPropName] = resolveProps(defaultSlotProps[slotPropName], slotProps[slotPropName]);
+        });
+      }
+    } else if (output[propName] === void 0) {
+      output[propName] = defaultProps[propName];
+    }
+  });
+  return output;
+}
+const defaultGenerator = (componentName) => componentName;
+const createClassNameGenerator = () => {
+  let generate = defaultGenerator;
+  return {
+    configure(generator) {
+      generate = generator;
+    },
+    generate(componentName) {
+      return generate(componentName);
+    },
+    reset() {
+      generate = defaultGenerator;
+    }
+  };
+};
+const ClassNameGenerator = createClassNameGenerator();
+const globalStateClasses = {
+  active: "active",
+  checked: "checked",
+  completed: "completed",
+  disabled: "disabled",
+  error: "error",
+  expanded: "expanded",
+  focused: "focused",
+  focusVisible: "focusVisible",
+  open: "open",
+  readOnly: "readOnly",
+  required: "required",
+  selected: "selected"
+};
+function generateUtilityClass$1(componentName, slot, globalStatePrefix = "Mui") {
+  const globalStateClass = globalStateClasses[slot];
+  return globalStateClass ? `${globalStatePrefix}-${globalStateClass}` : `${ClassNameGenerator.generate(componentName)}-${slot}`;
+}
+function generateUtilityClasses$1(componentName, slots, globalStatePrefix = "Mui") {
+  const result = {};
+  slots.forEach((slot) => {
+    result[slot] = generateUtilityClass$1(componentName, slot, globalStatePrefix);
+  });
+  return result;
+}
+function formatMuiErrorMessage(code) {
+  let url = "https://mui.com/production-error/?code=" + code;
+  for (let i = 1; i < arguments.length; i += 1) {
+    url += "&args[]=" + encodeURIComponent(arguments[i]);
+  }
+  return "Minified MUI error #" + code + "; visit " + url + " for the full message.";
+}
+function debounce(func, wait = 166) {
+  let timeout;
+  function debounced(...args) {
+    const later = () => {
+      func.apply(this, args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  }
+  debounced.clear = () => {
+    clearTimeout(timeout);
+  };
+  return debounced;
+}
+function ownerDocument(node2) {
+  return node2 && node2.ownerDocument || document;
+}
+function ownerWindow(node2) {
+  const doc = ownerDocument(node2);
+  return doc.defaultView || window;
+}
+function setRef(ref, value) {
+  if (typeof ref === "function") {
+    ref(value);
+  } else if (ref) {
+    ref.current = value;
+  }
+}
+const useEnhancedEffect = typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
+function useForkRef(...refs) {
+  return React.useMemo(() => {
+    if (refs.every((ref) => ref == null)) {
+      return null;
+    }
+    return (instance) => {
+      refs.forEach((ref) => {
+        setRef(ref, instance);
+      });
+    };
+  }, refs);
+}
+function composeClasses(slots, getUtilityClass, classes = void 0) {
+  const output = {};
+  Object.keys(slots).forEach(
+    // `Object.keys(slots)` can't be wider than `T` because we infer `T` from `slots`.
+    // @ts-expect-error https://github.com/microsoft/TypeScript/pull/12253#issuecomment-263132208
+    (slot) => {
+      output[slot] = slots[slot].reduce((acc, key) => {
+        if (key) {
+          const utilityClass = getUtilityClass(key);
+          if (utilityClass !== "") {
+            acc.push(utilityClass);
+          }
+          if (classes && classes[key]) {
+            acc.push(classes[key]);
+          }
+        }
+        return acc;
+      }, []).join(" ");
+    }
+  );
+  return output;
+}
+function isHostComponent(element) {
+  return typeof element === "string";
+}
+function appendOwnerState(elementType, otherProps, ownerState) {
+  if (elementType === void 0 || isHostComponent(elementType)) {
+    return otherProps;
+  }
+  return _extends({}, otherProps, {
+    ownerState: _extends({}, otherProps.ownerState, ownerState)
+  });
+}
+function r(e) {
+  var t, f, n = "";
+  if ("string" == typeof e || "number" == typeof e) n += e;
+  else if ("object" == typeof e) if (Array.isArray(e)) {
+    var o = e.length;
+    for (t = 0; t < o; t++) e[t] && (f = r(e[t])) && (n && (n += " "), n += f);
+  } else for (f in e) e[f] && (n && (n += " "), n += f);
+  return n;
+}
+function clsx() {
+  for (var e, t, f = 0, n = "", o = arguments.length; f < o; f++) (e = arguments[f]) && (t = r(e)) && (n && (n += " "), n += t);
+  return n;
+}
+function extractEventHandlers(object, excludeKeys = []) {
+  if (object === void 0) {
+    return {};
+  }
+  const result = {};
+  Object.keys(object).filter((prop) => prop.match(/^on[A-Z]/) && typeof object[prop] === "function" && !excludeKeys.includes(prop)).forEach((prop) => {
+    result[prop] = object[prop];
+  });
+  return result;
+}
+function omitEventHandlers(object) {
+  if (object === void 0) {
+    return {};
+  }
+  const result = {};
+  Object.keys(object).filter((prop) => !(prop.match(/^on[A-Z]/) && typeof object[prop] === "function")).forEach((prop) => {
+    result[prop] = object[prop];
+  });
+  return result;
+}
+function mergeSlotProps(parameters) {
+  const {
+    getSlotProps,
+    additionalProps,
+    externalSlotProps,
+    externalForwardedProps,
+    className
+  } = parameters;
+  if (!getSlotProps) {
+    const joinedClasses2 = clsx(additionalProps == null ? void 0 : additionalProps.className, className, externalForwardedProps == null ? void 0 : externalForwardedProps.className, externalSlotProps == null ? void 0 : externalSlotProps.className);
+    const mergedStyle2 = _extends({}, additionalProps == null ? void 0 : additionalProps.style, externalForwardedProps == null ? void 0 : externalForwardedProps.style, externalSlotProps == null ? void 0 : externalSlotProps.style);
+    const props2 = _extends({}, additionalProps, externalForwardedProps, externalSlotProps);
+    if (joinedClasses2.length > 0) {
+      props2.className = joinedClasses2;
+    }
+    if (Object.keys(mergedStyle2).length > 0) {
+      props2.style = mergedStyle2;
+    }
+    return {
+      props: props2,
+      internalRef: void 0
+    };
+  }
+  const eventHandlers = extractEventHandlers(_extends({}, externalForwardedProps, externalSlotProps));
+  const componentsPropsWithoutEventHandlers = omitEventHandlers(externalSlotProps);
+  const otherPropsWithoutEventHandlers = omitEventHandlers(externalForwardedProps);
+  const internalSlotProps = getSlotProps(eventHandlers);
+  const joinedClasses = clsx(internalSlotProps == null ? void 0 : internalSlotProps.className, additionalProps == null ? void 0 : additionalProps.className, className, externalForwardedProps == null ? void 0 : externalForwardedProps.className, externalSlotProps == null ? void 0 : externalSlotProps.className);
+  const mergedStyle = _extends({}, internalSlotProps == null ? void 0 : internalSlotProps.style, additionalProps == null ? void 0 : additionalProps.style, externalForwardedProps == null ? void 0 : externalForwardedProps.style, externalSlotProps == null ? void 0 : externalSlotProps.style);
+  const props = _extends({}, internalSlotProps, additionalProps, otherPropsWithoutEventHandlers, componentsPropsWithoutEventHandlers);
+  if (joinedClasses.length > 0) {
+    props.className = joinedClasses;
+  }
+  if (Object.keys(mergedStyle).length > 0) {
+    props.style = mergedStyle;
+  }
+  return {
+    props,
+    internalRef: internalSlotProps.ref
+  };
+}
+function resolveComponentProps(componentProps, ownerState, slotState) {
+  if (typeof componentProps === "function") {
+    return componentProps(ownerState, slotState);
+  }
+  return componentProps;
+}
+const _excluded$8 = ["onChange", "maxRows", "minRows", "style", "value"];
+function getStyleValue$1(value) {
+  return parseInt(value, 10) || 0;
+}
+const styles$2 = {
+  shadow: {
+    // Visibility needed to hide the extra text area on iPads
+    visibility: "hidden",
+    // Remove from the content flow
+    position: "absolute",
+    // Ignore the scrollbar width
+    overflow: "hidden",
+    height: 0,
+    top: 0,
+    left: 0,
+    // Create a new layer, increase the isolation of the computed values
+    transform: "translateZ(0)"
+  }
+};
+function isEmpty$1(obj) {
+  return obj === void 0 || obj === null || Object.keys(obj).length === 0 || obj.outerHeightStyle === 0 && !obj.overflowing;
+}
+const TextareaAutosize = /* @__PURE__ */ React.forwardRef(function TextareaAutosize2(props, forwardedRef) {
+  const {
+    onChange,
+    maxRows,
+    minRows = 1,
+    style: style2,
+    value
+  } = props, other = _objectWithoutPropertiesLoose(props, _excluded$8);
+  const {
+    current: isControlled
+  } = React.useRef(value != null);
+  const inputRef = React.useRef(null);
+  const handleRef = useForkRef(forwardedRef, inputRef);
+  const heightRef = React.useRef(null);
+  const shadowRef = React.useRef(null);
+  const calculateTextareaStyles = React.useCallback(() => {
+    const input = inputRef.current;
+    const containerWindow = ownerWindow(input);
+    const computedStyle = containerWindow.getComputedStyle(input);
+    if (computedStyle.width === "0px") {
+      return {
+        outerHeightStyle: 0,
+        overflowing: false
+      };
+    }
+    const inputShallow = shadowRef.current;
+    inputShallow.style.width = computedStyle.width;
+    inputShallow.value = input.value || props.placeholder || "x";
+    if (inputShallow.value.slice(-1) === "\n") {
+      inputShallow.value += " ";
+    }
+    const boxSizing2 = computedStyle.boxSizing;
+    const padding2 = getStyleValue$1(computedStyle.paddingBottom) + getStyleValue$1(computedStyle.paddingTop);
+    const border2 = getStyleValue$1(computedStyle.borderBottomWidth) + getStyleValue$1(computedStyle.borderTopWidth);
+    const innerHeight = inputShallow.scrollHeight;
+    inputShallow.value = "x";
+    const singleRowHeight = inputShallow.scrollHeight;
+    let outerHeight = innerHeight;
+    if (minRows) {
+      outerHeight = Math.max(Number(minRows) * singleRowHeight, outerHeight);
+    }
+    if (maxRows) {
+      outerHeight = Math.min(Number(maxRows) * singleRowHeight, outerHeight);
+    }
+    outerHeight = Math.max(outerHeight, singleRowHeight);
+    const outerHeightStyle = outerHeight + (boxSizing2 === "border-box" ? padding2 + border2 : 0);
+    const overflowing = Math.abs(outerHeight - innerHeight) <= 1;
+    return {
+      outerHeightStyle,
+      overflowing
+    };
+  }, [maxRows, minRows, props.placeholder]);
+  const syncHeight = React.useCallback(() => {
+    const textareaStyles = calculateTextareaStyles();
+    if (isEmpty$1(textareaStyles)) {
+      return;
+    }
+    const outerHeightStyle = textareaStyles.outerHeightStyle;
+    const input = inputRef.current;
+    if (heightRef.current !== outerHeightStyle) {
+      heightRef.current = outerHeightStyle;
+      input.style.height = `${outerHeightStyle}px`;
+    }
+    input.style.overflow = textareaStyles.overflowing ? "hidden" : "";
+  }, [calculateTextareaStyles]);
+  useEnhancedEffect(() => {
+    const handleResize = () => {
+      syncHeight();
+    };
+    let rAF;
+    const rAFHandleResize = () => {
+      cancelAnimationFrame(rAF);
+      rAF = requestAnimationFrame(() => {
+        handleResize();
+      });
+    };
+    const debounceHandleResize = debounce(handleResize);
+    const input = inputRef.current;
+    const containerWindow = ownerWindow(input);
+    containerWindow.addEventListener("resize", debounceHandleResize);
+    let resizeObserver;
+    if (typeof ResizeObserver !== "undefined") {
+      resizeObserver = new ResizeObserver(process.env.NODE_ENV === "test" ? rAFHandleResize : handleResize);
+      resizeObserver.observe(input);
+    }
+    return () => {
+      debounceHandleResize.clear();
+      cancelAnimationFrame(rAF);
+      containerWindow.removeEventListener("resize", debounceHandleResize);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
+    };
+  }, [calculateTextareaStyles, syncHeight]);
+  useEnhancedEffect(() => {
+    syncHeight();
+  });
+  const handleChange = (event) => {
+    if (!isControlled) {
+      syncHeight();
+    }
+    if (onChange) {
+      onChange(event);
+    }
+  };
+  return /* @__PURE__ */ jsxs(React.Fragment, {
+    children: [/* @__PURE__ */ jsx("textarea", _extends({
+      value,
+      onChange: handleChange,
+      ref: handleRef,
+      rows: minRows,
+      style: style2
+    }, other)), /* @__PURE__ */ jsx("textarea", {
+      "aria-hidden": true,
+      className: props.className,
+      readOnly: true,
+      ref: shadowRef,
+      tabIndex: -1,
+      style: _extends({}, styles$2.shadow, style2, {
+        paddingTop: 0,
+        paddingBottom: 0
+      })
+    })]
+  });
+});
+process.env.NODE_ENV !== "production" ? TextareaAutosize.propTypes = {
+  // ┌────────────────────────────── Warning ──────────────────────────────┐
+  // │ These PropTypes are generated from the TypeScript type definitions. │
+  // │ To update them, edit the TypeScript types and run `pnpm proptypes`. │
+  // └─────────────────────────────────────────────────────────────────────┘
+  /**
+   * @ignore
+   */
+  className: PropTypes.string,
+  /**
+   * Maximum number of rows to display.
+   */
+  maxRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /**
+   * Minimum number of rows to display.
+   * @default 1
+   */
+  minRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /**
+   * @ignore
+   */
+  onChange: PropTypes.func,
+  /**
+   * @ignore
+   */
+  placeholder: PropTypes.string,
+  /**
+   * @ignore
+   */
+  style: PropTypes.object,
+  /**
+   * @ignore
+   */
+  value: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.number, PropTypes.string])
+} : void 0;
+const THEME_ID = "$$joy";
+/**
+ * @mui/styled-engine v5.16.14
+ *
+ * @license MIT
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+function styled$1(tag, options) {
+  const stylesFactory = newStyled(tag, options);
+  if (process.env.NODE_ENV !== "production") {
+    return (...styles2) => {
+      const component = typeof tag === "string" ? `"${tag}"` : "component";
+      if (styles2.length === 0) {
+        console.error([`MUI: Seems like you called \`styled(${component})()\` without a \`style\` argument.`, 'You must provide a `styles` argument: `styled("div")(styleYouForgotToPass)`.'].join("\n"));
+      } else if (styles2.some((style2) => style2 === void 0)) {
+        console.error(`MUI: the styled(${component})(...args) API requires all its args to be defined.`);
+      }
+      return stylesFactory(...styles2);
+    };
+  }
+  return stylesFactory;
+}
+const internal_processStyles = (tag, processor) => {
+  if (Array.isArray(tag.__emotion_styles)) {
+    tag.__emotion_styles = processor(tag.__emotion_styles);
+  }
+};
+const _excluded$7 = ["values", "unit", "step"];
+const sortBreakpointsValues = (values2) => {
+  const breakpointsAsArray = Object.keys(values2).map((key) => ({
+    key,
+    val: values2[key]
+  })) || [];
+  breakpointsAsArray.sort((breakpoint1, breakpoint2) => breakpoint1.val - breakpoint2.val);
+  return breakpointsAsArray.reduce((acc, obj) => {
+    return _extends({}, acc, {
+      [obj.key]: obj.val
+    });
+  }, {});
+};
+function createBreakpoints(breakpoints) {
+  const {
+    // The breakpoint **start** at this value.
+    // For instance with the first breakpoint xs: [xs, sm).
+    values: values2 = {
+      xs: 0,
+      // phone
+      sm: 600,
+      // tablet
+      md: 900,
+      // small laptop
+      lg: 1200,
+      // desktop
+      xl: 1536
+      // large screen
+    },
+    unit = "px",
+    step = 5
+  } = breakpoints, other = _objectWithoutPropertiesLoose(breakpoints, _excluded$7);
+  const sortedValues = sortBreakpointsValues(values2);
+  const keys = Object.keys(sortedValues);
+  function up(key) {
+    const value = typeof values2[key] === "number" ? values2[key] : key;
+    return `@media (min-width:${value}${unit})`;
+  }
+  function down(key) {
+    const value = typeof values2[key] === "number" ? values2[key] : key;
+    return `@media (max-width:${value - step / 100}${unit})`;
+  }
+  function between(start, end) {
+    const endIndex = keys.indexOf(end);
+    return `@media (min-width:${typeof values2[start] === "number" ? values2[start] : start}${unit}) and (max-width:${(endIndex !== -1 && typeof values2[keys[endIndex]] === "number" ? values2[keys[endIndex]] : end) - step / 100}${unit})`;
+  }
+  function only(key) {
+    if (keys.indexOf(key) + 1 < keys.length) {
+      return between(key, keys[keys.indexOf(key) + 1]);
+    }
+    return up(key);
+  }
+  function not(key) {
+    const keyIndex = keys.indexOf(key);
+    if (keyIndex === 0) {
+      return up(keys[1]);
+    }
+    if (keyIndex === keys.length - 1) {
+      return down(keys[keyIndex]);
+    }
+    return between(key, keys[keys.indexOf(key) + 1]).replace("@media", "@media not all and");
+  }
+  return _extends({
+    keys,
+    values: sortedValues,
+    up,
+    down,
+    between,
+    only,
+    not,
+    unit
+  }, other);
+}
+const shape = {
+  borderRadius: 4
+};
+const responsivePropType = process.env.NODE_ENV !== "production" ? PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object, PropTypes.array]) : {};
+function merge(acc, item) {
+  if (!item) {
+    return acc;
+  }
+  return deepmerge(acc, item, {
+    clone: false
+    // No need to clone deep, it's way faster.
+  });
+}
+const values = {
+  xs: 0,
+  // phone
+  sm: 600,
+  // tablet
+  md: 900,
+  // small laptop
+  lg: 1200,
+  // desktop
+  xl: 1536
+  // large screen
+};
+const defaultBreakpoints = {
+  // Sorted ASC by size. That's important.
+  // It can't be configured as it's used statically for propTypes.
+  keys: ["xs", "sm", "md", "lg", "xl"],
+  up: (key) => `@media (min-width:${values[key]}px)`
+};
+function handleBreakpoints(props, propValue, styleFromPropValue) {
+  const theme = props.theme || {};
+  if (Array.isArray(propValue)) {
+    const themeBreakpoints = theme.breakpoints || defaultBreakpoints;
+    return propValue.reduce((acc, item, index) => {
+      acc[themeBreakpoints.up(themeBreakpoints.keys[index])] = styleFromPropValue(propValue[index]);
+      return acc;
+    }, {});
+  }
+  if (typeof propValue === "object") {
+    const themeBreakpoints = theme.breakpoints || defaultBreakpoints;
+    return Object.keys(propValue).reduce((acc, breakpoint) => {
+      if (Object.keys(themeBreakpoints.values || values).indexOf(breakpoint) !== -1) {
+        const mediaKey = themeBreakpoints.up(breakpoint);
+        acc[mediaKey] = styleFromPropValue(propValue[breakpoint], breakpoint);
+      } else {
+        const cssKey = breakpoint;
+        acc[cssKey] = propValue[cssKey];
+      }
+      return acc;
+    }, {});
+  }
+  const output = styleFromPropValue(propValue);
+  return output;
+}
+function createEmptyBreakpointObject(breakpointsInput = {}) {
+  var _breakpointsInput$key;
+  const breakpointsInOrder = (_breakpointsInput$key = breakpointsInput.keys) == null ? void 0 : _breakpointsInput$key.reduce((acc, key) => {
+    const breakpointStyleKey = breakpointsInput.up(key);
+    acc[breakpointStyleKey] = {};
+    return acc;
+  }, {});
+  return breakpointsInOrder || {};
+}
+function removeUnusedBreakpoints(breakpointKeys, style2) {
+  return breakpointKeys.reduce((acc, key) => {
+    const breakpointOutput = acc[key];
+    const isBreakpointUnused = !breakpointOutput || Object.keys(breakpointOutput).length === 0;
+    if (isBreakpointUnused) {
+      delete acc[key];
+    }
+    return acc;
+  }, style2);
+}
+function getPath(obj, path, checkVars = true) {
+  if (!path || typeof path !== "string") {
+    return null;
+  }
+  if (obj && obj.vars && checkVars) {
+    const val = `vars.${path}`.split(".").reduce((acc, item) => acc && acc[item] ? acc[item] : null, obj);
+    if (val != null) {
+      return val;
+    }
+  }
+  return path.split(".").reduce((acc, item) => {
+    if (acc && acc[item] != null) {
+      return acc[item];
+    }
+    return null;
+  }, obj);
+}
+function getStyleValue(themeMapping, transform, propValueFinal, userValue = propValueFinal) {
+  let value;
+  if (typeof themeMapping === "function") {
+    value = themeMapping(propValueFinal);
+  } else if (Array.isArray(themeMapping)) {
+    value = themeMapping[propValueFinal] || userValue;
+  } else {
+    value = getPath(themeMapping, propValueFinal) || userValue;
+  }
+  if (transform) {
+    value = transform(value, userValue, themeMapping);
+  }
+  return value;
+}
+function style$1(options) {
+  const {
+    prop,
+    cssProperty = options.prop,
+    themeKey,
+    transform
+  } = options;
+  const fn = (props) => {
+    if (props[prop] == null) {
+      return null;
+    }
+    const propValue = props[prop];
+    const theme = props.theme;
+    const themeMapping = getPath(theme, themeKey) || {};
+    const styleFromPropValue = (propValueFinal) => {
+      let value = getStyleValue(themeMapping, transform, propValueFinal);
+      if (propValueFinal === value && typeof propValueFinal === "string") {
+        value = getStyleValue(themeMapping, transform, `${prop}${propValueFinal === "default" ? "" : capitalize(propValueFinal)}`, propValueFinal);
+      }
+      if (cssProperty === false) {
+        return value;
+      }
+      return {
+        [cssProperty]: value
+      };
+    };
+    return handleBreakpoints(props, propValue, styleFromPropValue);
+  };
+  fn.propTypes = process.env.NODE_ENV !== "production" ? {
+    [prop]: responsivePropType
+  } : {};
+  fn.filterProps = [prop];
+  return fn;
+}
+function memoize(fn) {
+  const cache = {};
+  return (arg2) => {
+    if (cache[arg2] === void 0) {
+      cache[arg2] = fn(arg2);
+    }
+    return cache[arg2];
+  };
+}
+const properties = {
+  m: "margin",
+  p: "padding"
+};
+const directions = {
+  t: "Top",
+  r: "Right",
+  b: "Bottom",
+  l: "Left",
+  x: ["Left", "Right"],
+  y: ["Top", "Bottom"]
+};
+const aliases = {
+  marginX: "mx",
+  marginY: "my",
+  paddingX: "px",
+  paddingY: "py"
+};
+const getCssProperties = memoize((prop) => {
+  if (prop.length > 2) {
+    if (aliases[prop]) {
+      prop = aliases[prop];
+    } else {
+      return [prop];
+    }
+  }
+  const [a, b] = prop.split("");
+  const property = properties[a];
+  const direction = directions[b] || "";
+  return Array.isArray(direction) ? direction.map((dir) => property + dir) : [property + direction];
+});
+const marginKeys = ["m", "mt", "mr", "mb", "ml", "mx", "my", "margin", "marginTop", "marginRight", "marginBottom", "marginLeft", "marginX", "marginY", "marginInline", "marginInlineStart", "marginInlineEnd", "marginBlock", "marginBlockStart", "marginBlockEnd"];
+const paddingKeys = ["p", "pt", "pr", "pb", "pl", "px", "py", "padding", "paddingTop", "paddingRight", "paddingBottom", "paddingLeft", "paddingX", "paddingY", "paddingInline", "paddingInlineStart", "paddingInlineEnd", "paddingBlock", "paddingBlockStart", "paddingBlockEnd"];
+const spacingKeys = [...marginKeys, ...paddingKeys];
+function createUnaryUnit(theme, themeKey, defaultValue, propName) {
+  var _getPath;
+  const themeSpacing = (_getPath = getPath(theme, themeKey, false)) != null ? _getPath : defaultValue;
+  if (typeof themeSpacing === "number") {
+    return (abs2) => {
+      if (typeof abs2 === "string") {
+        return abs2;
+      }
+      if (process.env.NODE_ENV !== "production") {
+        if (typeof abs2 !== "number") {
+          console.error(`MUI: Expected ${propName} argument to be a number or a string, got ${abs2}.`);
+        }
+      }
+      return themeSpacing * abs2;
+    };
+  }
+  if (Array.isArray(themeSpacing)) {
+    return (abs2) => {
+      if (typeof abs2 === "string") {
+        return abs2;
+      }
+      if (process.env.NODE_ENV !== "production") {
+        if (!Number.isInteger(abs2)) {
+          console.error([`MUI: The \`theme.${themeKey}\` array type cannot be combined with non integer values.You should either use an integer value that can be used as index, or define the \`theme.${themeKey}\` as a number.`].join("\n"));
+        } else if (abs2 > themeSpacing.length - 1) {
+          console.error([`MUI: The value provided (${abs2}) overflows.`, `The supported values are: ${JSON.stringify(themeSpacing)}.`, `${abs2} > ${themeSpacing.length - 1}, you need to add the missing values.`].join("\n"));
+        }
+      }
+      return themeSpacing[abs2];
+    };
+  }
+  if (typeof themeSpacing === "function") {
+    return themeSpacing;
+  }
+  if (process.env.NODE_ENV !== "production") {
+    console.error([`MUI: The \`theme.${themeKey}\` value (${themeSpacing}) is invalid.`, "It should be a number, an array or a function."].join("\n"));
+  }
+  return () => void 0;
+}
+function createUnarySpacing(theme) {
+  return createUnaryUnit(theme, "spacing", 8, "spacing");
+}
+function getValue(transformer, propValue) {
+  if (typeof propValue === "string" || propValue == null) {
+    return propValue;
+  }
+  const abs2 = Math.abs(propValue);
+  const transformed = transformer(abs2);
+  if (propValue >= 0) {
+    return transformed;
+  }
+  if (typeof transformed === "number") {
+    return -transformed;
+  }
+  return `-${transformed}`;
+}
+function getStyleFromPropValue(cssProperties, transformer) {
+  return (propValue) => cssProperties.reduce((acc, cssProperty) => {
+    acc[cssProperty] = getValue(transformer, propValue);
+    return acc;
+  }, {});
+}
+function resolveCssProperty(props, keys, prop, transformer) {
+  if (keys.indexOf(prop) === -1) {
+    return null;
+  }
+  const cssProperties = getCssProperties(prop);
+  const styleFromPropValue = getStyleFromPropValue(cssProperties, transformer);
+  const propValue = props[prop];
+  return handleBreakpoints(props, propValue, styleFromPropValue);
+}
+function style(props, keys) {
+  const transformer = createUnarySpacing(props.theme);
+  return Object.keys(props).map((prop) => resolveCssProperty(props, keys, prop, transformer)).reduce(merge, {});
+}
+function margin(props) {
+  return style(props, marginKeys);
+}
+margin.propTypes = process.env.NODE_ENV !== "production" ? marginKeys.reduce((obj, key) => {
+  obj[key] = responsivePropType;
+  return obj;
+}, {}) : {};
+margin.filterProps = marginKeys;
+function padding(props) {
+  return style(props, paddingKeys);
+}
+padding.propTypes = process.env.NODE_ENV !== "production" ? paddingKeys.reduce((obj, key) => {
+  obj[key] = responsivePropType;
+  return obj;
+}, {}) : {};
+padding.filterProps = paddingKeys;
+process.env.NODE_ENV !== "production" ? spacingKeys.reduce((obj, key) => {
+  obj[key] = responsivePropType;
+  return obj;
+}, {}) : {};
+function createSpacing(spacingInput = 8) {
+  if (spacingInput.mui) {
+    return spacingInput;
+  }
+  const transform = createUnarySpacing({
+    spacing: spacingInput
+  });
+  const spacing = (...argsInput) => {
+    if (process.env.NODE_ENV !== "production") {
+      if (!(argsInput.length <= 4)) {
+        console.error(`MUI: Too many arguments provided, expected between 0 and 4, got ${argsInput.length}`);
+      }
+    }
+    const args = argsInput.length === 0 ? [1] : argsInput;
+    return args.map((argument) => {
+      const output = transform(argument);
+      return typeof output === "number" ? `${output}px` : output;
+    }).join(" ");
+  };
+  spacing.mui = true;
+  return spacing;
+}
+function compose(...styles2) {
+  const handlers = styles2.reduce((acc, style2) => {
+    style2.filterProps.forEach((prop) => {
+      acc[prop] = style2;
+    });
+    return acc;
+  }, {});
+  const fn = (props) => {
+    return Object.keys(props).reduce((acc, prop) => {
+      if (handlers[prop]) {
+        return merge(acc, handlers[prop](props));
+      }
+      return acc;
+    }, {});
+  };
+  fn.propTypes = process.env.NODE_ENV !== "production" ? styles2.reduce((acc, style2) => Object.assign(acc, style2.propTypes), {}) : {};
+  fn.filterProps = styles2.reduce((acc, style2) => acc.concat(style2.filterProps), []);
+  return fn;
+}
+function borderTransform(value) {
+  if (typeof value !== "number") {
+    return value;
+  }
+  return `${value}px solid`;
+}
+function createBorderStyle(prop, transform) {
+  return style$1({
+    prop,
+    themeKey: "borders",
+    transform
+  });
+}
+const border = createBorderStyle("border", borderTransform);
+const borderTop = createBorderStyle("borderTop", borderTransform);
+const borderRight = createBorderStyle("borderRight", borderTransform);
+const borderBottom = createBorderStyle("borderBottom", borderTransform);
+const borderLeft = createBorderStyle("borderLeft", borderTransform);
+const borderColor = createBorderStyle("borderColor");
+const borderTopColor = createBorderStyle("borderTopColor");
+const borderRightColor = createBorderStyle("borderRightColor");
+const borderBottomColor = createBorderStyle("borderBottomColor");
+const borderLeftColor = createBorderStyle("borderLeftColor");
+const outline = createBorderStyle("outline", borderTransform);
+const outlineColor = createBorderStyle("outlineColor");
+const borderRadius = (props) => {
+  if (props.borderRadius !== void 0 && props.borderRadius !== null) {
+    const transformer = createUnaryUnit(props.theme, "shape.borderRadius", 4, "borderRadius");
+    const styleFromPropValue = (propValue) => ({
+      borderRadius: getValue(transformer, propValue)
+    });
+    return handleBreakpoints(props, props.borderRadius, styleFromPropValue);
+  }
+  return null;
+};
+borderRadius.propTypes = process.env.NODE_ENV !== "production" ? {
+  borderRadius: responsivePropType
+} : {};
+borderRadius.filterProps = ["borderRadius"];
+compose(border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderTopColor, borderRightColor, borderBottomColor, borderLeftColor, borderRadius, outline, outlineColor);
+const gap = (props) => {
+  if (props.gap !== void 0 && props.gap !== null) {
+    const transformer = createUnaryUnit(props.theme, "spacing", 8, "gap");
+    const styleFromPropValue = (propValue) => ({
+      gap: getValue(transformer, propValue)
+    });
+    return handleBreakpoints(props, props.gap, styleFromPropValue);
+  }
+  return null;
+};
+gap.propTypes = process.env.NODE_ENV !== "production" ? {
+  gap: responsivePropType
+} : {};
+gap.filterProps = ["gap"];
+const columnGap = (props) => {
+  if (props.columnGap !== void 0 && props.columnGap !== null) {
+    const transformer = createUnaryUnit(props.theme, "spacing", 8, "columnGap");
+    const styleFromPropValue = (propValue) => ({
+      columnGap: getValue(transformer, propValue)
+    });
+    return handleBreakpoints(props, props.columnGap, styleFromPropValue);
+  }
+  return null;
+};
+columnGap.propTypes = process.env.NODE_ENV !== "production" ? {
+  columnGap: responsivePropType
+} : {};
+columnGap.filterProps = ["columnGap"];
+const rowGap = (props) => {
+  if (props.rowGap !== void 0 && props.rowGap !== null) {
+    const transformer = createUnaryUnit(props.theme, "spacing", 8, "rowGap");
+    const styleFromPropValue = (propValue) => ({
+      rowGap: getValue(transformer, propValue)
+    });
+    return handleBreakpoints(props, props.rowGap, styleFromPropValue);
+  }
+  return null;
+};
+rowGap.propTypes = process.env.NODE_ENV !== "production" ? {
+  rowGap: responsivePropType
+} : {};
+rowGap.filterProps = ["rowGap"];
+const gridColumn = style$1({
+  prop: "gridColumn"
+});
+const gridRow = style$1({
+  prop: "gridRow"
+});
+const gridAutoFlow = style$1({
+  prop: "gridAutoFlow"
+});
+const gridAutoColumns = style$1({
+  prop: "gridAutoColumns"
+});
+const gridAutoRows = style$1({
+  prop: "gridAutoRows"
+});
+const gridTemplateColumns = style$1({
+  prop: "gridTemplateColumns"
+});
+const gridTemplateRows = style$1({
+  prop: "gridTemplateRows"
+});
+const gridTemplateAreas = style$1({
+  prop: "gridTemplateAreas"
+});
+const gridArea = style$1({
+  prop: "gridArea"
+});
+compose(gap, columnGap, rowGap, gridColumn, gridRow, gridAutoFlow, gridAutoColumns, gridAutoRows, gridTemplateColumns, gridTemplateRows, gridTemplateAreas, gridArea);
+function paletteTransform(value, userValue) {
+  if (userValue === "grey") {
+    return userValue;
+  }
+  return value;
+}
+const color = style$1({
+  prop: "color",
+  themeKey: "palette",
+  transform: paletteTransform
+});
+const bgcolor = style$1({
+  prop: "bgcolor",
+  cssProperty: "backgroundColor",
+  themeKey: "palette",
+  transform: paletteTransform
+});
+const backgroundColor = style$1({
+  prop: "backgroundColor",
+  themeKey: "palette",
+  transform: paletteTransform
+});
+compose(color, bgcolor, backgroundColor);
+function sizingTransform(value) {
+  return value <= 1 && value !== 0 ? `${value * 100}%` : value;
+}
+const width = style$1({
+  prop: "width",
+  transform: sizingTransform
+});
+const maxWidth = (props) => {
+  if (props.maxWidth !== void 0 && props.maxWidth !== null) {
+    const styleFromPropValue = (propValue) => {
+      var _props$theme, _props$theme2;
+      const breakpoint = ((_props$theme = props.theme) == null || (_props$theme = _props$theme.breakpoints) == null || (_props$theme = _props$theme.values) == null ? void 0 : _props$theme[propValue]) || values[propValue];
+      if (!breakpoint) {
+        return {
+          maxWidth: sizingTransform(propValue)
+        };
+      }
+      if (((_props$theme2 = props.theme) == null || (_props$theme2 = _props$theme2.breakpoints) == null ? void 0 : _props$theme2.unit) !== "px") {
+        return {
+          maxWidth: `${breakpoint}${props.theme.breakpoints.unit}`
+        };
+      }
+      return {
+        maxWidth: breakpoint
+      };
+    };
+    return handleBreakpoints(props, props.maxWidth, styleFromPropValue);
+  }
+  return null;
+};
+maxWidth.filterProps = ["maxWidth"];
+const minWidth = style$1({
+  prop: "minWidth",
+  transform: sizingTransform
+});
+const height = style$1({
+  prop: "height",
+  transform: sizingTransform
+});
+const maxHeight = style$1({
+  prop: "maxHeight",
+  transform: sizingTransform
+});
+const minHeight = style$1({
+  prop: "minHeight",
+  transform: sizingTransform
+});
+style$1({
+  prop: "size",
+  cssProperty: "width",
+  transform: sizingTransform
+});
+style$1({
+  prop: "size",
+  cssProperty: "height",
+  transform: sizingTransform
+});
+const boxSizing = style$1({
+  prop: "boxSizing"
+});
+compose(width, maxWidth, minWidth, height, maxHeight, minHeight, boxSizing);
+const defaultSxConfig = {
+  // borders
+  border: {
+    themeKey: "borders",
+    transform: borderTransform
+  },
+  borderTop: {
+    themeKey: "borders",
+    transform: borderTransform
+  },
+  borderRight: {
+    themeKey: "borders",
+    transform: borderTransform
+  },
+  borderBottom: {
+    themeKey: "borders",
+    transform: borderTransform
+  },
+  borderLeft: {
+    themeKey: "borders",
+    transform: borderTransform
+  },
+  borderColor: {
+    themeKey: "palette"
+  },
+  borderTopColor: {
+    themeKey: "palette"
+  },
+  borderRightColor: {
+    themeKey: "palette"
+  },
+  borderBottomColor: {
+    themeKey: "palette"
+  },
+  borderLeftColor: {
+    themeKey: "palette"
+  },
+  outline: {
+    themeKey: "borders",
+    transform: borderTransform
+  },
+  outlineColor: {
+    themeKey: "palette"
+  },
+  borderRadius: {
+    themeKey: "shape.borderRadius",
+    style: borderRadius
+  },
+  // palette
+  color: {
+    themeKey: "palette",
+    transform: paletteTransform
+  },
+  bgcolor: {
+    themeKey: "palette",
+    cssProperty: "backgroundColor",
+    transform: paletteTransform
+  },
+  backgroundColor: {
+    themeKey: "palette",
+    transform: paletteTransform
+  },
+  // spacing
+  p: {
+    style: padding
+  },
+  pt: {
+    style: padding
+  },
+  pr: {
+    style: padding
+  },
+  pb: {
+    style: padding
+  },
+  pl: {
+    style: padding
+  },
+  px: {
+    style: padding
+  },
+  py: {
+    style: padding
+  },
+  padding: {
+    style: padding
+  },
+  paddingTop: {
+    style: padding
+  },
+  paddingRight: {
+    style: padding
+  },
+  paddingBottom: {
+    style: padding
+  },
+  paddingLeft: {
+    style: padding
+  },
+  paddingX: {
+    style: padding
+  },
+  paddingY: {
+    style: padding
+  },
+  paddingInline: {
+    style: padding
+  },
+  paddingInlineStart: {
+    style: padding
+  },
+  paddingInlineEnd: {
+    style: padding
+  },
+  paddingBlock: {
+    style: padding
+  },
+  paddingBlockStart: {
+    style: padding
+  },
+  paddingBlockEnd: {
+    style: padding
+  },
+  m: {
+    style: margin
+  },
+  mt: {
+    style: margin
+  },
+  mr: {
+    style: margin
+  },
+  mb: {
+    style: margin
+  },
+  ml: {
+    style: margin
+  },
+  mx: {
+    style: margin
+  },
+  my: {
+    style: margin
+  },
+  margin: {
+    style: margin
+  },
+  marginTop: {
+    style: margin
+  },
+  marginRight: {
+    style: margin
+  },
+  marginBottom: {
+    style: margin
+  },
+  marginLeft: {
+    style: margin
+  },
+  marginX: {
+    style: margin
+  },
+  marginY: {
+    style: margin
+  },
+  marginInline: {
+    style: margin
+  },
+  marginInlineStart: {
+    style: margin
+  },
+  marginInlineEnd: {
+    style: margin
+  },
+  marginBlock: {
+    style: margin
+  },
+  marginBlockStart: {
+    style: margin
+  },
+  marginBlockEnd: {
+    style: margin
+  },
+  // display
+  displayPrint: {
+    cssProperty: false,
+    transform: (value) => ({
+      "@media print": {
+        display: value
+      }
+    })
+  },
+  display: {},
+  overflow: {},
+  textOverflow: {},
+  visibility: {},
+  whiteSpace: {},
+  // flexbox
+  flexBasis: {},
+  flexDirection: {},
+  flexWrap: {},
+  justifyContent: {},
+  alignItems: {},
+  alignContent: {},
+  order: {},
+  flex: {},
+  flexGrow: {},
+  flexShrink: {},
+  alignSelf: {},
+  justifyItems: {},
+  justifySelf: {},
+  // grid
+  gap: {
+    style: gap
+  },
+  rowGap: {
+    style: rowGap
+  },
+  columnGap: {
+    style: columnGap
+  },
+  gridColumn: {},
+  gridRow: {},
+  gridAutoFlow: {},
+  gridAutoColumns: {},
+  gridAutoRows: {},
+  gridTemplateColumns: {},
+  gridTemplateRows: {},
+  gridTemplateAreas: {},
+  gridArea: {},
+  // positions
+  position: {},
+  zIndex: {
+    themeKey: "zIndex"
+  },
+  top: {},
+  right: {},
+  bottom: {},
+  left: {},
+  // shadows
+  boxShadow: {
+    themeKey: "shadows"
+  },
+  // sizing
+  width: {
+    transform: sizingTransform
+  },
+  maxWidth: {
+    style: maxWidth
+  },
+  minWidth: {
+    transform: sizingTransform
+  },
+  height: {
+    transform: sizingTransform
+  },
+  maxHeight: {
+    transform: sizingTransform
+  },
+  minHeight: {
+    transform: sizingTransform
+  },
+  boxSizing: {},
+  // typography
+  fontFamily: {
+    themeKey: "typography"
+  },
+  fontSize: {
+    themeKey: "typography"
+  },
+  fontStyle: {
+    themeKey: "typography"
+  },
+  fontWeight: {
+    themeKey: "typography"
+  },
+  letterSpacing: {},
+  textTransform: {},
+  lineHeight: {},
+  textAlign: {},
+  typography: {
+    cssProperty: false,
+    themeKey: "typography"
+  }
+};
+function objectsHaveSameKeys(...objects) {
+  const allKeys = objects.reduce((keys, object) => keys.concat(Object.keys(object)), []);
+  const union = new Set(allKeys);
+  return objects.every((object) => union.size === Object.keys(object).length);
+}
+function callIfFn(maybeFn, arg2) {
+  return typeof maybeFn === "function" ? maybeFn(arg2) : maybeFn;
+}
+function unstable_createStyleFunctionSx() {
+  function getThemeValue(prop, val, theme, config) {
+    const props = {
+      [prop]: val,
+      theme
+    };
+    const options = config[prop];
+    if (!options) {
+      return {
+        [prop]: val
+      };
+    }
+    const {
+      cssProperty = prop,
+      themeKey,
+      transform,
+      style: style2
+    } = options;
+    if (val == null) {
+      return null;
+    }
+    if (themeKey === "typography" && val === "inherit") {
+      return {
+        [prop]: val
+      };
+    }
+    const themeMapping = getPath(theme, themeKey) || {};
+    if (style2) {
+      return style2(props);
+    }
+    const styleFromPropValue = (propValueFinal) => {
+      let value = getStyleValue(themeMapping, transform, propValueFinal);
+      if (propValueFinal === value && typeof propValueFinal === "string") {
+        value = getStyleValue(themeMapping, transform, `${prop}${propValueFinal === "default" ? "" : capitalize(propValueFinal)}`, propValueFinal);
+      }
+      if (cssProperty === false) {
+        return value;
+      }
+      return {
+        [cssProperty]: value
+      };
+    };
+    return handleBreakpoints(props, val, styleFromPropValue);
+  }
+  function styleFunctionSx2(props) {
+    var _theme$unstable_sxCon;
+    const {
+      sx,
+      theme = {}
+    } = props || {};
+    if (!sx) {
+      return null;
+    }
+    const config = (_theme$unstable_sxCon = theme.unstable_sxConfig) != null ? _theme$unstable_sxCon : defaultSxConfig;
+    function traverse(sxInput) {
+      let sxObject = sxInput;
+      if (typeof sxInput === "function") {
+        sxObject = sxInput(theme);
+      } else if (typeof sxInput !== "object") {
+        return sxInput;
+      }
+      if (!sxObject) {
+        return null;
+      }
+      const emptyBreakpoints = createEmptyBreakpointObject(theme.breakpoints);
+      const breakpointsKeys = Object.keys(emptyBreakpoints);
+      let css = emptyBreakpoints;
+      Object.keys(sxObject).forEach((styleKey) => {
+        const value = callIfFn(sxObject[styleKey], theme);
+        if (value !== null && value !== void 0) {
+          if (typeof value === "object") {
+            if (config[styleKey]) {
+              css = merge(css, getThemeValue(styleKey, value, theme, config));
+            } else {
+              const breakpointsValues = handleBreakpoints({
+                theme
+              }, value, (x) => ({
+                [styleKey]: x
+              }));
+              if (objectsHaveSameKeys(breakpointsValues, value)) {
+                css[styleKey] = styleFunctionSx2({
+                  sx: value,
+                  theme
+                });
+              } else {
+                css = merge(css, breakpointsValues);
+              }
+            }
+          } else {
+            css = merge(css, getThemeValue(styleKey, value, theme, config));
+          }
+        }
+      });
+      return removeUnusedBreakpoints(breakpointsKeys, css);
+    }
+    return Array.isArray(sx) ? sx.map(traverse) : traverse(sx);
+  }
+  return styleFunctionSx2;
+}
+const styleFunctionSx = unstable_createStyleFunctionSx();
+styleFunctionSx.filterProps = ["sx"];
+function applyStyles(key, styles2) {
+  const theme = this;
+  if (theme.vars && typeof theme.getColorSchemeSelector === "function") {
+    const selector = theme.getColorSchemeSelector(key).replace(/(\[[^\]]+\])/, "*:where($1)");
+    return {
+      [selector]: styles2
+    };
+  }
+  if (theme.palette.mode === key) {
+    return styles2;
+  }
+  return {};
+}
+const _excluded$6 = ["breakpoints", "palette", "spacing", "shape"];
+function createTheme(options = {}, ...args) {
+  const {
+    breakpoints: breakpointsInput = {},
+    palette: paletteInput = {},
+    spacing: spacingInput,
+    shape: shapeInput = {}
+  } = options, other = _objectWithoutPropertiesLoose(options, _excluded$6);
+  const breakpoints = createBreakpoints(breakpointsInput);
+  const spacing = createSpacing(spacingInput);
+  let muiTheme = deepmerge({
+    breakpoints,
+    direction: "ltr",
+    components: {},
+    // Inject component definitions.
+    palette: _extends({
+      mode: "light"
+    }, paletteInput),
+    spacing,
+    shape: _extends({}, shape, shapeInput)
+  }, other);
+  muiTheme.applyStyles = applyStyles;
+  muiTheme = args.reduce((acc, argument) => deepmerge(acc, argument), muiTheme);
+  muiTheme.unstable_sxConfig = _extends({}, defaultSxConfig, other == null ? void 0 : other.unstable_sxConfig);
+  muiTheme.unstable_sx = function sx(props) {
+    return styleFunctionSx({
+      sx: props,
+      theme: this
+    });
+  };
+  return muiTheme;
+}
+function isObjectEmpty(obj) {
+  return Object.keys(obj).length === 0;
+}
+function useTheme$1(defaultTheme2 = null) {
+  const contextTheme = React.useContext(ThemeContext);
+  return !contextTheme || isObjectEmpty(contextTheme) ? defaultTheme2 : contextTheme;
+}
+const systemDefaultTheme$1 = createTheme();
+function useTheme(defaultTheme2 = systemDefaultTheme$1) {
+  return useTheme$1(defaultTheme2);
+}
+const _excluded$5 = ["ownerState"], _excluded2$2 = ["variants"], _excluded3$1 = ["name", "slot", "skipVariantsResolver", "skipSx", "overridesResolver"];
+function isEmpty(obj) {
+  return Object.keys(obj).length === 0;
+}
+function isStringTag(tag) {
+  return typeof tag === "string" && // 96 is one less than the char code
+  // for "a" so this is checking that
+  // it's a lowercase character
+  tag.charCodeAt(0) > 96;
+}
+function shouldForwardProp(prop) {
+  return prop !== "ownerState" && prop !== "theme" && prop !== "sx" && prop !== "as";
+}
+const systemDefaultTheme = createTheme();
+const lowercaseFirstLetter = (string) => {
+  if (!string) {
+    return string;
+  }
+  return string.charAt(0).toLowerCase() + string.slice(1);
+};
+function resolveTheme({
+  defaultTheme: defaultTheme2,
+  theme,
+  themeId
+}) {
+  return isEmpty(theme) ? defaultTheme2 : theme[themeId] || theme;
+}
+function defaultOverridesResolver(slot) {
+  if (!slot) {
+    return null;
+  }
+  return (props, styles2) => styles2[slot];
+}
+function processStyleArg(callableStyle, _ref) {
+  let {
+    ownerState
+  } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded$5);
+  const resolvedStylesArg = typeof callableStyle === "function" ? callableStyle(_extends({
+    ownerState
+  }, props)) : callableStyle;
+  if (Array.isArray(resolvedStylesArg)) {
+    return resolvedStylesArg.flatMap((resolvedStyle) => processStyleArg(resolvedStyle, _extends({
+      ownerState
+    }, props)));
+  }
+  if (!!resolvedStylesArg && typeof resolvedStylesArg === "object" && Array.isArray(resolvedStylesArg.variants)) {
+    const {
+      variants = []
+    } = resolvedStylesArg, otherStyles = _objectWithoutPropertiesLoose(resolvedStylesArg, _excluded2$2);
+    let result = otherStyles;
+    variants.forEach((variant) => {
+      let isMatch = true;
+      if (typeof variant.props === "function") {
+        isMatch = variant.props(_extends({
+          ownerState
+        }, props, ownerState));
+      } else {
+        Object.keys(variant.props).forEach((key) => {
+          if ((ownerState == null ? void 0 : ownerState[key]) !== variant.props[key] && props[key] !== variant.props[key]) {
+            isMatch = false;
+          }
+        });
+      }
+      if (isMatch) {
+        if (!Array.isArray(result)) {
+          result = [result];
+        }
+        result.push(typeof variant.style === "function" ? variant.style(_extends({
+          ownerState
+        }, props, ownerState)) : variant.style);
+      }
+    });
+    return result;
+  }
+  return resolvedStylesArg;
+}
+function createStyled2(input = {}) {
+  const {
+    themeId,
+    defaultTheme: defaultTheme2 = systemDefaultTheme,
+    rootShouldForwardProp: rootShouldForwardProp2 = shouldForwardProp,
+    slotShouldForwardProp: slotShouldForwardProp2 = shouldForwardProp
+  } = input;
+  const systemSx = (props) => {
+    return styleFunctionSx(_extends({}, props, {
+      theme: resolveTheme(_extends({}, props, {
+        defaultTheme: defaultTheme2,
+        themeId
+      }))
+    }));
+  };
+  systemSx.__mui_systemSx = true;
+  return (tag, inputOptions = {}) => {
+    internal_processStyles(tag, (styles2) => styles2.filter((style2) => !(style2 != null && style2.__mui_systemSx)));
+    const {
+      name: componentName,
+      slot: componentSlot,
+      skipVariantsResolver: inputSkipVariantsResolver,
+      skipSx: inputSkipSx,
+      // TODO v6: remove `lowercaseFirstLetter()` in the next major release
+      // For more details: https://github.com/mui/material-ui/pull/37908
+      overridesResolver = defaultOverridesResolver(lowercaseFirstLetter(componentSlot))
+    } = inputOptions, options = _objectWithoutPropertiesLoose(inputOptions, _excluded3$1);
+    const skipVariantsResolver = inputSkipVariantsResolver !== void 0 ? inputSkipVariantsResolver : (
+      // TODO v6: remove `Root` in the next major release
+      // For more details: https://github.com/mui/material-ui/pull/37908
+      componentSlot && componentSlot !== "Root" && componentSlot !== "root" || false
+    );
+    const skipSx = inputSkipSx || false;
+    let label;
+    if (process.env.NODE_ENV !== "production") {
+      if (componentName) {
+        label = `${componentName}-${lowercaseFirstLetter(componentSlot || "Root")}`;
+      }
+    }
+    let shouldForwardPropOption = shouldForwardProp;
+    if (componentSlot === "Root" || componentSlot === "root") {
+      shouldForwardPropOption = rootShouldForwardProp2;
+    } else if (componentSlot) {
+      shouldForwardPropOption = slotShouldForwardProp2;
+    } else if (isStringTag(tag)) {
+      shouldForwardPropOption = void 0;
+    }
+    const defaultStyledResolver = styled$1(tag, _extends({
+      shouldForwardProp: shouldForwardPropOption,
+      label
+    }, options));
+    const transformStyleArg = (stylesArg) => {
+      if (typeof stylesArg === "function" && stylesArg.__emotion_real !== stylesArg || isPlainObject(stylesArg)) {
+        return (props) => processStyleArg(stylesArg, _extends({}, props, {
+          theme: resolveTheme({
+            theme: props.theme,
+            defaultTheme: defaultTheme2,
+            themeId
+          })
+        }));
+      }
+      return stylesArg;
+    };
+    const muiStyledResolver = (styleArg, ...expressions) => {
+      let transformedStyleArg = transformStyleArg(styleArg);
+      const expressionsWithDefaultTheme = expressions ? expressions.map(transformStyleArg) : [];
+      if (componentName && overridesResolver) {
+        expressionsWithDefaultTheme.push((props) => {
+          const theme = resolveTheme(_extends({}, props, {
+            defaultTheme: defaultTheme2,
+            themeId
+          }));
+          if (!theme.components || !theme.components[componentName] || !theme.components[componentName].styleOverrides) {
+            return null;
+          }
+          const styleOverrides = theme.components[componentName].styleOverrides;
+          const resolvedStyleOverrides = {};
+          Object.entries(styleOverrides).forEach(([slotKey, slotStyle]) => {
+            resolvedStyleOverrides[slotKey] = processStyleArg(slotStyle, _extends({}, props, {
+              theme
+            }));
+          });
+          return overridesResolver(props, resolvedStyleOverrides);
+        });
+      }
+      if (componentName && !skipVariantsResolver) {
+        expressionsWithDefaultTheme.push((props) => {
+          var _theme$components;
+          const theme = resolveTheme(_extends({}, props, {
+            defaultTheme: defaultTheme2,
+            themeId
+          }));
+          const themeVariants = theme == null || (_theme$components = theme.components) == null || (_theme$components = _theme$components[componentName]) == null ? void 0 : _theme$components.variants;
+          return processStyleArg({
+            variants: themeVariants
+          }, _extends({}, props, {
+            theme
+          }));
+        });
+      }
+      if (!skipSx) {
+        expressionsWithDefaultTheme.push(systemSx);
+      }
+      const numOfCustomFnsApplied = expressionsWithDefaultTheme.length - expressions.length;
+      if (Array.isArray(styleArg) && numOfCustomFnsApplied > 0) {
+        const placeholders = new Array(numOfCustomFnsApplied).fill("");
+        transformedStyleArg = [...styleArg, ...placeholders];
+        transformedStyleArg.raw = [...styleArg.raw, ...placeholders];
+      }
+      const Component2 = defaultStyledResolver(transformedStyleArg, ...expressionsWithDefaultTheme);
+      if (process.env.NODE_ENV !== "production") {
+        let displayName;
+        if (componentName) {
+          displayName = `${componentName}${capitalize(componentSlot || "")}`;
+        }
+        if (displayName === void 0) {
+          displayName = `Styled(${getDisplayName(tag)})`;
+        }
+        Component2.displayName = displayName;
+      }
+      if (tag.muiName) {
+        Component2.muiName = tag.muiName;
+      }
+      return Component2;
+    };
+    if (defaultStyledResolver.withConfig) {
+      muiStyledResolver.withConfig = defaultStyledResolver.withConfig;
+    }
+    return muiStyledResolver;
+  };
+}
+function getThemeProps(params) {
+  const {
+    theme,
+    name,
+    props
+  } = params;
+  if (!theme || !theme.components || !theme.components[name] || !theme.components[name].defaultProps) {
+    return props;
+  }
+  return resolveProps(theme.components[name].defaultProps, props);
+}
+function useThemeProps$1({
+  props,
+  name,
+  defaultTheme: defaultTheme2,
+  themeId
+}) {
+  let theme = useTheme(defaultTheme2);
+  if (themeId) {
+    theme = theme[themeId] || theme;
+  }
+  const mergedProps = getThemeProps({
+    theme,
+    name,
+    props
+  });
+  return mergedProps;
+}
+function hexToRgb(color2) {
+  color2 = color2.slice(1);
+  const re = new RegExp(`.{1,${color2.length >= 6 ? 2 : 1}}`, "g");
+  let colors2 = color2.match(re);
+  if (colors2 && colors2[0].length === 1) {
+    colors2 = colors2.map((n) => n + n);
+  }
+  return colors2 ? `rgb${colors2.length === 4 ? "a" : ""}(${colors2.map((n, index) => {
+    return index < 3 ? parseInt(n, 16) : Math.round(parseInt(n, 16) / 255 * 1e3) / 1e3;
+  }).join(", ")})` : "";
+}
+function decomposeColor(color2) {
+  if (color2.type) {
+    return color2;
+  }
+  if (color2.charAt(0) === "#") {
+    return decomposeColor(hexToRgb(color2));
+  }
+  const marker = color2.indexOf("(");
+  const type = color2.substring(0, marker);
+  if (["rgb", "rgba", "hsl", "hsla", "color"].indexOf(type) === -1) {
+    throw new Error(process.env.NODE_ENV !== "production" ? `MUI: Unsupported \`${color2}\` color.
+The following formats are supported: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla(), color().` : formatMuiErrorMessage$1(9, color2));
+  }
+  let values2 = color2.substring(marker + 1, color2.length - 1);
+  let colorSpace;
+  if (type === "color") {
+    values2 = values2.split(" ");
+    colorSpace = values2.shift();
+    if (values2.length === 4 && values2[3].charAt(0) === "/") {
+      values2[3] = values2[3].slice(1);
+    }
+    if (["srgb", "display-p3", "a98-rgb", "prophoto-rgb", "rec-2020"].indexOf(colorSpace) === -1) {
+      throw new Error(process.env.NODE_ENV !== "production" ? `MUI: unsupported \`${colorSpace}\` color space.
+The following color spaces are supported: srgb, display-p3, a98-rgb, prophoto-rgb, rec-2020.` : formatMuiErrorMessage$1(10, colorSpace));
+    }
+  } else {
+    values2 = values2.split(",");
+  }
+  values2 = values2.map((value) => parseFloat(value));
+  return {
+    type,
+    values: values2,
+    colorSpace
+  };
+}
+const colorChannel = (color2) => {
+  const decomposedColor = decomposeColor(color2);
+  return decomposedColor.values.slice(0, 3).map((val, idx) => decomposedColor.type.indexOf("hsl") !== -1 && idx !== 0 ? `${val}%` : val).join(" ");
+};
+function createGetCssVar$1(prefix2 = "") {
+  function appendVar(...vars) {
+    if (!vars.length) {
+      return "";
+    }
+    const value = vars[0];
+    if (typeof value === "string" && !value.match(/(#|\(|\)|(-?(\d*\.)?\d+)(px|em|%|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc))|^(-?(\d*\.)?\d+)$|(\d+ \d+ \d+)/)) {
+      return `, var(--${prefix2 ? `${prefix2}-` : ""}${value}${appendVar(...vars.slice(1))})`;
+    }
+    return `, ${value}`;
+  }
+  const getCssVar = (field, ...fallbacks) => {
+    return `var(--${prefix2 ? `${prefix2}-` : ""}${field}${appendVar(...fallbacks)})`;
+  };
+  return getCssVar;
+}
+const assignNestedKeys = (obj, keys, value, arrayKeys = []) => {
+  let temp = obj;
+  keys.forEach((k, index) => {
+    if (index === keys.length - 1) {
+      if (Array.isArray(temp)) {
+        temp[Number(k)] = value;
+      } else if (temp && typeof temp === "object") {
+        temp[k] = value;
+      }
+    } else if (temp && typeof temp === "object") {
+      if (!temp[k]) {
+        temp[k] = arrayKeys.includes(k) ? [] : {};
+      }
+      temp = temp[k];
+    }
+  });
+};
+const walkObjectDeep = (obj, callback, shouldSkipPaths) => {
+  function recurse(object, parentKeys = [], arrayKeys = []) {
+    Object.entries(object).forEach(([key, value]) => {
+      if (!shouldSkipPaths || shouldSkipPaths && !shouldSkipPaths([...parentKeys, key])) {
+        if (value !== void 0 && value !== null) {
+          if (typeof value === "object" && Object.keys(value).length > 0) {
+            recurse(value, [...parentKeys, key], Array.isArray(value) ? [...arrayKeys, key] : arrayKeys);
+          } else {
+            callback([...parentKeys, key], value, arrayKeys);
+          }
+        }
+      }
+    });
+  }
+  recurse(obj);
+};
+const getCssValue = (keys, value) => {
+  if (typeof value === "number") {
+    if (["lineHeight", "fontWeight", "opacity", "zIndex"].some((prop) => keys.includes(prop))) {
+      return value;
+    }
+    const lastKey = keys[keys.length - 1];
+    if (lastKey.toLowerCase().indexOf("opacity") >= 0) {
+      return value;
+    }
+    return `${value}px`;
+  }
+  return value;
+};
+function cssVarsParser(theme, options) {
+  const {
+    prefix: prefix2,
+    shouldSkipGeneratingVar: shouldSkipGeneratingVar2
+  } = options || {};
+  const css = {};
+  const vars = {};
+  const varsWithDefaults = {};
+  walkObjectDeep(
+    theme,
+    (keys, value, arrayKeys) => {
+      if (typeof value === "string" || typeof value === "number") {
+        if (!shouldSkipGeneratingVar2 || !shouldSkipGeneratingVar2(keys, value)) {
+          const cssVar = `--${prefix2 ? `${prefix2}-` : ""}${keys.join("-")}`;
+          Object.assign(css, {
+            [cssVar]: getCssValue(keys, value)
+          });
+          assignNestedKeys(vars, keys, `var(${cssVar})`, arrayKeys);
+          assignNestedKeys(varsWithDefaults, keys, `var(${cssVar}, ${value})`, arrayKeys);
+        }
+      }
+    },
+    (keys) => keys[0] === "vars"
+    // skip 'vars/*' paths
+  );
+  return {
+    css,
+    vars,
+    varsWithDefaults
+  };
+}
+function _typeof(o) {
+  "@babel/helpers - typeof";
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o2) {
+    return typeof o2;
+  } : function(o2) {
+    return o2 && "function" == typeof Symbol && o2.constructor === Symbol && o2 !== Symbol.prototype ? "symbol" : typeof o2;
+  }, _typeof(o);
+}
+function toPrimitive(t, r2) {
+  if ("object" != _typeof(t) || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r2);
+    if ("object" != _typeof(i)) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return String(t);
+}
+function toPropertyKey(t) {
+  var i = toPrimitive(t, "string");
+  return "symbol" == _typeof(i) ? i : i + "";
+}
+const _excluded$4 = ["colorSchemes", "components", "defaultColorScheme"];
+function prepareCssVars(theme, parserConfig) {
+  const {
+    colorSchemes = {},
+    defaultColorScheme = "light"
+  } = theme, otherTheme = _objectWithoutPropertiesLoose(theme, _excluded$4);
+  const {
+    vars: rootVars,
+    css: rootCss,
+    varsWithDefaults: rootVarsWithDefaults
+  } = cssVarsParser(otherTheme, parserConfig);
+  let themeVars = rootVarsWithDefaults;
+  const colorSchemesMap = {};
+  const {
+    [defaultColorScheme]: light2
+  } = colorSchemes, otherColorSchemes = _objectWithoutPropertiesLoose(colorSchemes, [defaultColorScheme].map(toPropertyKey));
+  Object.entries(otherColorSchemes || {}).forEach(([key, scheme]) => {
+    const {
+      vars,
+      css,
+      varsWithDefaults
+    } = cssVarsParser(scheme, parserConfig);
+    themeVars = deepmerge(themeVars, varsWithDefaults);
+    colorSchemesMap[key] = {
+      css,
+      vars
+    };
+  });
+  if (light2) {
+    const {
+      css,
+      vars,
+      varsWithDefaults
+    } = cssVarsParser(light2, parserConfig);
+    themeVars = deepmerge(themeVars, varsWithDefaults);
+    colorSchemesMap[defaultColorScheme] = {
+      css,
+      vars
+    };
+  }
+  const generateCssVars = (colorScheme) => {
+    var _parserConfig$getSele2;
+    if (!colorScheme) {
+      var _parserConfig$getSele;
+      const css2 = _extends({}, rootCss);
+      return {
+        css: css2,
+        vars: rootVars,
+        selector: (parserConfig == null || (_parserConfig$getSele = parserConfig.getSelector) == null ? void 0 : _parserConfig$getSele.call(parserConfig, colorScheme, css2)) || ":root"
+      };
+    }
+    const css = _extends({}, colorSchemesMap[colorScheme].css);
+    return {
+      css,
+      vars: colorSchemesMap[colorScheme].vars,
+      selector: (parserConfig == null || (_parserConfig$getSele2 = parserConfig.getSelector) == null ? void 0 : _parserConfig$getSele2.call(parserConfig, colorScheme, css)) || ":root"
+    };
+  };
+  return {
+    vars: themeVars,
+    generateCssVars
+  };
+}
+const sxConfig = _extends({}, defaultSxConfig, {
+  // The default system themeKey is shape
+  borderRadius: {
+    themeKey: "radius"
+  },
+  // The default system themeKey is shadows
+  boxShadow: {
+    themeKey: "shadow"
+  },
+  // The default system themeKey is typography
+  fontFamily: {
+    themeKey: "fontFamily"
+  },
+  // The default system themeKey is typography
+  fontSize: {
+    themeKey: "fontSize"
+  },
+  // The default system themeKey is typography
+  fontWeight: {
+    themeKey: "fontWeight"
+  },
+  // The default system themeKey is typography
+  letterSpacing: {
+    themeKey: "letterSpacing"
+  },
+  // The default system themeKey is typography
+  lineHeight: {
+    themeKey: "lineHeight"
+  }
+});
+const colors = {
+  grey: {
+    50: "#FBFCFE",
+    100: "#F0F4F8",
+    200: "#DDE7EE",
+    300: "#CDD7E1",
+    400: "#9FA6AD",
+    500: "#636B74",
+    600: "#555E68",
+    700: "#32383E",
+    800: "#171A1C",
+    900: "#0B0D0E"
+  },
+  blue: {
+    50: "#EDF5FD",
+    100: "#E3EFFB",
+    200: "#C7DFF7",
+    300: "#97C3F0",
+    400: "#4393E4",
+    500: "#0B6BCB",
+    600: "#185EA5",
+    700: "#12467B",
+    800: "#0A2744",
+    900: "#051423"
+  },
+  yellow: {
+    50: "#FEFAF6",
+    100: "#FDF0E1",
+    200: "#FCE1C2",
+    300: "#F3C896",
+    400: "#EA9A3E",
+    500: "#9A5B13",
+    600: "#72430D",
+    700: "#492B08",
+    800: "#2E1B05",
+    900: "#1D1002"
+  },
+  red: {
+    50: "#FEF6F6",
+    100: "#FCE4E4",
+    200: "#F7C5C5",
+    300: "#F09898",
+    400: "#E47474",
+    500: "#C41C1C",
+    600: "#A51818",
+    700: "#7D1212",
+    800: "#430A0A",
+    900: "#240505"
+  },
+  green: {
+    50: "#F6FEF6",
+    100: "#E3FBE3",
+    200: "#C7F7C7",
+    300: "#A1E8A1",
+    400: "#51BC51",
+    500: "#1F7A1F",
+    600: "#136C13",
+    700: "#0A470A",
+    800: "#042F04",
+    900: "#021D02"
+  }
+};
+function shouldSkipGeneratingVar(keys) {
+  var _keys$;
+  return !!keys[0].match(/^(typography|variants|breakpoints)$/) || !!keys[0].match(/sxConfig$/) || // ends with sxConfig
+  keys[0] === "palette" && !!((_keys$ = keys[1]) != null && _keys$.match(/^(mode)$/)) || keys[0] === "focus" && keys[1] !== "thickness";
+}
+const generateUtilityClass = (componentName, slot) => generateUtilityClass$1(componentName, slot, "Mui");
+const generateUtilityClasses = (componentName, slots) => generateUtilityClasses$1(componentName, slots, "Mui");
+const isVariantPalette = (colorPalette) => colorPalette && typeof colorPalette === "object" && Object.keys(colorPalette).some((value) => {
+  var _value$match;
+  return (_value$match = value.match) == null ? void 0 : _value$match.call(value, /^(plain(Hover|Active|Disabled)?(Color|Bg)|outlined(Hover|Active|Disabled)?(Color|Border|Bg)|soft(Hover|Active|Disabled)?(Color|Bg)|solid(Hover|Active|Disabled)?(Color|Bg))$/);
+});
+const assignCss = (target, variantVar, value) => {
+  if (variantVar.includes("Color")) {
+    target.color = value;
+  }
+  if (variantVar.includes("Bg")) {
+    target.backgroundColor = value;
+  }
+  if (variantVar.includes("Border")) {
+    target.borderColor = value;
+  }
+};
+const createVariantStyle = (name, palette, getCssVar) => {
+  const result = {};
+  Object.entries(palette || {}).forEach(([variantVar, value]) => {
+    if (variantVar.match(new RegExp(`${name}(color|bg|border)`, "i")) && !!value) {
+      const cssVar = getCssVar ? getCssVar(variantVar) : value;
+      if (variantVar.includes("Disabled")) {
+        result.pointerEvents = "none";
+        result.cursor = "default";
+        result["--Icon-color"] = "currentColor";
+      }
+      if (variantVar.match(/(Hover|Active|Disabled)/)) {
+        assignCss(result, variantVar, cssVar);
+      } else {
+        if (!result["--variant-borderWidth"]) {
+          result["--variant-borderWidth"] = "0px";
+        }
+        if (variantVar.includes("Border")) {
+          result["--variant-borderWidth"] = "1px";
+          result.border = "var(--variant-borderWidth) solid";
+        }
+        assignCss(result, variantVar, cssVar);
+      }
+    }
+  });
+  return result;
+};
+const createVariant = (variant, theme) => {
+  let result = {};
+  if (theme) {
+    const {
+      getCssVar,
+      palette
+    } = theme;
+    Object.entries(palette).forEach((entry) => {
+      const [color2, colorPalette] = entry;
+      if (isVariantPalette(colorPalette) && typeof colorPalette === "object") {
+        result = _extends({}, result, {
+          [color2]: createVariantStyle(variant, colorPalette, (variantVar) => `var(--variant-${variantVar}, ${getCssVar(`palette-${color2}-${variantVar}`, palette[color2][variantVar])})`)
+        });
+      }
+    });
+  }
+  result.context = createVariantStyle(variant, {
+    plainColor: "var(--variant-plainColor)",
+    plainHoverColor: `var(--variant-plainHoverColor)`,
+    plainHoverBg: "var(--variant-plainHoverBg)",
+    plainActiveBg: "var(--variant-plainActiveBg)",
+    plainDisabledColor: "var(--variant-plainDisabledColor)",
+    outlinedColor: "var(--variant-outlinedColor)",
+    outlinedBorder: "var(--variant-outlinedBorder)",
+    outlinedHoverColor: `var(--variant-outlinedHoverColor)`,
+    outlinedHoverBorder: `var(--variant-outlinedHoverBorder)`,
+    outlinedHoverBg: `var(--variant-outlinedHoverBg)`,
+    outlinedActiveBg: `var(--variant-outlinedActiveBg)`,
+    outlinedDisabledColor: `var(--variant-outlinedDisabledColor)`,
+    outlinedDisabledBorder: `var(--variant-outlinedDisabledBorder)`,
+    softColor: "var(--variant-softColor)",
+    softBg: "var(--variant-softBg)",
+    softHoverColor: "var(--variant-softHoverColor)",
+    softHoverBg: "var(--variant-softHoverBg)",
+    softActiveBg: "var(--variant-softActiveBg)",
+    softDisabledColor: "var(--variant-softDisabledColor)",
+    softDisabledBg: "var(--variant-softDisabledBg)",
+    solidColor: "var(--variant-solidColor)",
+    solidBg: "var(--variant-solidBg)",
+    solidHoverBg: "var(--variant-solidHoverBg)",
+    solidActiveBg: "var(--variant-solidActiveBg)",
+    solidDisabledColor: "var(--variant-solidDisabledColor)",
+    solidDisabledBg: "var(--variant-solidDisabledBg)"
+  });
+  return result;
+};
+const _excluded$3 = ["cssVarPrefix", "breakpoints", "spacing", "components", "variants", "shouldSkipGeneratingVar"], _excluded2$1 = ["colorSchemes"];
+const createGetCssVar = (cssVarPrefix = "joy") => createGetCssVar$1(cssVarPrefix);
+function extendTheme(themeOptions) {
+  var _scalesInput$colorSch, _scalesInput$colorSch2, _scalesInput$colorSch3, _scalesInput$colorSch4, _scalesInput$colorSch5, _scalesInput$colorSch6, _scalesInput$focus$th, _scalesInput$focus, _scalesInput$focus$th2, _scalesInput$focus2;
+  const _ref = {}, {
+    cssVarPrefix = "joy",
+    breakpoints,
+    spacing,
+    components: componentsInput,
+    variants: variantsInput,
+    shouldSkipGeneratingVar: shouldSkipGeneratingVar$12 = shouldSkipGeneratingVar
+  } = _ref, scalesInput = _objectWithoutPropertiesLoose(_ref, _excluded$3);
+  const getCssVar = createGetCssVar(cssVarPrefix);
+  const defaultColors = {
+    primary: colors.blue,
+    neutral: colors.grey,
+    danger: colors.red,
+    success: colors.green,
+    warning: colors.yellow,
+    common: {
+      white: "#FFF",
+      black: "#000"
+    }
+  };
+  const getCssVarColor = (cssVar) => {
+    var _defaultColors$color;
+    const tokens = cssVar.split("-");
+    const color2 = tokens[1];
+    const index = tokens[2];
+    return getCssVar(cssVar, (_defaultColors$color = defaultColors[color2]) == null ? void 0 : _defaultColors$color[index]);
+  };
+  const createLightModeVariantVariables = (color2) => ({
+    plainColor: getCssVarColor(`palette-${color2}-500`),
+    plainHoverBg: getCssVarColor(`palette-${color2}-100`),
+    plainActiveBg: getCssVarColor(`palette-${color2}-200`),
+    plainDisabledColor: getCssVarColor(`palette-neutral-400`),
+    outlinedColor: getCssVarColor(`palette-${color2}-500`),
+    outlinedBorder: getCssVarColor(`palette-${color2}-300`),
+    outlinedHoverBg: getCssVarColor(`palette-${color2}-100`),
+    outlinedActiveBg: getCssVarColor(`palette-${color2}-200`),
+    outlinedDisabledColor: getCssVarColor(`palette-neutral-400`),
+    outlinedDisabledBorder: getCssVarColor(`palette-neutral-200`),
+    softColor: getCssVarColor(`palette-${color2}-700`),
+    softBg: getCssVarColor(`palette-${color2}-100`),
+    softHoverBg: getCssVarColor(`palette-${color2}-200`),
+    softActiveColor: getCssVarColor(`palette-${color2}-800`),
+    softActiveBg: getCssVarColor(`palette-${color2}-300`),
+    softDisabledColor: getCssVarColor(`palette-neutral-400`),
+    softDisabledBg: getCssVarColor(`palette-neutral-50`),
+    solidColor: getCssVarColor(`palette-common-white`),
+    solidBg: getCssVarColor(`palette-${color2}-500`),
+    solidHoverBg: getCssVarColor(`palette-${color2}-600`),
+    solidActiveBg: getCssVarColor(`palette-${color2}-700`),
+    solidDisabledColor: getCssVarColor(`palette-neutral-400`),
+    solidDisabledBg: getCssVarColor(`palette-neutral-100`)
+  });
+  const createDarkModeVariantVariables = (color2) => ({
+    plainColor: getCssVarColor(`palette-${color2}-300`),
+    plainHoverBg: getCssVarColor(`palette-${color2}-800`),
+    plainActiveBg: getCssVarColor(`palette-${color2}-700`),
+    plainDisabledColor: getCssVarColor(`palette-neutral-500`),
+    outlinedColor: getCssVarColor(`palette-${color2}-200`),
+    outlinedBorder: getCssVarColor(`palette-${color2}-700`),
+    outlinedHoverBg: getCssVarColor(`palette-${color2}-800`),
+    outlinedActiveBg: getCssVarColor(`palette-${color2}-700`),
+    outlinedDisabledColor: getCssVarColor(`palette-neutral-500`),
+    outlinedDisabledBorder: getCssVarColor(`palette-neutral-800`),
+    softColor: getCssVarColor(`palette-${color2}-200`),
+    softBg: getCssVarColor(`palette-${color2}-800`),
+    softHoverBg: getCssVarColor(`palette-${color2}-700`),
+    softActiveColor: getCssVarColor(`palette-${color2}-100`),
+    softActiveBg: getCssVarColor(`palette-${color2}-600`),
+    softDisabledColor: getCssVarColor(`palette-neutral-500`),
+    softDisabledBg: getCssVarColor(`palette-neutral-800`),
+    solidColor: getCssVarColor(`palette-common-white`),
+    solidBg: getCssVarColor(`palette-${color2}-500`),
+    solidHoverBg: getCssVarColor(`palette-${color2}-600`),
+    solidActiveBg: getCssVarColor(`palette-${color2}-700`),
+    solidDisabledColor: getCssVarColor(`palette-neutral-500`),
+    solidDisabledBg: getCssVarColor(`palette-neutral-800`)
+  });
+  const lightColorSystem = {
+    palette: {
+      mode: "light",
+      primary: _extends({}, defaultColors.primary, createLightModeVariantVariables("primary")),
+      neutral: _extends({}, defaultColors.neutral, createLightModeVariantVariables("neutral"), {
+        plainColor: getCssVarColor("palette-neutral-700"),
+        plainHoverColor: getCssVarColor(`palette-neutral-900`),
+        outlinedColor: getCssVarColor("palette-neutral-700")
+      }),
+      danger: _extends({}, defaultColors.danger, createLightModeVariantVariables("danger")),
+      success: _extends({}, defaultColors.success, createLightModeVariantVariables("success")),
+      warning: _extends({}, defaultColors.warning, createLightModeVariantVariables("warning")),
+      common: {
+        white: "#FFF",
+        black: "#000"
+      },
+      text: {
+        primary: getCssVarColor("palette-neutral-800"),
+        secondary: getCssVarColor("palette-neutral-700"),
+        tertiary: getCssVarColor("palette-neutral-600"),
+        icon: getCssVarColor("palette-neutral-500")
+      },
+      background: {
+        body: getCssVarColor("palette-common-white"),
+        surface: getCssVarColor("palette-neutral-50"),
+        popup: getCssVarColor("palette-common-white"),
+        level1: getCssVarColor("palette-neutral-100"),
+        level2: getCssVarColor("palette-neutral-200"),
+        level3: getCssVarColor("palette-neutral-300"),
+        tooltip: getCssVarColor("palette-neutral-500"),
+        backdrop: `rgba(${getCssVar(
+          "palette-neutral-darkChannel",
+          colorChannel(defaultColors.neutral[900])
+          // should be the same index as in `attachColorChannels`
+        )} / 0.25)`
+      },
+      divider: `rgba(${getCssVar(
+        "palette-neutral-mainChannel",
+        colorChannel(defaultColors.neutral[500])
+        // should be the same index as in `attachColorChannels`
+      )} / 0.2)`,
+      focusVisible: getCssVarColor("palette-primary-500")
+    },
+    shadowRing: "0 0 #000",
+    shadowChannel: "21 21 21",
+    shadowOpacity: "0.08"
+  };
+  const darkColorSystem = {
+    palette: {
+      mode: "dark",
+      primary: _extends({}, defaultColors.primary, createDarkModeVariantVariables("primary")),
+      neutral: _extends({}, defaultColors.neutral, createDarkModeVariantVariables("neutral"), {
+        plainColor: getCssVarColor("palette-neutral-300"),
+        plainHoverColor: getCssVarColor(`palette-neutral-300`)
+      }),
+      danger: _extends({}, defaultColors.danger, createDarkModeVariantVariables("danger")),
+      success: _extends({}, defaultColors.success, createDarkModeVariantVariables("success")),
+      warning: _extends({}, defaultColors.warning, createDarkModeVariantVariables("warning")),
+      common: {
+        white: "#FFF",
+        black: "#000"
+      },
+      text: {
+        primary: getCssVarColor("palette-neutral-100"),
+        secondary: getCssVarColor("palette-neutral-300"),
+        tertiary: getCssVarColor("palette-neutral-400"),
+        icon: getCssVarColor("palette-neutral-400")
+      },
+      background: {
+        body: getCssVarColor("palette-common-black"),
+        surface: getCssVarColor("palette-neutral-900"),
+        popup: getCssVarColor("palette-common-black"),
+        level1: getCssVarColor("palette-neutral-800"),
+        level2: getCssVarColor("palette-neutral-700"),
+        level3: getCssVarColor("palette-neutral-600"),
+        tooltip: getCssVarColor("palette-neutral-600"),
+        backdrop: `rgba(${getCssVar(
+          "palette-neutral-darkChannel",
+          colorChannel(defaultColors.neutral[50])
+          // should be the same index as in `attachColorChannels`
+        )} / 0.25)`
+      },
+      divider: `rgba(${getCssVar(
+        "palette-neutral-mainChannel",
+        colorChannel(defaultColors.neutral[500])
+        // should be the same index as in `attachColorChannels`
+      )} / 0.16)`,
+      focusVisible: getCssVarColor("palette-primary-500")
+    },
+    shadowRing: "0 0 #000",
+    shadowChannel: "0 0 0",
+    shadowOpacity: "0.6"
+  };
+  const fontFamilyFallback = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
+  const fontFamily = _extends({
+    body: `"Inter", ${getCssVar(`fontFamily-fallback, ${fontFamilyFallback}`)}`,
+    display: `"Inter", ${getCssVar(`fontFamily-fallback, ${fontFamilyFallback}`)}`,
+    code: "Source Code Pro,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
+    fallback: fontFamilyFallback
+  }, scalesInput.fontFamily);
+  const fontWeight = _extends({
+    sm: 300,
+    // regular
+    md: 500,
+    // medium
+    lg: 600,
+    // semi-bold
+    xl: 700
+  }, scalesInput.fontWeight);
+  const fontSize = _extends({
+    xs: "0.75rem",
+    // 12px
+    sm: "0.875rem",
+    // 14px
+    md: "1rem",
+    // 16px
+    lg: "1.125rem",
+    // 18px
+    xl: "1.25rem",
+    // 20px
+    xl2: "1.5rem",
+    // 24px
+    xl3: "1.875rem",
+    // 30px
+    xl4: "2.25rem"
+  }, scalesInput.fontSize);
+  const lineHeight = _extends({
+    xs: "1.33334",
+    // largest font sizes: h1, h2
+    sm: "1.42858",
+    // normal font sizes
+    md: "1.5",
+    // normal font sizes
+    lg: "1.55556",
+    // large font sizes for components
+    xl: "1.66667"
+  }, scalesInput.lineHeight);
+  const defaultShadowRing = (_scalesInput$colorSch = (_scalesInput$colorSch2 = scalesInput.colorSchemes) == null || (_scalesInput$colorSch2 = _scalesInput$colorSch2.light) == null ? void 0 : _scalesInput$colorSch2.shadowRing) != null ? _scalesInput$colorSch : lightColorSystem.shadowRing;
+  const defaultShadowChannel = (_scalesInput$colorSch3 = (_scalesInput$colorSch4 = scalesInput.colorSchemes) == null || (_scalesInput$colorSch4 = _scalesInput$colorSch4.light) == null ? void 0 : _scalesInput$colorSch4.shadowChannel) != null ? _scalesInput$colorSch3 : lightColorSystem.shadowChannel;
+  const defaultShadowOpacity = (_scalesInput$colorSch5 = (_scalesInput$colorSch6 = scalesInput.colorSchemes) == null || (_scalesInput$colorSch6 = _scalesInput$colorSch6.light) == null ? void 0 : _scalesInput$colorSch6.shadowOpacity) != null ? _scalesInput$colorSch5 : lightColorSystem.shadowOpacity;
+  const defaultScales = {
+    colorSchemes: {
+      light: lightColorSystem,
+      dark: darkColorSystem
+    },
+    fontSize,
+    fontFamily,
+    fontWeight,
+    focus: {
+      thickness: "2px",
+      selector: `&.${generateUtilityClass("", "focusVisible")}, &:focus-visible`,
+      default: {
+        outlineOffset: `var(--focus-outline-offset, ${getCssVar("focus-thickness", (_scalesInput$focus$th = (_scalesInput$focus = scalesInput.focus) == null ? void 0 : _scalesInput$focus.thickness) != null ? _scalesInput$focus$th : "2px")})`,
+        outline: `${getCssVar("focus-thickness", (_scalesInput$focus$th2 = (_scalesInput$focus2 = scalesInput.focus) == null ? void 0 : _scalesInput$focus2.thickness) != null ? _scalesInput$focus$th2 : "2px")} solid ${getCssVar("palette-focusVisible", defaultColors.primary[500])}`
+      }
+    },
+    lineHeight,
+    radius: {
+      xs: "2px",
+      sm: "6px",
+      md: "8px",
+      lg: "12px",
+      xl: "16px"
+    },
+    shadow: {
+      xs: `${getCssVar("shadowRing", defaultShadowRing)}, 0px 1px 2px 0px rgba(${getCssVar("shadowChannel", defaultShadowChannel)} / ${getCssVar("shadowOpacity", defaultShadowOpacity)})`,
+      sm: `${getCssVar("shadowRing", defaultShadowRing)}, 0px 1px 2px 0px rgba(${getCssVar("shadowChannel", defaultShadowChannel)} / ${getCssVar("shadowOpacity", defaultShadowOpacity)}), 0px 2px 4px 0px rgba(${getCssVar("shadowChannel", defaultShadowChannel)} / ${getCssVar("shadowOpacity", defaultShadowOpacity)})`,
+      md: `${getCssVar("shadowRing", defaultShadowRing)}, 0px 2px 8px -2px rgba(${getCssVar("shadowChannel", defaultShadowChannel)} / ${getCssVar("shadowOpacity", defaultShadowOpacity)}), 0px 6px 12px -2px rgba(${getCssVar("shadowChannel", defaultShadowChannel)} / ${getCssVar("shadowOpacity", defaultShadowOpacity)})`,
+      lg: `${getCssVar("shadowRing", defaultShadowRing)}, 0px 2px 8px -2px rgba(${getCssVar("shadowChannel", defaultShadowChannel)} / ${getCssVar("shadowOpacity", defaultShadowOpacity)}), 0px 12px 16px -4px rgba(${getCssVar("shadowChannel", defaultShadowChannel)} / ${getCssVar("shadowOpacity", defaultShadowOpacity)})`,
+      xl: `${getCssVar("shadowRing", defaultShadowRing)}, 0px 2px 8px -2px rgba(${getCssVar("shadowChannel", defaultShadowChannel)} / ${getCssVar("shadowOpacity", defaultShadowOpacity)}), 0px 20px 24px -4px rgba(${getCssVar("shadowChannel", defaultShadowChannel)} / ${getCssVar("shadowOpacity", defaultShadowOpacity)})`
+    },
+    zIndex: {
+      badge: 1,
+      table: 10,
+      popup: 1e3,
+      modal: 1300,
+      snackbar: 1400,
+      tooltip: 1500
+    },
+    typography: {
+      h1: {
+        fontFamily: getCssVar(`fontFamily-display, ${fontFamily.display}`),
+        fontWeight: getCssVar(`fontWeight-xl, ${fontWeight.xl}`),
+        fontSize: getCssVar(`fontSize-xl4, ${fontSize.xl4}`),
+        lineHeight: getCssVar(`lineHeight-xs, ${lineHeight.xs}`),
+        letterSpacing: "-0.025em",
+        color: getCssVar(`palette-text-primary, ${lightColorSystem.palette.text.primary}`)
+      },
+      h2: {
+        fontFamily: getCssVar(`fontFamily-display, ${fontFamily.display}`),
+        fontWeight: getCssVar(`fontWeight-xl, ${fontWeight.xl}`),
+        fontSize: getCssVar(`fontSize-xl3, ${fontSize.xl3}`),
+        lineHeight: getCssVar(`lineHeight-xs, ${lineHeight.xs}`),
+        letterSpacing: "-0.025em",
+        color: getCssVar(`palette-text-primary, ${lightColorSystem.palette.text.primary}`)
+      },
+      h3: {
+        fontFamily: getCssVar(`fontFamily-display, ${fontFamily.display}`),
+        fontWeight: getCssVar(`fontWeight-lg, ${fontWeight.lg}`),
+        fontSize: getCssVar(`fontSize-xl2, ${fontSize.xl2}`),
+        lineHeight: getCssVar(`lineHeight-xs, ${lineHeight.xs}`),
+        letterSpacing: "-0.025em",
+        color: getCssVar(`palette-text-primary, ${lightColorSystem.palette.text.primary}`)
+      },
+      h4: {
+        fontFamily: getCssVar(`fontFamily-display, ${fontFamily.display}`),
+        fontWeight: getCssVar(`fontWeight-lg, ${fontWeight.lg}`),
+        fontSize: getCssVar(`fontSize-xl, ${fontSize.xl}`),
+        lineHeight: getCssVar(`lineHeight-md, ${lineHeight.md}`),
+        letterSpacing: "-0.025em",
+        color: getCssVar(`palette-text-primary, ${lightColorSystem.palette.text.primary}`)
+      },
+      "title-lg": {
+        fontFamily: getCssVar(`fontFamily-body, ${fontFamily.body}`),
+        fontWeight: getCssVar(`fontWeight-lg, ${fontWeight.lg}`),
+        fontSize: getCssVar(`fontSize-lg, ${fontSize.lg}`),
+        lineHeight: getCssVar(`lineHeight-xs, ${lineHeight.xs}`),
+        color: getCssVar(`palette-text-primary, ${lightColorSystem.palette.text.primary}`)
+      },
+      "title-md": {
+        fontFamily: getCssVar(`fontFamily-body, ${fontFamily.body}`),
+        fontWeight: getCssVar(`fontWeight-md, ${fontWeight.md}`),
+        fontSize: getCssVar(`fontSize-md, ${fontSize.md}`),
+        lineHeight: getCssVar(`lineHeight-md, ${lineHeight.md}`),
+        color: getCssVar(`palette-text-primary, ${lightColorSystem.palette.text.primary}`)
+      },
+      "title-sm": {
+        fontFamily: getCssVar(`fontFamily-body, ${fontFamily.body}`),
+        fontWeight: getCssVar(`fontWeight-md, ${fontWeight.md}`),
+        fontSize: getCssVar(`fontSize-sm, ${fontSize.sm}`),
+        lineHeight: getCssVar(`lineHeight-sm, ${lineHeight.sm}`),
+        color: getCssVar(`palette-text-primary, ${lightColorSystem.palette.text.primary}`)
+      },
+      "body-lg": {
+        fontFamily: getCssVar(`fontFamily-body, ${fontFamily.body}`),
+        fontSize: getCssVar(`fontSize-lg, ${fontSize.lg}`),
+        lineHeight: getCssVar(`lineHeight-md, ${lineHeight.md}`),
+        color: getCssVar(`palette-text-secondary, ${lightColorSystem.palette.text.secondary}`)
+      },
+      "body-md": {
+        fontFamily: getCssVar(`fontFamily-body, ${fontFamily.body}`),
+        fontSize: getCssVar(`fontSize-md, ${fontSize.md}`),
+        lineHeight: getCssVar(`lineHeight-md, ${lineHeight.md}`),
+        color: getCssVar(`palette-text-secondary, ${lightColorSystem.palette.text.secondary}`)
+      },
+      "body-sm": {
+        fontFamily: getCssVar(`fontFamily-body, ${fontFamily.body}`),
+        fontSize: getCssVar(`fontSize-sm, ${fontSize.sm}`),
+        lineHeight: getCssVar(`lineHeight-md, ${lineHeight.md}`),
+        color: getCssVar(`palette-text-tertiary, ${lightColorSystem.palette.text.tertiary}`)
+      },
+      "body-xs": {
+        fontFamily: getCssVar(`fontFamily-body, ${fontFamily.body}`),
+        fontWeight: getCssVar(`fontWeight-md, ${fontWeight.md}`),
+        fontSize: getCssVar(`fontSize-xs, ${fontSize.xs}`),
+        lineHeight: getCssVar(`lineHeight-md, ${lineHeight.md}`),
+        color: getCssVar(`palette-text-tertiary, ${lightColorSystem.palette.text.tertiary}`)
+      }
+    }
+  };
+  const _ref2 = scalesInput ? deepmerge(defaultScales, scalesInput) : defaultScales, {
+    colorSchemes
+  } = _ref2, mergedScales = _objectWithoutPropertiesLoose(_ref2, _excluded2$1);
+  const theme = _extends({
+    colorSchemes
+  }, mergedScales, {
+    breakpoints: createBreakpoints(breakpoints != null ? breakpoints : {}),
+    components: deepmerge({
+      // TODO: find a way to abstract SvgIcon out of @mui/material
+      MuiSvgIcon: {
+        defaultProps: {
+          fontSize: "xl2"
+        },
+        styleOverrides: {
+          root: ({
+            ownerState,
+            theme: themeProp
+          }) => {
+            var _themeProp$vars$palet;
+            const instanceFontSize = ownerState.instanceFontSize;
+            return _extends({
+              margin: "var(--Icon-margin)"
+            }, ownerState.fontSize && ownerState.fontSize !== "inherit" && {
+              fontSize: `var(--Icon-fontSize, ${themeProp.vars.fontSize[ownerState.fontSize]})`
+            }, !ownerState.htmlColor && _extends({
+              color: `var(--Icon-color, ${theme.vars.palette.text.icon})`
+            }, ownerState.color && ownerState.color !== "inherit" && themeProp.vars.palette[ownerState.color] && {
+              color: `rgba(${(_themeProp$vars$palet = themeProp.vars.palette[ownerState.color]) == null ? void 0 : _themeProp$vars$palet.mainChannel} / 1)`
+            }), instanceFontSize && instanceFontSize !== "inherit" && {
+              "--Icon-fontSize": themeProp.vars.fontSize[instanceFontSize]
+            });
+          }
+        }
+      }
+    }, componentsInput),
+    cssVarPrefix,
+    getCssVar,
+    spacing: createSpacing(spacing)
+  });
+  function attachColorChannels(supportedColorScheme, palette) {
+    Object.keys(palette).forEach((key) => {
+      const channelMapping = {
+        main: "500",
+        light: "200",
+        dark: "700"
+      };
+      if (supportedColorScheme === "dark") {
+        channelMapping.main = 400;
+      }
+      if (!palette[key].mainChannel && palette[key][channelMapping.main]) {
+        palette[key].mainChannel = colorChannel(palette[key][channelMapping.main]);
+      }
+      if (!palette[key].lightChannel && palette[key][channelMapping.light]) {
+        palette[key].lightChannel = colorChannel(palette[key][channelMapping.light]);
+      }
+      if (!palette[key].darkChannel && palette[key][channelMapping.dark]) {
+        palette[key].darkChannel = colorChannel(palette[key][channelMapping.dark]);
+      }
+    });
+  }
+  Object.entries(theme.colorSchemes).forEach(([supportedColorScheme, colorSystem]) => {
+    attachColorChannels(supportedColorScheme, colorSystem.palette);
+  });
+  const parserConfig = {
+    prefix: cssVarPrefix,
+    shouldSkipGeneratingVar: shouldSkipGeneratingVar$12
+  };
+  const {
+    vars: themeVars,
+    generateCssVars
+  } = prepareCssVars(
+    // @ts-ignore property truDark is missing from colorSchemes
+    _extends({
+      colorSchemes
+    }, mergedScales),
+    parserConfig
+  );
+  theme.vars = themeVars;
+  theme.generateCssVars = generateCssVars;
+  theme.unstable_sxConfig = _extends({}, sxConfig, void 0);
+  theme.unstable_sx = function sx(props) {
+    return styleFunctionSx({
+      sx: props,
+      theme: this
+    });
+  };
+  theme.getColorSchemeSelector = (colorScheme) => colorScheme === "light" ? "&" : `&[data-joy-color-scheme="${colorScheme}"], [data-joy-color-scheme="${colorScheme}"] &`;
+  const createVariantInput = {
+    getCssVar,
+    palette: theme.colorSchemes.light.palette
+  };
+  theme.variants = deepmerge({
+    plain: createVariant("plain", createVariantInput),
+    plainHover: createVariant("plainHover", createVariantInput),
+    plainActive: createVariant("plainActive", createVariantInput),
+    plainDisabled: createVariant("plainDisabled", createVariantInput),
+    outlined: createVariant("outlined", createVariantInput),
+    outlinedHover: createVariant("outlinedHover", createVariantInput),
+    outlinedActive: createVariant("outlinedActive", createVariantInput),
+    outlinedDisabled: createVariant("outlinedDisabled", createVariantInput),
+    soft: createVariant("soft", createVariantInput),
+    softHover: createVariant("softHover", createVariantInput),
+    softActive: createVariant("softActive", createVariantInput),
+    softDisabled: createVariant("softDisabled", createVariantInput),
+    solid: createVariant("solid", createVariantInput),
+    solidHover: createVariant("solidHover", createVariantInput),
+    solidActive: createVariant("solidActive", createVariantInput),
+    solidDisabled: createVariant("solidDisabled", createVariantInput)
+  }, variantsInput);
+  theme.palette = _extends({}, theme.colorSchemes.light.palette, {
+    colorScheme: "light"
+  });
+  theme.shouldSkipGeneratingVar = shouldSkipGeneratingVar$12;
+  theme.applyStyles = applyStyles;
+  return theme;
+}
+const defaultTheme = extendTheme();
+const styled = createStyled2({
+  defaultTheme,
+  themeId: THEME_ID
+});
+function useThemeProps({
+  props,
+  name
+}) {
+  return useThemeProps$1({
+    props,
+    name,
+    defaultTheme: _extends({}, defaultTheme, {
+      components: {}
+    }),
+    themeId: THEME_ID
+  });
+}
+const _excluded$2 = ["className", "elementType", "ownerState", "externalForwardedProps", "getSlotOwnerState", "internalForwardedProps"], _excluded2 = ["component", "slots", "slotProps"], _excluded3 = ["component"];
+function useSlot(name, parameters) {
+  const {
+    className,
+    elementType: initialElementType,
+    ownerState,
+    externalForwardedProps,
+    getSlotOwnerState,
+    internalForwardedProps
+  } = parameters, useSlotPropsParams = _objectWithoutPropertiesLoose(parameters, _excluded$2);
+  const {
+    component: rootComponent,
+    slots = {
+      [name]: void 0
+    },
+    slotProps = {
+      [name]: void 0
+    }
+  } = externalForwardedProps, other = _objectWithoutPropertiesLoose(externalForwardedProps, _excluded2);
+  const elementType = slots[name] || initialElementType;
+  const resolvedComponentsProps = resolveComponentProps(slotProps[name], ownerState);
+  const _mergeSlotProps = mergeSlotProps(_extends({
+    className
+  }, useSlotPropsParams, {
+    externalForwardedProps: name === "root" ? other : void 0,
+    externalSlotProps: resolvedComponentsProps
+  })), {
+    props: {
+      component: slotComponent
+    },
+    internalRef
+  } = _mergeSlotProps, mergedProps = _objectWithoutPropertiesLoose(_mergeSlotProps.props, _excluded3);
+  const ref = useForkRef$1(internalRef, resolvedComponentsProps == null ? void 0 : resolvedComponentsProps.ref, parameters.ref);
+  const slotOwnerState = getSlotOwnerState ? getSlotOwnerState(mergedProps) : {};
+  const finalOwnerState = _extends({}, ownerState, slotOwnerState);
+  const LeafComponent = name === "root" ? slotComponent || rootComponent : slotComponent;
+  const props = appendOwnerState(elementType, _extends({}, name === "root" && !rootComponent && !slots[name] && internalForwardedProps, name !== "root" && !slots[name] && internalForwardedProps, mergedProps, LeafComponent && {
+    as: LeafComponent
+  }, {
+    ref
+  }), finalOwnerState);
+  Object.keys(slotOwnerState).forEach((propName) => {
+    delete props[propName];
+  });
+  return [elementType, props];
+}
+function getTextareaUtilityClass(slot) {
+  return generateUtilityClass("MuiTextarea", slot);
+}
+const textareaClasses = generateUtilityClasses("MuiTextarea", ["root", "textarea", "startDecorator", "endDecorator", "formControl", "disabled", "error", "focused", "colorPrimary", "colorNeutral", "colorDanger", "colorSuccess", "colorWarning", "colorContext", "sizeSm", "sizeMd", "sizeLg", "variantPlain", "variantOutlined", "variantSoft"]);
+const FormControlContext$1 = /* @__PURE__ */ React.createContext(void 0);
+if (process.env.NODE_ENV !== "production") {
+  FormControlContext$1.displayName = "FormControlContext";
+}
+function useFormControlContext() {
+  return React.useContext(FormControlContext$1);
+}
+function useInput(parameters = {}) {
+  const {
+    defaultValue: defaultValueProp,
+    disabled: disabledProp = false,
+    error: errorProp = false,
+    onBlur,
+    onChange,
+    onFocus,
+    required: requiredProp = false,
+    value: valueProp,
+    inputRef: inputRefProp
+  } = parameters;
+  const formControlContext = useFormControlContext();
+  let defaultValue;
+  let disabled;
+  let error;
+  let required;
+  let value;
+  if (formControlContext) {
+    var _formControlContext$d, _formControlContext$e, _formControlContext$r;
+    defaultValue = void 0;
+    disabled = (_formControlContext$d = formControlContext.disabled) != null ? _formControlContext$d : false;
+    error = (_formControlContext$e = formControlContext.error) != null ? _formControlContext$e : false;
+    required = (_formControlContext$r = formControlContext.required) != null ? _formControlContext$r : false;
+    value = formControlContext.value;
+    if (process.env.NODE_ENV !== "production") {
+      const definedLocalProps = ["defaultValue", "disabled", "error", "required", "value"].filter((prop) => parameters[prop] !== void 0);
+      if (definedLocalProps.length > 0) {
+        console.warn(["MUI: You have set props on an input that is inside a FormControl.", "Set these props on a FormControl instead. Otherwise they will be ignored.", `Ignored props: ${definedLocalProps.join(", ")}`].join("\n"));
+      }
+    }
+  } else {
+    defaultValue = defaultValueProp;
+    disabled = disabledProp;
+    error = errorProp;
+    required = requiredProp;
+    value = valueProp;
+  }
+  const {
+    current: isControlled
+  } = React.useRef(value != null);
+  const handleInputRefWarning = React.useCallback((instance) => {
+    if (process.env.NODE_ENV !== "production") {
+      if (instance && instance.nodeName !== "INPUT" && !instance.focus) {
+        console.error(["MUI: You have provided a `slots.input` to the input component", "that does not correctly handle the `ref` prop.", "Make sure the `ref` prop is called with a HTMLInputElement."].join("\n"));
+      }
+    }
+  }, []);
+  const inputRef = React.useRef(null);
+  const handleInputRef = useForkRef(inputRef, inputRefProp, handleInputRefWarning);
+  const [focused, setFocused] = React.useState(false);
+  React.useEffect(() => {
+    if (!formControlContext && disabled && focused) {
+      setFocused(false);
+      onBlur == null || onBlur();
+    }
+  }, [formControlContext, disabled, focused, onBlur]);
+  const handleFocus = (otherHandlers) => (event) => {
+    var _otherHandlers$onFocu;
+    if (formControlContext != null && formControlContext.disabled) {
+      event.stopPropagation();
+      return;
+    }
+    (_otherHandlers$onFocu = otherHandlers.onFocus) == null || _otherHandlers$onFocu.call(otherHandlers, event);
+    if (formControlContext && formControlContext.onFocus) {
+      var _formControlContext$o;
+      formControlContext == null || (_formControlContext$o = formControlContext.onFocus) == null || _formControlContext$o.call(formControlContext);
+    } else {
+      setFocused(true);
+    }
+  };
+  const handleBlur = (otherHandlers) => (event) => {
+    var _otherHandlers$onBlur;
+    (_otherHandlers$onBlur = otherHandlers.onBlur) == null || _otherHandlers$onBlur.call(otherHandlers, event);
+    if (formControlContext && formControlContext.onBlur) {
+      formControlContext.onBlur();
+    } else {
+      setFocused(false);
+    }
+  };
+  const handleChange = (otherHandlers) => (event, ...args) => {
+    var _formControlContext$o2, _otherHandlers$onChan;
+    if (!isControlled) {
+      const element = event.target || inputRef.current;
+      if (element == null) {
+        throw new Error(process.env.NODE_ENV !== "production" ? `MUI: Expected valid input target. Did you use a custom \`slots.input\` and forget to forward refs? See https://mui.com/r/input-component-ref-interface for more info.` : formatMuiErrorMessage(17));
+      }
+    }
+    formControlContext == null || (_formControlContext$o2 = formControlContext.onChange) == null || _formControlContext$o2.call(formControlContext, event);
+    (_otherHandlers$onChan = otherHandlers.onChange) == null || _otherHandlers$onChan.call(otherHandlers, event, ...args);
+  };
+  const handleClick = (otherHandlers) => (event) => {
+    var _otherHandlers$onClic;
+    if (inputRef.current && event.currentTarget === event.target) {
+      inputRef.current.focus();
+    }
+    (_otherHandlers$onClic = otherHandlers.onClick) == null || _otherHandlers$onClic.call(otherHandlers, event);
+  };
+  const getRootProps = (externalProps = {}) => {
+    const propsEventHandlers = extractEventHandlers(parameters, ["onBlur", "onChange", "onFocus"]);
+    const externalEventHandlers = _extends({}, propsEventHandlers, extractEventHandlers(externalProps));
+    return _extends({}, externalProps, externalEventHandlers, {
+      onClick: handleClick(externalEventHandlers)
+    });
+  };
+  const getInputProps = (externalProps = {}) => {
+    const propsEventHandlers = {
+      onBlur,
+      onChange,
+      onFocus
+    };
+    const externalEventHandlers = _extends({}, propsEventHandlers, extractEventHandlers(externalProps));
+    const mergedEventHandlers = _extends({}, externalEventHandlers, {
+      onBlur: handleBlur(externalEventHandlers),
+      onChange: handleChange(externalEventHandlers),
+      onFocus: handleFocus(externalEventHandlers)
+    });
+    return _extends({}, mergedEventHandlers, {
+      "aria-invalid": error || void 0,
+      defaultValue,
+      value,
+      required,
+      disabled
+    }, externalProps, {
+      ref: handleInputRef
+    }, mergedEventHandlers);
+  };
+  return {
+    disabled,
+    error,
+    focused,
+    formControlContext,
+    getInputProps,
+    getRootProps,
+    inputRef: handleInputRef,
+    required,
+    value
+  };
+}
+const FormControlContext = /* @__PURE__ */ React.createContext(void 0);
+if (process.env.NODE_ENV !== "production") {
+  FormControlContext.displayName = "FormControlContext";
+}
+const _excluded$1 = ["aria-describedby", "aria-label", "aria-labelledby", "autoComplete", "autoFocus", "className", "defaultValue", "disabled", "disabledInProp", "error", "id", "name", "onClick", "onChange", "onKeyDown", "onKeyUp", "onFocus", "onBlur", "placeholder", "readOnly", "required", "type", "value"];
+function useForwardedInput(props, classes) {
+  var _ref;
+  const formControl = React.useContext(FormControlContext);
+  const {
+    "aria-describedby": ariaDescribedby,
+    "aria-label": ariaLabel,
+    "aria-labelledby": ariaLabelledby,
+    autoComplete,
+    autoFocus,
+    className,
+    defaultValue,
+    disabled: disabledProp,
+    disabledInProp,
+    error: errorProp,
+    id,
+    name,
+    onClick,
+    onChange,
+    onKeyDown,
+    onKeyUp,
+    onFocus,
+    onBlur,
+    placeholder,
+    readOnly,
+    required,
+    type,
+    value
+  } = props, other = _objectWithoutPropertiesLoose(props, _excluded$1);
+  const {
+    getRootProps,
+    getInputProps,
+    focused,
+    error,
+    disabled
+  } = useInput({
+    disabled: (_ref = disabledInProp != null ? disabledInProp : formControl == null ? void 0 : formControl.disabled) != null ? _ref : disabledProp,
+    defaultValue,
+    error: errorProp,
+    onBlur,
+    onClick,
+    onChange,
+    onFocus,
+    required: required != null ? required : formControl == null ? void 0 : formControl.required,
+    value
+  });
+  const rootStateClasses = {
+    [classes.disabled]: disabled,
+    [classes.error]: error,
+    [classes.focused]: focused,
+    [classes.formControl]: Boolean(formControl),
+    [className]: className
+  };
+  const inputStateClasses = {
+    [classes.disabled]: disabled
+  };
+  const propsToForward = {
+    "aria-describedby": ariaDescribedby,
+    "aria-label": ariaLabel,
+    "aria-labelledby": ariaLabelledby,
+    autoComplete,
+    autoFocus,
+    disabled,
+    id,
+    onKeyDown,
+    onKeyUp,
+    name,
+    placeholder,
+    readOnly,
+    type
+  };
+  return _extends({
+    formControl,
+    propsToForward,
+    rootStateClasses,
+    inputStateClasses,
+    getRootProps,
+    getInputProps,
+    focused,
+    error,
+    disabled
+  }, other);
+}
+const _excluded = ["propsToForward", "rootStateClasses", "inputStateClasses", "getRootProps", "getInputProps", "formControl", "focused", "error", "disabled", "size", "color", "variant", "startDecorator", "endDecorator", "minRows", "maxRows", "component", "slots", "slotProps"];
+const useUtilityClasses = (ownerState) => {
+  const {
+    disabled,
+    variant,
+    color: color2,
+    size
+  } = ownerState;
+  const slots = {
+    root: ["root", disabled && "disabled", variant && `variant${capitalize(variant)}`, color2 && `color${capitalize(color2)}`, size && `size${capitalize(size)}`],
+    textarea: ["textarea"],
+    startDecorator: ["startDecorator"],
+    endDecorator: ["endDecorator"]
+  };
+  return composeClasses(slots, getTextareaUtilityClass, {});
+};
+const TextareaRoot = styled("div", {
+  name: "JoyTextarea",
+  slot: "Root",
+  overridesResolver: (props, styles2) => styles2.root
+})(({
+  theme,
+  ownerState
+}) => {
+  var _theme$variants, _theme$vars$palette, _theme$vars$palette2, _variantStyle$backgro, _theme$variants2, _theme$variants3;
+  const variantStyle = (_theme$variants = theme.variants[`${ownerState.variant}`]) == null ? void 0 : _theme$variants[ownerState.color];
+  return [_extends({
+    "--Textarea-radius": theme.vars.radius.sm,
+    "--Textarea-gap": "0.5rem",
+    "--Textarea-placeholderColor": "inherit",
+    "--Textarea-placeholderOpacity": 0.64,
+    "--Textarea-decoratorColor": theme.vars.palette.text.icon,
+    "--Textarea-focused": "0",
+    "--Textarea-focusedThickness": theme.vars.focus.thickness,
+    "--Textarea-focusedHighlight": (_theme$vars$palette = theme.vars.palette[ownerState.color === "neutral" ? "primary" : ownerState.color]) == null ? void 0 : _theme$vars$palette[500],
+    '&:not([data-inverted-colors="false"])': _extends({}, ownerState.instanceColor && {
+      "--_Textarea-focusedHighlight": (_theme$vars$palette2 = theme.vars.palette[ownerState.instanceColor === "neutral" ? "primary" : ownerState.instanceColor]) == null ? void 0 : _theme$vars$palette2[500]
+    }, {
+      "--Textarea-focusedHighlight": `var(--_Textarea-focusedHighlight, ${theme.vars.palette.focusVisible})`
+    })
+  }, ownerState.size === "sm" && {
+    "--Textarea-minHeight": "2rem",
+    "--Textarea-paddingBlock": "calc(0.375rem - 0.5px - var(--variant-borderWidth, 0px))",
+    // to match Input because <textarea> does not center the text at the middle like <input>
+    "--Textarea-paddingInline": "0.5rem",
+    "--Textarea-decoratorChildHeight": "min(1.5rem, var(--Textarea-minHeight))",
+    "--Icon-fontSize": theme.vars.fontSize.xl
+  }, ownerState.size === "md" && {
+    "--Textarea-minHeight": "2.25rem",
+    "--Textarea-paddingBlock": "calc(0.375rem - var(--variant-borderWidth, 0px))",
+    "--Textarea-paddingInline": "0.75rem",
+    "--Textarea-decoratorChildHeight": "min(1.75rem, var(--Textarea-minHeight))",
+    "--Icon-fontSize": theme.vars.fontSize.xl2
+  }, ownerState.size === "lg" && {
+    "--Textarea-minHeight": "3rem",
+    "--Textarea-paddingBlock": "calc(0.75rem - var(--variant-borderWidth, 0px))",
+    "--Textarea-paddingInline": "1rem",
+    "--Textarea-gap": "0.75rem",
+    "--Textarea-decoratorChildHeight": "min(2.375rem, var(--Textarea-minHeight))",
+    "--Icon-fontSize": theme.vars.fontSize.xl2
+  }, {
+    // variables for controlling child components
+    "--_Textarea-paddingBlock": "max((var(--Textarea-minHeight) - 2 * var(--variant-borderWidth, 0px) - var(--Textarea-decoratorChildHeight)) / 2, 0px)",
+    "--Textarea-decoratorChildRadius": "max(var(--Textarea-radius) - var(--variant-borderWidth, 0px) - var(--_Textarea-paddingBlock), min(var(--_Textarea-paddingBlock) + var(--variant-borderWidth, 0px), var(--Textarea-radius) / 2))",
+    "--Button-minHeight": "var(--Textarea-decoratorChildHeight)",
+    "--Button-paddingBlock": "0px",
+    // to ensure that the height of the button is equal to --Button-minHeight
+    "--IconButton-size": "var(--Textarea-decoratorChildHeight)",
+    "--Button-radius": "var(--Textarea-decoratorChildRadius)",
+    "--IconButton-radius": "var(--Textarea-decoratorChildRadius)",
+    boxSizing: "border-box"
+  }, ownerState.variant !== "plain" && {
+    boxShadow: theme.shadow.xs
+  }, {
+    minWidth: 0,
+    minHeight: "var(--Textarea-minHeight)",
+    cursor: "text",
+    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    paddingInlineStart: `var(--Textarea-paddingInline)`,
+    // the paddingInlineEnd is added to the textarea. It looks better when the scrollbar appears.
+    paddingBlock: "var(--Textarea-paddingBlock)",
+    borderRadius: "var(--Textarea-radius)"
+  }, theme.typography[`body-${ownerState.size}`], variantStyle, {
+    backgroundColor: (_variantStyle$backgro = variantStyle == null ? void 0 : variantStyle.backgroundColor) != null ? _variantStyle$backgro : theme.vars.palette.background.surface,
+    "&::before": {
+      boxSizing: "border-box",
+      content: '""',
+      display: "block",
+      position: "absolute",
+      pointerEvents: "none",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      zIndex: 1,
+      borderRadius: "inherit",
+      margin: "calc(var(--variant-borderWidth, 0px) * -1)",
+      // for outlined variant
+      boxShadow: `var(--Textarea-focusedInset, inset) 0 0 0 calc(var(--Textarea-focused) * var(--Textarea-focusedThickness)) var(--Textarea-focusedHighlight)`
+    }
+  }), {
+    "&:hover": _extends({}, (_theme$variants2 = theme.variants[`${ownerState.variant}Hover`]) == null ? void 0 : _theme$variants2[ownerState.color], {
+      backgroundColor: null,
+      // it is not common to change background on hover for Textarea
+      cursor: "text"
+    }),
+    [`&.${textareaClasses.disabled}`]: (_theme$variants3 = theme.variants[`${ownerState.variant}Disabled`]) == null ? void 0 : _theme$variants3[ownerState.color],
+    "&:focus-within::before": {
+      "--Textarea-focused": "1"
+    }
+  }];
+});
+const TextareaInput = styled(TextareaAutosize, {
+  name: "JoyTextarea",
+  slot: "Textarea",
+  overridesResolver: (props, styles2) => styles2.textarea
+})({
+  resize: "none",
+  border: "none",
+  // remove the native textarea width
+  minWidth: 0,
+  // remove the native textarea width
+  outline: 0,
+  // remove the native textarea outline
+  padding: 0,
+  // remove the native textarea padding
+  paddingInlineEnd: `var(--Textarea-paddingInline)`,
+  flex: "auto",
+  alignSelf: "stretch",
+  color: "inherit",
+  backgroundColor: "transparent",
+  fontFamily: "inherit",
+  fontSize: "inherit",
+  fontStyle: "inherit",
+  fontWeight: "inherit",
+  lineHeight: "inherit",
+  "&::-webkit-input-placeholder": {
+    color: "var(--Textarea-placeholderColor)",
+    opacity: "var(--Textarea-placeholderOpacity)"
+  },
+  "&::-moz-placeholder": {
+    // Firefox 19+
+    color: "var(--Textarea-placeholderColor)",
+    opacity: "var(--Textarea-placeholderOpacity)"
+  },
+  "&:-ms-input-placeholder": {
+    // IE11
+    color: "var(--Textarea-placeholderColor)",
+    opacity: "var(--Textarea-placeholderOpacity)"
+  },
+  "&::-ms-input-placeholder": {
+    // Edge
+    color: "var(--Textarea-placeholderColor)",
+    opacity: "var(--Textarea-placeholderOpacity)"
+  }
+});
+const TextareaStartDecorator = styled("div", {
+  name: "JoyTextarea",
+  slot: "StartDecorator",
+  overridesResolver: (props, styles2) => styles2.startDecorator
+})({
+  display: "flex",
+  marginInlineStart: "calc(var(--Textarea-paddingBlock) - var(--Textarea-paddingInline))",
+  marginInlineEnd: "var(--Textarea-paddingBlock)",
+  marginBlockEnd: "var(--Textarea-gap)",
+  color: "var(--Textarea-decoratorColor)",
+  cursor: "initial"
+});
+const TextareaEndDecorator = styled("div", {
+  name: "JoyTextarea",
+  slot: "EndDecorator",
+  overridesResolver: (props, styles2) => styles2.endDecorator
+})({
+  display: "flex",
+  marginInlineStart: "calc(var(--Textarea-paddingBlock) - var(--Textarea-paddingInline))",
+  marginInlineEnd: "var(--Textarea-paddingBlock)",
+  marginBlockStart: "var(--Textarea-gap)",
+  color: "var(--Textarea-decoratorColor)",
+  cursor: "initial"
+});
+const Textarea = /* @__PURE__ */ React.forwardRef(function Textarea2(inProps, ref) {
+  var _ref, _inProps$disabled, _ref2, _inProps$error, _ref3, _inProps$size, _inProps$color, _formControl$color;
+  const props = useThemeProps({
+    props: inProps,
+    name: "JoyTextarea"
+  });
+  const _useForwardedInput = useForwardedInput(props, textareaClasses), {
+    propsToForward,
+    rootStateClasses,
+    inputStateClasses,
+    getRootProps,
+    getInputProps,
+    formControl,
+    focused,
+    error: errorProp = false,
+    disabled: disabledProp = false,
+    size: sizeProp = "md",
+    color: colorProp = "neutral",
+    variant = "outlined",
+    startDecorator,
+    endDecorator,
+    minRows,
+    maxRows,
+    component,
+    slots = {},
+    slotProps = {}
+  } = _useForwardedInput, other = _objectWithoutPropertiesLoose(_useForwardedInput, _excluded);
+  if (process.env.NODE_ENV !== "production") {
+    const registerEffect = formControl == null ? void 0 : formControl.registerEffect;
+    React.useEffect(() => {
+      if (registerEffect) {
+        return registerEffect();
+      }
+      return void 0;
+    }, [registerEffect]);
+  }
+  const disabled = (_ref = (_inProps$disabled = inProps.disabled) != null ? _inProps$disabled : formControl == null ? void 0 : formControl.disabled) != null ? _ref : disabledProp;
+  const error = (_ref2 = (_inProps$error = inProps.error) != null ? _inProps$error : formControl == null ? void 0 : formControl.error) != null ? _ref2 : errorProp;
+  const size = (_ref3 = (_inProps$size = inProps.size) != null ? _inProps$size : formControl == null ? void 0 : formControl.size) != null ? _ref3 : sizeProp;
+  const color2 = (_inProps$color = inProps.color) != null ? _inProps$color : error ? "danger" : (_formControl$color = formControl == null ? void 0 : formControl.color) != null ? _formControl$color : colorProp;
+  const ownerState = _extends({
+    instanceColor: error ? "danger" : inProps.color
+  }, props, {
+    color: color2,
+    disabled,
+    error,
+    focused,
+    size,
+    variant
+  });
+  const classes = useUtilityClasses(ownerState);
+  const externalForwardedProps = _extends({}, other, {
+    component,
+    slots,
+    slotProps
+  });
+  const [SlotRoot, rootProps] = useSlot("root", {
+    ref,
+    className: [classes.root, rootStateClasses],
+    elementType: TextareaRoot,
+    externalForwardedProps,
+    getSlotProps: getRootProps,
+    ownerState
+  });
+  const [SlotTextarea, textareaProps] = useSlot("textarea", {
+    additionalProps: {
+      id: formControl == null ? void 0 : formControl.htmlFor,
+      "aria-describedby": formControl == null ? void 0 : formControl["aria-describedby"]
+    },
+    className: [classes.textarea, inputStateClasses],
+    elementType: TextareaInput,
+    internalForwardedProps: _extends({}, propsToForward, {
+      minRows,
+      maxRows
+    }),
+    externalForwardedProps,
+    getSlotProps: getInputProps,
+    ownerState
+  });
+  const [SlotStartDecorator, startDecoratorProps] = useSlot("startDecorator", {
+    className: classes.startDecorator,
+    elementType: TextareaStartDecorator,
+    externalForwardedProps,
+    ownerState
+  });
+  const [SlotEndDecorator, endDecoratorProps] = useSlot("endDecorator", {
+    className: classes.endDecorator,
+    elementType: TextareaEndDecorator,
+    externalForwardedProps,
+    ownerState
+  });
+  return /* @__PURE__ */ jsxs(SlotRoot, _extends({}, rootProps, {
+    children: [startDecorator && /* @__PURE__ */ jsx(SlotStartDecorator, _extends({}, startDecoratorProps, {
+      children: startDecorator
+    })), /* @__PURE__ */ jsx(SlotTextarea, _extends({}, textareaProps)), endDecorator && /* @__PURE__ */ jsx(SlotEndDecorator, _extends({}, endDecoratorProps, {
+      children: endDecorator
+    }))]
+  }));
+});
+process.env.NODE_ENV !== "production" ? Textarea.propTypes = {
+  // ┌────────────────────────────── Warning ──────────────────────────────┐
+  // │ These PropTypes are generated from the TypeScript type definitions. │
+  // │ To update them, edit the TypeScript types and run `pnpm proptypes`. │
+  // └─────────────────────────────────────────────────────────────────────┘
+  /**
+   * @ignore
+   */
+  children: PropTypes.node,
+  /**
+   * The color of the component. It supports those theme colors that make sense for this component.
+   * @default 'neutral'
+   */
+  color: PropTypes.oneOfType([PropTypes.oneOf(["danger", "neutral", "primary", "success", "warning"]), PropTypes.string]),
+  /**
+   * @ignore
+   */
+  disabled: PropTypes.bool,
+  /**
+   * Trailing adornment for this input.
+   */
+  endDecorator: PropTypes.node,
+  /**
+   * If `true`, the `input` will indicate an error.
+   * The prop defaults to the value (`false`) inherited from the parent FormControl component.
+   * @default false
+   */
+  error: PropTypes.bool,
+  /**
+   * Maximum number of rows to display.
+   */
+  maxRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /**
+   * Minimum number of rows to display.
+   * @default 1
+   */
+  minRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /**
+   * The size of the component.
+   * @default 'md'
+   */
+  size: PropTypes.oneOfType([PropTypes.oneOf(["sm", "md", "lg"]), PropTypes.string]),
+  /**
+   * Leading adornment for this input.
+   */
+  startDecorator: PropTypes.node,
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
+  /**
+   * The [global variant](https://mui.com/joy-ui/main-features/global-variants/) to use.
+   * @default 'outlined'
+   */
+  variant: PropTypes.oneOfType([PropTypes.oneOf(["outlined", "plain", "soft", "solid"]), PropTypes.string])
+} : void 0;
 class Tip extends Component {
   constructor() {
     super(...arguments);
@@ -7504,10 +11053,11 @@ class Tip extends Component {
   render() {
     const { onConfirm, onOpen } = this.props;
     const { compact: compact2, text, emoji: emoji2 } = this.state;
+    const emojis = ["✅", "❌", "❗", "😍", "🤔", "🥳 "];
     return /* @__PURE__ */ jsx("div", { children: compact2 ? /* @__PURE__ */ jsx(
       "div",
       {
-        className: styles$2.compact,
+        className: styles$3.compact,
         onClick: () => {
           onOpen();
           this.setState({ compact: false });
@@ -7517,7 +11067,7 @@ class Tip extends Component {
     ) : /* @__PURE__ */ jsxs(
       "form",
       {
-        className: styles$2.card,
+        className: styles$3.card,
         onSubmit: (event) => {
           event.preventDefault();
           onConfirm({ text, emoji: emoji2 });
@@ -7532,16 +11082,23 @@ class Tip extends Component {
         children: [
           /* @__PURE__ */ jsxs("div", { children: [
             /* @__PURE__ */ jsx(
-              "textarea",
+              Textarea,
               {
-                placeholder: "Escreva seu comentário aqui",
-                style: {
-                  borderRadius: "10px",
-                  border: "0px",
-                  padding: "5px",
+                name: "Plain",
+                placeholder: "Digite aqui seu comentário",
+                variant: "plain",
+                sx: {
+                  backgroundColor: "#6c60df",
+                  color: "white",
                   width: "100%",
-                  backgroundColor: "#6c60df"
+                  padding: "5px 0px",
+                  marginBottom: "18px",
+                  "--Textarea-focusedThickness": "0rem",
+                  "&:hover": {
+                    color: "#d3d3d3"
+                  }
                 },
+                required: true,
                 autoFocus: true,
                 value: text,
                 onChange: (event) => this.setState({ text: event.target.value }),
@@ -7552,10 +11109,11 @@ class Tip extends Component {
                 }
               }
             ),
-            /* @__PURE__ */ jsx("div", { children: ["✅", "❌", "❗", "😍", "🤔", "🥳 "].map((_emoji) => /* @__PURE__ */ jsxs("label", { children: [
+            /* @__PURE__ */ jsx("div", { className: styles$3.emojiGrid, children: emojis.map((_emoji) => /* @__PURE__ */ jsxs("label", { className: styles$3.emojiLabel, children: [
               /* @__PURE__ */ jsx(
                 "input",
                 {
+                  className: styles$3.emojiInput,
                   checked: emoji2 === _emoji,
                   type: "radio",
                   name: "emoji",
@@ -7563,20 +11121,27 @@ class Tip extends Component {
                   onChange: (event) => this.setState({ emoji: event.target.value })
                 }
               ),
-              _emoji
+              /* @__PURE__ */ jsx("span", { className: styles$3.emojiDisplay, children: _emoji })
             ] }, _emoji)) })
           ] }),
-          /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("input", { type: "submit", value: "Salvar" }) })
+          /* @__PURE__ */ jsx("div", { style: { display: "flex", justifyContent: "center" }, children: /* @__PURE__ */ jsx(
+            "input",
+            {
+              type: "submit",
+              value: "Salvar",
+              className: styles$3.submitButton
+            }
+          ) })
         ]
       }
     ) });
   }
 }
-const highlight = "_highlight_i7e3a_1";
-const emoji = "_emoji_i7e3a_9";
-const parts = "_parts_i7e3a_23";
-const part$1 = "_part_i7e3a_23";
-const scrolledTo$1 = "_scrolledTo_i7e3a_45";
+const highlight = "_highlight_3l4zw_1";
+const emoji = "_emoji_3l4zw_5";
+const parts = "_parts_3l4zw_12";
+const part$1 = "_part_3l4zw_12";
+const scrolledTo$1 = "_scrolledTo_3l4zw_23";
 const styles$1 = {
   highlight,
   emoji,
@@ -7697,9 +11262,9 @@ function Popup({
     }
   );
 }
-const areaHighlight = "_areaHighlight_1tybg_1";
-const part = "_part_1tybg_15";
-const scrolledTo = "_scrolledTo_1tybg_29";
+const areaHighlight = "_areaHighlight_1ppoh_1";
+const part = "_part_1ppoh_8";
+const scrolledTo = "_scrolledTo_1ppoh_15";
 const styles = {
   areaHighlight,
   part,
@@ -7787,7 +11352,7 @@ class PdfLoader extends Component {
     this.setState({ pdfDocument: null, error });
   }
   load() {
-    const { ownerDocument = document } = this.documentRef.current || {};
+    const { ownerDocument: ownerDocument2 = document } = this.documentRef.current || {};
     const { url, cMapUrl, cMapPacked, workerSrc } = this.props;
     const { pdfDocument: discardedDocument } = this.state;
     this.setState({ pdfDocument: null, error: null });
@@ -7800,7 +11365,7 @@ class PdfLoader extends Component {
       }
       const document2 = {
         ...this.props,
-        ownerDocument,
+        ownerDocument: ownerDocument2,
         cMapUrl,
         cMapPacked
       };
