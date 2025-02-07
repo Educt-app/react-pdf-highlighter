@@ -259,10 +259,10 @@ const getClientRects = (range, pages, shouldOptimize = true) => {
   }
   return shouldOptimize ? optimizeClientRects(rects) : rects;
 };
-const container = "_container_12oj9_1";
-const highlightLayer = "_highlightLayer_12oj9_8";
-const tipContainer$1 = "_tipContainer_12oj9_14";
-const disableSelection = "_disableSelection_12oj9_19";
+const container = "_container_1kuzn_1";
+const highlightLayer = "_highlightLayer_1kuzn_15";
+const tipContainer$1 = "_tipContainer_1kuzn_27";
+const disableSelection = "_disableSelection_1kuzn_37";
 const styles$6 = {
   container,
   highlightLayer,
@@ -311,7 +311,7 @@ function HighlightLayer({
     );
   }) });
 }
-const mouseSelection = "_mouseSelection_1p43j_1";
+const mouseSelection = "_mouseSelection_jpmsu_1";
 const styles$5 = {
   mouseSelection
 };
@@ -427,7 +427,7 @@ function MouseSelection({
     }
   ) });
 }
-const tipContainer = "_tipContainer_f56kr_1";
+const tipContainer = "_tipContainer_b2yn0_1";
 const styles$4 = {
   tipContainer
 };
@@ -7479,13 +7479,13 @@ async function waitForTextLayer() {
     checkTextLayer();
   });
 }
-const compact = "_compact_hmlwj_1";
-const card = "_card_hmlwj_10";
-const emojiGrid = "_emojiGrid_hmlwj_30";
-const emojiLabel = "_emojiLabel_hmlwj_37";
-const emojiInput = "_emojiInput_hmlwj_54";
-const emojiDisplay = "_emojiDisplay_hmlwj_61";
-const submitButton = "_submitButton_hmlwj_79";
+const compact = "_compact_1iv9z_1";
+const card = "_card_1iv9z_19";
+const emojiGrid = "_emojiGrid_1iv9z_59";
+const emojiLabel = "_emojiLabel_1iv9z_73";
+const emojiInput = "_emojiInput_1iv9z_107";
+const emojiDisplay = "_emojiDisplay_1iv9z_121";
+const submitButton = "_submitButton_1iv9z_161";
 const styles$3 = {
   compact,
   card,
@@ -11137,11 +11137,11 @@ class Tip extends Component {
     ) });
   }
 }
-const highlight = "_highlight_3l4zw_1";
-const emoji = "_emoji_3l4zw_5";
-const parts = "_parts_3l4zw_12";
-const part$1 = "_part_3l4zw_12";
-const scrolledTo$1 = "_scrolledTo_3l4zw_23";
+const highlight = "_highlight_i7e3a_1";
+const emoji = "_emoji_i7e3a_9";
+const parts = "_parts_i7e3a_23";
+const part$1 = "_part_i7e3a_23";
+const scrolledTo$1 = "_scrolledTo_i7e3a_45";
 const styles$1 = {
   highlight,
   emoji,
@@ -11262,9 +11262,9 @@ function Popup({
     }
   );
 }
-const areaHighlight = "_areaHighlight_1ppoh_1";
-const part = "_part_1ppoh_8";
-const scrolledTo = "_scrolledTo_1ppoh_15";
+const areaHighlight = "_areaHighlight_1tybg_1";
+const part = "_part_1tybg_15";
+const scrolledTo = "_scrolledTo_1tybg_29";
 const styles = {
   areaHighlight,
   part,

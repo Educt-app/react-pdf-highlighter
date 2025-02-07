@@ -44,7 +44,7 @@ export const CorrectionTooltip: React.FC<CorrectionTooltipProps> = ({
         padding: "20px 20px 15px 20px",
         // boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
         minWidth: "200px",
-        marginTop: "-2px",
+        marginTop: "10px",
       }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

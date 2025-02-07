@@ -758,7 +758,7 @@ export class PdfHighlighter<T_HT extends IHighlight> extends PureComponent<
     const timeoutId = window.setTimeout(() => {
       console.log("Hiding tooltip");
       this.setState({ activeTooltip: null });
-    }, 600);
+    }, 4000);
 
     this.setState({ hoverTimeoutId: timeoutId });
   };
