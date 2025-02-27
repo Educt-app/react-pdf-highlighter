@@ -1,6 +1,7 @@
 import React from "react";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import CheckIcon from "@mui/icons-material/Check";
+import CloseIcon from "@mui/icons-material/Close";
+import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 
 interface CorrectionTooltipProps {
   correction: string;
@@ -38,87 +39,180 @@ export const CorrectionTooltip: React.FC<CorrectionTooltipProps> = ({
         left: `${position.left}px`,
         transform: "translateY(-100%)",
         zIndex: 1000,
-        backgroundColor: "#6c60df",
-        // border: "3px solid black",
+        backgroundColor: "white",
+        border: "2px solid rgb(243 244 246)",
         borderRadius: "20px",
-        padding: "20px 20px 15px 20px",
+        padding: "15px 20px 17px 20px",
         // boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
         minWidth: "200px",
         marginTop: "10px",
+        fontFamily: "Inter, sans-serif",
       }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
+      <div style={{ marginBottom: "20px" }}>
+        <h1
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontWeight: "bold",
+            fontSize: "11px",
+            color: "#DE394D",
+            letterSpacing: "0.5px",
+          }}
+        >
+          ERRO ENCONTRADO
+        </h1>
+        <h1
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontWeight: "lighter",
+            fontSize: "17px",
+            color: "black",
+            marginTop: "-3px",
+          }}
+        >
+          {error_type}
+        </h1>
+      </div>
+
+      <hr
+        style={{
+          width: "100%",
+          border: "1px solid rgb(243 244 246)",
+        }}
+      />
+
+      {/* Ai Sugestion */}
       <div
         style={{
-          fontFamily: "Inter",
-          letterSpacing: "0.5px",
-          marginBottom: "8px",
-          color: "#FAF9F6",
+          backgroundColor: "#F6F6F6",
+          borderRadius: "8px",
+          border: "1px solid #6458D7",
+          padding: "10px",
+          marginTop: "20px",
+          fontFamily: "Inter, sans-serif",
         }}
       >
-        <strong>Sugestão:</strong> {correction}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            textAlign: "center",
+            gap: "5px",
+          }}
+        >
+          <AutoFixHighIcon style={{ color: "#6458D7", width: "22px" }} />
+          <h1
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontWeight: "bold",
+              fontSize: "12px",
+              letterSpacing: "0.5px",
+              color: "black",
+              textAlign: "center",
+              marginLeft: "5px",
+            }}
+          >
+            Sugestão
+          </h1>
+        </div>
+
+        <h1
+          style={{
+            marginTop: "3px",
+            color: "#28273C",
+            fontFamily: "Inter, sans-serif",
+            fontSize: "18px",
+            fontWeight: 200,
+          }}
+        >
+          {correction}
+        </h1>
       </div>
+
       <div
-        style={{
-          fontFamily: "Inter",
-          letterSpacing: "0.5px",
-          marginBottom: "14px",
-          color: "#FAF9F6",
-        }}
+        style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
       >
-        <strong>Tipo de Erro:</strong> {error_type}
-      </div>
-      <div style={{ display: "flex", gap: "8px" }}>
         <button
           onClick={onAccept}
           style={{
             padding: "3px 14px",
-            borderRadius: "8px",
-            color: "#FAF9F6",
-            fontFamily: "Inter",
+            borderRadius: "18px 0 0 18px",
+            color: "black",
+            fontFamily: "Inter, sans-serif",
             fontSize: "14px",
             fontWeight: "bold",
-            border: "0px solid #4cdd97",
-            backgroundColor: "#4cdd97",
+            border: "2px solid rgb(243 244 246)",
+            backgroundColor: "white",
             cursor: "pointer",
             justifyContent: "center",
             alignItems: "center",
             display: "flex",
+            width: "100%",
           }}
           onMouseEnter={(e) =>
-            (e.currentTarget.style.backgroundColor = "#3cbf7a")
+            (e.currentTarget.style.backgroundColor = "#B2FBA5")
           }
           onMouseLeave={(e) =>
-            (e.currentTarget.style.backgroundColor = "#4cdd97")
+            (e.currentTarget.style.backgroundColor = "white")
           }
         >
-          <CheckCircleOutlineIcon />
+          <CheckIcon style={{ color: "black" }} />
+          <h1
+            style={{
+              color: "black",
+              textAlign: "center",
+              fontFamily: "Inter, sans-serif",
+              fontSize: "14px",
+              fontStyle: "normal",
+              marginLeft: "5px",
+              fontWeight: 500,
+              letterSpacing: "0.7px",
+            }}
+          >
+            Aceitar
+          </h1>
         </button>
         <button
           onClick={onReject}
           style={{
             padding: "3px 14px",
-            borderRadius: "8px",
-            color: "#FAF9F6",
-            fontFamily: "Inter",
+            borderRadius: "0 18px 18px 0",
+            color: "black",
+            fontFamily: "Inter, sans-serif",
             fontSize: "14px",
             fontWeight: "bold",
-            border: "0px solid #CA6F6F",
-            backgroundColor: "#CA6F6F",
+            border: "2px solid rgb(243 244 246)",
+            backgroundColor: "white",
             cursor: "pointer",
             justifyContent: "center",
             alignItems: "center",
             display: "flex",
+            width: "100%",
           }}
           onMouseEnter={(e) =>
-            (e.currentTarget.style.backgroundColor = "#9F7272")
+            (e.currentTarget.style.backgroundColor = "#FF746C")
           }
           onMouseLeave={(e) =>
-            (e.currentTarget.style.backgroundColor = "#CA6F6F")
+            (e.currentTarget.style.backgroundColor = "white")
           }
         >
-          <RemoveCircleOutlineIcon />
+          <CloseIcon />
+          <h1
+            style={{
+              color: "black",
+              textAlign: "center",
+              fontFamily: "Inter, sans-serif",
+              fontSize: "14px",
+              fontStyle: "normal",
+              marginLeft: "5px",
+              fontWeight: 500,
+              letterSpacing: "0.7px",
+            }}
+          >
+            Recusar
+          </h1>
         </button>
       </div>
     </div>
