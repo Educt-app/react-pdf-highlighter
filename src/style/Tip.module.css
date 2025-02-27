@@ -30,8 +30,8 @@
 .emojiGrid {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 15px;
   gap: 5px;
-  margin-bottom: 5px;
 }
 
 .emojiLabel {
@@ -42,13 +42,14 @@
   width: 35px;
   height: 35px;
   border-radius: 30px;
+  border: 2px solid rgb(243 244 246);
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: white;
   transition: background-color 0.2s;
 }
 
 .emojiLabel:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgb(243 244 246);
 }
 
 .emojiInput {
@@ -59,8 +60,8 @@
 }
 
 .emojiInput:checked + .emojiDisplay {
-  background-color: rgba(255, 255, 255, 0.3);
-  border: 2px solid white;
+  background-color: white;
+  border: 2px solid #6c60df;
   border-radius: 30px;
   width: 35px;
   height: 30px;
@@ -79,10 +80,10 @@
 }
 
 .submitButton {
-  width: 90%;
-  padding: 4px;
-  background-color: white;
-  color: #6c60df;
+  width: 100%;
+  padding: 6px;
+  background-color: #6c60df;
+  color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -91,5 +92,5 @@
 }
 
 .submitButton:hover {
-  background-color: #f0f0f0;
+  background-color: #a38afd;
 }

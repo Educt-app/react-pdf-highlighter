@@ -56,23 +56,34 @@ export class Tip extends Component<Props, State> {
             }}
             style={{
               zIndex: 1000,
-              backgroundColor: "#6c60df",
-              border: "0px",
+              backgroundColor: "white",
+              border: "2px solid rgb(243 244 246)",
               borderRadius: "20px",
               padding: "15px",
             }}
           >
             <div>
+              <h1
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: "bold",
+                  fontSize: "11px",
+                  color: "#6458D7",
+                  letterSpacing: "0.5px",
+                }}
+              >
+                ADICIONAR COMENTÁRIO
+              </h1>
               <Textarea
                 name="Plain"
                 placeholder="Digite aqui seu comentário"
                 variant="plain"
                 sx={{
-                  backgroundColor: "#6c60df",
-                  color: "white",
+                  backgroundColor: "white",
+                  color: "black",
                   width: "100%",
                   padding: "5px 0px",
-                  marginBottom: "18px",
+                  marginBottom: "15px",
                   "--Textarea-focusedThickness": "0rem",
                   "&:hover": {
                     color: "#d3d3d3",
@@ -88,6 +99,13 @@ export class Tip extends Component<Props, State> {
                   if (node) {
                     node.focus();
                   }
+                }}
+              />
+
+              <hr
+                style={{
+                  width: "100%",
+                  border: "1px solid rgb(243 244 246)",
                 }}
               />
 
@@ -110,7 +128,7 @@ export class Tip extends Component<Props, State> {
               </div>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ display: "flex", justifyContent: "center", marginTop: "4px" }}>
               <input
                 type="submit"
                 value="Salvar"

@@ -6645,12 +6645,15 @@ function createSvgIcon(path, displayName) {
   Component2.muiName = SvgIcon.muiName;
   return /* @__PURE__ */ React.memo(/* @__PURE__ */ React.forwardRef(Component2));
 }
-const CheckCircleOutlineIcon = createSvgIcon(/* @__PURE__ */ jsx("path", {
-  d: "M16.59 7.58 10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8"
-}), "CheckCircleOutline");
-const RemoveCircleOutlineIcon = createSvgIcon(/* @__PURE__ */ jsx("path", {
-  d: "M7 11v2h10v-2zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
-}), "RemoveCircleOutline");
+const CheckIcon = createSvgIcon(/* @__PURE__ */ jsx("path", {
+  d: "M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+}), "Check");
+const CloseIcon = createSvgIcon(/* @__PURE__ */ jsx("path", {
+  d: "M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+}), "Close");
+const AutoFixHighIcon = createSvgIcon(/* @__PURE__ */ jsx("path", {
+  d: "M7.5 5.6 10 7 8.6 4.5 10 2 7.5 3.4 5 2l1.4 2.5L5 7zm12 9.8L17 14l1.4 2.5L17 19l2.5-1.4L22 19l-1.4-2.5L22 14zM22 2l-2.5 1.4L17 2l1.4 2.5L17 7l2.5-1.4L22 7l-1.4-2.5zm-7.63 5.29a.996.996 0 0 0-1.41 0L1.29 18.96c-.39.39-.39 1.02 0 1.41l2.34 2.34c.39.39 1.02.39 1.41 0L16.7 11.05c.39-.39.39-1.02 0-1.41zm-1.03 5.49-2.12-2.12 2.44-2.44 2.12 2.12z"
+}), "AutoFixHigh");
 const CorrectionTooltip = ({
   correction,
   error,
@@ -6676,97 +6679,204 @@ const CorrectionTooltip = ({
         left: `${position2.left}px`,
         transform: "translateY(-100%)",
         zIndex: 1e3,
-        backgroundColor: "#6c60df",
-        // border: "3px solid black",
+        backgroundColor: "white",
+        border: "2px solid rgb(243 244 246)",
         borderRadius: "20px",
-        padding: "20px 20px 15px 20px",
+        padding: "15px 20px 17px 20px",
         // boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
         minWidth: "200px",
-        marginTop: "10px"
+        marginTop: "10px",
+        fontFamily: "Inter, sans-serif"
       },
       onMouseEnter,
       onMouseLeave,
       children: [
-        /* @__PURE__ */ jsxs(
-          "div",
-          {
-            style: {
-              fontFamily: "Inter",
-              letterSpacing: "0.5px",
-              marginBottom: "8px",
-              color: "#FAF9F6"
-            },
-            children: [
-              /* @__PURE__ */ jsx("strong", { children: "Sugestão:" }),
-              " ",
-              correction
-            ]
-          }
-        ),
-        /* @__PURE__ */ jsxs(
-          "div",
-          {
-            style: {
-              fontFamily: "Inter",
-              letterSpacing: "0.5px",
-              marginBottom: "14px",
-              color: "#FAF9F6"
-            },
-            children: [
-              /* @__PURE__ */ jsx("strong", { children: "Tipo de Erro:" }),
-              " ",
-              error_type
-            ]
-          }
-        ),
-        /* @__PURE__ */ jsxs("div", { style: { display: "flex", gap: "8px" }, children: [
+        /* @__PURE__ */ jsxs("div", { style: { marginBottom: "20px" }, children: [
           /* @__PURE__ */ jsx(
-            "button",
+            "h1",
             {
-              onClick: onAccept,
               style: {
-                padding: "3px 14px",
-                borderRadius: "8px",
-                color: "#FAF9F6",
-                fontFamily: "Inter",
-                fontSize: "14px",
+                fontFamily: "Inter, sans-serif",
                 fontWeight: "bold",
-                border: "0px solid #4cdd97",
-                backgroundColor: "#4cdd97",
-                cursor: "pointer",
-                justifyContent: "center",
-                alignItems: "center",
-                display: "flex"
+                fontSize: "11px",
+                color: "#DE394D",
+                letterSpacing: "0.5px"
               },
-              onMouseEnter: (e) => e.currentTarget.style.backgroundColor = "#3cbf7a",
-              onMouseLeave: (e) => e.currentTarget.style.backgroundColor = "#4cdd97",
-              children: /* @__PURE__ */ jsx(CheckCircleOutlineIcon, {})
+              children: "ERRO ENCONTRADO"
             }
           ),
           /* @__PURE__ */ jsx(
-            "button",
+            "h1",
             {
-              onClick: onReject,
               style: {
-                padding: "3px 14px",
-                borderRadius: "8px",
-                color: "#FAF9F6",
-                fontFamily: "Inter",
-                fontSize: "14px",
-                fontWeight: "bold",
-                border: "0px solid #CA6F6F",
-                backgroundColor: "#CA6F6F",
-                cursor: "pointer",
-                justifyContent: "center",
-                alignItems: "center",
-                display: "flex"
+                fontFamily: "Inter, sans-serif",
+                fontWeight: "lighter",
+                fontSize: "17px",
+                color: "black",
+                marginTop: "-3px"
               },
-              onMouseEnter: (e) => e.currentTarget.style.backgroundColor = "#9F7272",
-              onMouseLeave: (e) => e.currentTarget.style.backgroundColor = "#CA6F6F",
-              children: /* @__PURE__ */ jsx(RemoveCircleOutlineIcon, {})
+              children: error_type
             }
           )
-        ] })
+        ] }),
+        /* @__PURE__ */ jsx(
+          "hr",
+          {
+            style: {
+              width: "100%",
+              border: "1px solid rgb(243 244 246)"
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxs(
+          "div",
+          {
+            style: {
+              backgroundColor: "#F6F6F6",
+              borderRadius: "8px",
+              border: "1px solid #6458D7",
+              padding: "10px",
+              marginTop: "20px",
+              fontFamily: "Inter, sans-serif"
+            },
+            children: [
+              /* @__PURE__ */ jsxs(
+                "div",
+                {
+                  style: {
+                    display: "flex",
+                    alignItems: "center",
+                    textAlign: "center",
+                    gap: "5px"
+                  },
+                  children: [
+                    /* @__PURE__ */ jsx(AutoFixHighIcon, { style: { color: "#6458D7", width: "22px" } }),
+                    /* @__PURE__ */ jsx(
+                      "h1",
+                      {
+                        style: {
+                          fontFamily: "Inter, sans-serif",
+                          fontWeight: "bold",
+                          fontSize: "12px",
+                          letterSpacing: "0.5px",
+                          color: "black",
+                          textAlign: "center",
+                          marginLeft: "5px"
+                        },
+                        children: "Sugestão"
+                      }
+                    )
+                  ]
+                }
+              ),
+              /* @__PURE__ */ jsx(
+                "h1",
+                {
+                  style: {
+                    marginTop: "3px",
+                    color: "#28273C",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "18px",
+                    fontWeight: 200
+                  },
+                  children: correction
+                }
+              )
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxs(
+          "div",
+          {
+            style: { display: "flex", justifyContent: "center", marginTop: "20px" },
+            children: [
+              /* @__PURE__ */ jsxs(
+                "button",
+                {
+                  onClick: onAccept,
+                  style: {
+                    padding: "3px 14px",
+                    borderRadius: "18px 0 0 18px",
+                    color: "black",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "14px",
+                    fontWeight: "bold",
+                    border: "2px solid rgb(243 244 246)",
+                    backgroundColor: "white",
+                    cursor: "pointer",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    display: "flex",
+                    width: "100%"
+                  },
+                  onMouseEnter: (e) => e.currentTarget.style.backgroundColor = "#B2FBA5",
+                  onMouseLeave: (e) => e.currentTarget.style.backgroundColor = "white",
+                  children: [
+                    /* @__PURE__ */ jsx(CheckIcon, { style: { color: "black" } }),
+                    /* @__PURE__ */ jsx(
+                      "h1",
+                      {
+                        style: {
+                          color: "black",
+                          textAlign: "center",
+                          fontFamily: "Inter, sans-serif",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          marginLeft: "5px",
+                          fontWeight: 500,
+                          letterSpacing: "0.7px"
+                        },
+                        children: "Aceitar"
+                      }
+                    )
+                  ]
+                }
+              ),
+              /* @__PURE__ */ jsxs(
+                "button",
+                {
+                  onClick: onReject,
+                  style: {
+                    padding: "3px 14px",
+                    borderRadius: "0 18px 18px 0",
+                    color: "black",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "14px",
+                    fontWeight: "bold",
+                    border: "2px solid rgb(243 244 246)",
+                    backgroundColor: "white",
+                    cursor: "pointer",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    display: "flex",
+                    width: "100%"
+                  },
+                  onMouseEnter: (e) => e.currentTarget.style.backgroundColor = "#FF746C",
+                  onMouseLeave: (e) => e.currentTarget.style.backgroundColor = "white",
+                  children: [
+                    /* @__PURE__ */ jsx(CloseIcon, {}),
+                    /* @__PURE__ */ jsx(
+                      "h1",
+                      {
+                        style: {
+                          color: "black",
+                          textAlign: "center",
+                          fontFamily: "Inter, sans-serif",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          marginLeft: "5px",
+                          fontWeight: 500,
+                          letterSpacing: "0.7px"
+                        },
+                        children: "Recusar"
+                      }
+                    )
+                  ]
+                }
+              )
+            ]
+          }
+        )
       ]
     }
   );
@@ -7479,13 +7589,13 @@ async function waitForTextLayer() {
     checkTextLayer();
   });
 }
-const compact = "_compact_1ftkd_1";
-const card = "_card_1ftkd_10";
-const emojiGrid = "_emojiGrid_1ftkd_30";
-const emojiLabel = "_emojiLabel_1ftkd_37";
-const emojiInput = "_emojiInput_1ftkd_54";
-const emojiDisplay = "_emojiDisplay_1ftkd_61";
-const submitButton = "_submitButton_1ftkd_81";
+const compact = "_compact_3xu29_1";
+const card = "_card_3xu29_10";
+const emojiGrid = "_emojiGrid_3xu29_30";
+const emojiLabel = "_emojiLabel_3xu29_37";
+const emojiInput = "_emojiInput_3xu29_55";
+const emojiDisplay = "_emojiDisplay_3xu29_62";
+const submitButton = "_submitButton_3xu29_82";
 const styles$3 = {
   compact,
   card,
@@ -11074,13 +11184,26 @@ class Tip extends Component {
         },
         style: {
           zIndex: 1e3,
-          backgroundColor: "#6c60df",
-          border: "0px",
+          backgroundColor: "white",
+          border: "2px solid rgb(243 244 246)",
           borderRadius: "20px",
           padding: "15px"
         },
         children: [
           /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsx(
+              "h1",
+              {
+                style: {
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: "bold",
+                  fontSize: "11px",
+                  color: "#6458D7",
+                  letterSpacing: "0.5px"
+                },
+                children: "ADICIONAR COMENTÁRIO"
+              }
+            ),
             /* @__PURE__ */ jsx(
               Textarea,
               {
@@ -11088,11 +11211,11 @@ class Tip extends Component {
                 placeholder: "Digite aqui seu comentário",
                 variant: "plain",
                 sx: {
-                  backgroundColor: "#6c60df",
-                  color: "white",
+                  backgroundColor: "white",
+                  color: "black",
                   width: "100%",
                   padding: "5px 0px",
-                  marginBottom: "18px",
+                  marginBottom: "16px",
                   "--Textarea-focusedThickness": "0rem",
                   "&:hover": {
                     color: "#d3d3d3"
@@ -11106,6 +11229,15 @@ class Tip extends Component {
                   if (node2) {
                     node2.focus();
                   }
+                }
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              "hr",
+              {
+                style: {
+                  width: "100%",
+                  border: "1px solid rgb(243 244 246)"
                 }
               }
             ),
