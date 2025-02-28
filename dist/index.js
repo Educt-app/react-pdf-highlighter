@@ -7589,13 +7589,13 @@ async function waitForTextLayer() {
     checkTextLayer();
   });
 }
-const compact = "_compact_3xu29_1";
-const card = "_card_3xu29_10";
-const emojiGrid = "_emojiGrid_3xu29_30";
-const emojiLabel = "_emojiLabel_3xu29_37";
-const emojiInput = "_emojiInput_3xu29_55";
-const emojiDisplay = "_emojiDisplay_3xu29_62";
-const submitButton = "_submitButton_3xu29_82";
+const compact = "_compact_b2r6g_1";
+const card = "_card_b2r6g_10";
+const emojiGrid = "_emojiGrid_b2r6g_30";
+const emojiLabel = "_emojiLabel_b2r6g_37";
+const emojiInput = "_emojiInput_b2r6g_55";
+const emojiDisplay = "_emojiDisplay_b2r6g_62";
+const submitButton = "_submitButton_b2r6g_82";
 const styles$3 = {
   compact,
   card,
@@ -11215,7 +11215,7 @@ class Tip extends Component {
                   color: "black",
                   width: "100%",
                   padding: "5px 0px",
-                  marginBottom: "16px",
+                  marginBottom: "15px",
                   "--Textarea-focusedThickness": "0rem",
                   "&:hover": {
                     color: "#d3d3d3"
@@ -11256,7 +11256,7 @@ class Tip extends Component {
               /* @__PURE__ */ jsx("span", { className: styles$3.emojiDisplay, children: _emoji })
             ] }, _emoji)) })
           ] }),
-          /* @__PURE__ */ jsx("div", { style: { display: "flex", justifyContent: "center" }, children: /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsx("div", { style: { display: "flex", justifyContent: "center", marginTop: "4px" }, children: /* @__PURE__ */ jsx(
             "input",
             {
               type: "submit",

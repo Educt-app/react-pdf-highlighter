@@ -44,7 +44,7 @@
   z-index: 6;
   position: absolute;
 }
-._compact_3xu29_1 {
+._compact_b2r6g_1 {
   cursor: pointer;
   background-color: #3d464d;
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -53,7 +53,7 @@
   border-radius: 3px;
 }
 
-._card_3xu29_10 {
+._card_b2r6g_10 {
   padding: 10px;
   background: #fff;
   background-clip: padding-box;
@@ -62,25 +62,25 @@
   box-shadow: 0 2px 4px rgba(37, 40, 43, 0.2);
 }
 
-._card_3xu29_10 textarea {
+._card_b2r6g_10 textarea {
   font-size: 16px;
   width: 100%;
   height: 70px;
 }
 
-._card_3xu29_10 input[type="submit"] {
+._card_b2r6g_10 input[type="submit"] {
   margin-top: 5px;
   font-size: large;
 }
 
-._emojiGrid_3xu29_30 {
+._emojiGrid_b2r6g_30 {
   display: flex;
   flex-wrap: wrap;
-  margin-top: "16px";
+  margin-top: 15px;
   gap: 5px;
 }
 
-._emojiLabel_3xu29_37 {
+._emojiLabel_b2r6g_37 {
   position: relative;
   display: flex;
   align-items: center;
@@ -88,32 +88,32 @@
   width: 35px;
   height: 35px;
   border-radius: 30px;
-  border: "1px solid rgb(243 244 246)";
+  border: 2px solid rgb(243 244 246);
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: white;
   transition: background-color 0.2s;
 }
 
-._emojiLabel_3xu29_37:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+._emojiLabel_b2r6g_37:hover {
+  background-color: rgb(243 244 246);
 }
 
-._emojiInput_3xu29_55 {
+._emojiInput_b2r6g_55 {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-._emojiInput_3xu29_55:checked + ._emojiDisplay_3xu29_62 {
-  background-color: rgba(255, 255, 255, 0.3);
-  border: 2px solid white;
+._emojiInput_b2r6g_55:checked + ._emojiDisplay_b2r6g_62 {
+  background-color: white;
+  border: 2px solid #6c60df;
   border-radius: 30px;
   width: 35px;
   height: 30px;
 }
 
-._emojiDisplay_3xu29_62 {
+._emojiDisplay_b2r6g_62 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,11 +125,11 @@
   border: 2px solid transparent;
 }
 
-._submitButton_3xu29_82 {
-  width: 90%;
-  padding: 4px;
-  background-color: white;
-  color: #6c60df;
+._submitButton_b2r6g_82 {
+  width: 100%;
+  padding: 6px;
+  background-color: #6c60df;
+  color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -137,8 +137,8 @@
   transition: background-color 0.2s;
 }
 
-._submitButton_3xu29_82:hover {
-  background-color: #f0f0f0;
+._submitButton_b2r6g_82:hover {
+  background-color: #a38afd;
 }
 ._highlight_3l4zw_1 {
   position: absolute;
