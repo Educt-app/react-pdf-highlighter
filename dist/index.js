@@ -259,10 +259,10 @@ const getClientRects = (range, pages, shouldOptimize = true) => {
   }
   return shouldOptimize ? optimizeClientRects(rects) : rects;
 };
-const container = "_container_12oj9_1";
-const highlightLayer = "_highlightLayer_12oj9_8";
-const tipContainer$1 = "_tipContainer_12oj9_14";
-const disableSelection = "_disableSelection_12oj9_19";
+const container = "_container_1kuzn_1";
+const highlightLayer = "_highlightLayer_1kuzn_15";
+const tipContainer$1 = "_tipContainer_1kuzn_27";
+const disableSelection = "_disableSelection_1kuzn_37";
 const styles$6 = {
   container,
   highlightLayer,
@@ -311,7 +311,7 @@ function HighlightLayer({
     );
   }) });
 }
-const mouseSelection = "_mouseSelection_1p43j_1";
+const mouseSelection = "_mouseSelection_jpmsu_1";
 const styles$5 = {
   mouseSelection
 };
@@ -427,7 +427,7 @@ function MouseSelection({
     }
   ) });
 }
-const tipContainer = "_tipContainer_f56kr_1";
+const tipContainer = "_tipContainer_b2yn0_1";
 const styles$4 = {
   tipContainer
 };
@@ -6670,12 +6670,37 @@ const CorrectionTooltip = ({
     error_type,
     position: position2
   });
+  const tooltipRef = React__default.useRef(null);
+  React__default.useEffect(() => {
+    if (tooltipRef.current) {
+      const tooltipRect = tooltipRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const spaceAbove = position2.top;
+      const spaceBelow = viewportHeight - position2.top;
+      const tooltipElement = tooltipRef.current;
+      if (spaceAbove >= tooltipRect.height) {
+        tooltipElement.style.top = `${position2.top}px`;
+        tooltipElement.style.transform = "translateY(-100%)";
+      } else if (spaceBelow >= tooltipRect.height) {
+        tooltipElement.style.top = `${position2.top}px`;
+        tooltipElement.style.transform = "translateY(20px)";
+      } else {
+        if (spaceAbove > spaceBelow) {
+          tooltipElement.style.top = `${position2.top}px`;
+          tooltipElement.style.transform = "translateY(-100%)";
+        } else {
+          tooltipElement.style.top = `${position2.top}px`;
+          tooltipElement.style.transform = "translateY(20px)";
+        }
+      }
+    }
+  }, [position2.top]);
   return /* @__PURE__ */ jsxs(
     "div",
     {
+      ref: tooltipRef,
       style: {
         position: "absolute",
-        top: `${position2.top}px`,
         left: `${position2.left}px`,
         transform: "translateY(-100%)",
         zIndex: 1e3,
@@ -6710,7 +6735,7 @@ const CorrectionTooltip = ({
             {
               style: {
                 fontFamily: "Inter, sans-serif",
-                fontWeight: "lighter",
+                fontWeight: "normal",
                 fontSize: "17px",
                 color: "black",
                 marginTop: "-3px"
@@ -6777,7 +6802,7 @@ const CorrectionTooltip = ({
                     color: "#28273C",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "18px",
-                    fontWeight: 200
+                    fontWeight: 400
                   },
                   children: correction
                 }
@@ -7589,13 +7614,13 @@ async function waitForTextLayer() {
     checkTextLayer();
   });
 }
-const compact = "_compact_b2r6g_1";
-const card = "_card_b2r6g_10";
-const emojiGrid = "_emojiGrid_b2r6g_30";
-const emojiLabel = "_emojiLabel_b2r6g_37";
-const emojiInput = "_emojiInput_b2r6g_55";
-const emojiDisplay = "_emojiDisplay_b2r6g_62";
-const submitButton = "_submitButton_b2r6g_82";
+const compact = "_compact_1kb4f_1";
+const card = "_card_1kb4f_19";
+const emojiGrid = "_emojiGrid_1kb4f_59";
+const emojiLabel = "_emojiLabel_1kb4f_73";
+const emojiInput = "_emojiInput_1kb4f_109";
+const emojiDisplay = "_emojiDisplay_1kb4f_123";
+const submitButton = "_submitButton_1kb4f_163";
 const styles$3 = {
   compact,
   card,
@@ -11218,7 +11243,7 @@ class Tip extends Component {
                   marginBottom: "15px",
                   "--Textarea-focusedThickness": "0rem",
                   "&:hover": {
-                    color: "#d3d3d3"
+                    color: "#545454"
                   }
                 },
                 required: true,
@@ -11256,24 +11281,34 @@ class Tip extends Component {
               /* @__PURE__ */ jsx("span", { className: styles$3.emojiDisplay, children: _emoji })
             ] }, _emoji)) })
           ] }),
-          /* @__PURE__ */ jsx("div", { style: { display: "flex", justifyContent: "center", marginTop: "4px" }, children: /* @__PURE__ */ jsx(
-            "input",
+          /* @__PURE__ */ jsx(
+            "div",
             {
-              type: "submit",
-              value: "Salvar",
-              className: styles$3.submitButton
+              style: {
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "4px"
+              },
+              children: /* @__PURE__ */ jsx(
+                "input",
+                {
+                  type: "submit",
+                  value: "Salvar",
+                  className: styles$3.submitButton
+                }
+              )
             }
-          ) })
+          )
         ]
       }
     ) });
   }
 }
-const highlight = "_highlight_3l4zw_1";
-const emoji = "_emoji_3l4zw_5";
-const parts = "_parts_3l4zw_12";
-const part$1 = "_part_3l4zw_12";
-const scrolledTo$1 = "_scrolledTo_3l4zw_23";
+const highlight = "_highlight_i7e3a_1";
+const emoji = "_emoji_i7e3a_9";
+const parts = "_parts_i7e3a_23";
+const part$1 = "_part_i7e3a_23";
+const scrolledTo$1 = "_scrolledTo_i7e3a_45";
 const styles$1 = {
   highlight,
   emoji,
@@ -11394,9 +11429,9 @@ function Popup({
     }
   );
 }
-const areaHighlight = "_areaHighlight_1ppoh_1";
-const part = "_part_1ppoh_8";
-const scrolledTo = "_scrolledTo_1ppoh_15";
+const areaHighlight = "_areaHighlight_1tybg_1";
+const part = "_part_1tybg_15";
+const scrolledTo = "_scrolledTo_1tybg_29";
 const styles = {
   areaHighlight,
   part,

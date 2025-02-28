@@ -30,12 +30,43 @@ export const CorrectionTooltip: React.FC<CorrectionTooltipProps> = ({
     error_type,
     position,
   });
+  const tooltipRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (tooltipRef.current) {
+      const tooltipRect = tooltipRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const spaceAbove = position.top;
+      const spaceBelow = viewportHeight - position.top;
+
+      const tooltipElement = tooltipRef.current;
+
+      if (spaceAbove >= tooltipRect.height) {
+        // Enough space above, show above
+        tooltipElement.style.top = `${position.top}px`;
+        tooltipElement.style.transform = "translateY(-100%)";
+      } else if (spaceBelow >= tooltipRect.height) {
+        // Not enough space above but enough below, show below
+        tooltipElement.style.top = `${position.top}px`;
+        tooltipElement.style.transform = "translateY(20px)";
+      } else {
+        // Not enough space above or below, show where there's more space
+        if (spaceAbove > spaceBelow) {
+          tooltipElement.style.top = `${position.top}px`;
+          tooltipElement.style.transform = "translateY(-100%)";
+        } else {
+          tooltipElement.style.top = `${position.top}px`;
+          tooltipElement.style.transform = "translateY(20px)";
+        }
+      }
+    }
+  }, [position.top]);
 
   return (
     <div
+      ref={tooltipRef}
       style={{
         position: "absolute",
-        top: `${position.top}px`,
         left: `${position.left}px`,
         transform: "translateY(-100%)",
         zIndex: 1000,
@@ -66,7 +97,7 @@ export const CorrectionTooltip: React.FC<CorrectionTooltipProps> = ({
         <h1
           style={{
             fontFamily: "Inter, sans-serif",
-            fontWeight: "lighter",
+            fontWeight: "normal",
             fontSize: "17px",
             color: "black",
             marginTop: "-3px",
@@ -124,7 +155,7 @@ export const CorrectionTooltip: React.FC<CorrectionTooltipProps> = ({
             color: "#28273C",
             fontFamily: "Inter, sans-serif",
             fontSize: "18px",
-            fontWeight: 200,
+            fontWeight: 400,
           }}
         >
           {correction}

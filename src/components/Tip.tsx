@@ -86,7 +86,7 @@ export class Tip extends Component<Props, State> {
                   marginBottom: "15px",
                   "--Textarea-focusedThickness": "0rem",
                   "&:hover": {
-                    color: "#d3d3d3",
+                    color: "#545454",
                   },
                 }}
                 required
@@ -128,7 +128,13 @@ export class Tip extends Component<Props, State> {
               </div>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "center", marginTop: "4px" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "4px",
+              }}
+            >
               <input
                 type="submit"
                 value="Salvar"
