@@ -6737,8 +6737,7 @@ const CorrectionTooltip = ({
                 fontFamily: "Inter, sans-serif",
                 fontWeight: "normal",
                 fontSize: "17px",
-                color: "black",
-                marginTop: "-3px"
+                color: "black"
               },
               children: error_type
             }

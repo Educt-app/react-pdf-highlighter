@@ -100,7 +100,6 @@ export const CorrectionTooltip: React.FC<CorrectionTooltipProps> = ({
             fontWeight: "normal",
             fontSize: "17px",
             color: "black",
-            marginTop: "-3px",
           }}
         >
           {error_type}
